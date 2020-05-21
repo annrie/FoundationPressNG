@@ -5,12 +5,18 @@ import yargs         from 'yargs';
 import browser       from 'browser-sync';
 import gulp          from 'gulp';
 import rimraf        from 'rimraf';
+import sherpa from "style-sherpa";
 import yaml          from 'js-yaml';
 import fs            from 'fs';
 import dateFormat    from 'dateformat';
 import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
+import uncss from "uncss";
+import gulpSass from "gulp-sass";
+import gulpStylelint from "gulp-stylelint";
+// import changed from "gulp-changed-in-place";
+// import autoprefixer from "autoprefixer";
 import log           from 'fancy-log';
 import colors        from 'ansi-colors';
 
@@ -19,6 +25,9 @@ const $ = plugins();
 
 // Check for --production flag
 const PRODUCTION = !!(yargs.argv.production);
+
+// Load settings from settings.yml
+// const { PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
 
 // Check for --development flag unminified with sourcemaps
 const DEV = !!(yargs.argv.dev);
@@ -60,6 +69,21 @@ function loadConfig() {
     process.exit(1);
   }
 }
+const originalEmitWarning = process.emitWarning;
+process.emitWarning = function (warning, type, code, ctor) {
+  if (code === "DEP0097") {
+    // Undertaker uses a deprecated approach that causes NodeJS 10 to print
+    // this warning to stderr:
+    //
+    // "Using a domain property in MakeCallback is deprecated. Use the  async_context
+    // variant of MakeCallback or the AsyncResource class instead."
+
+    // Suppress the warning:
+    return;
+  }
+
+  originalEmitWarning(warning, type, code, ctor);
+};
 
 // Delete the "dist" folder
 // This happens every time a build starts
@@ -100,6 +124,7 @@ function sass() {
 // In production, the file is minified
 const webpack = {
   config: {
+    mode: 'development',
     module: {
       rules: [
         {
@@ -115,44 +140,65 @@ const webpack = {
   },
 
   changeHandler(err, stats) {
-    log('[webpack]', stats.toString({
-      colors: true,
-    }));
+    log(
+      '[webpack]',
+      stats.toString({
+        colors: true,
+      })
+    )
 
-    browser.reload();
+    browser.reload()
   },
 
   build() {
-    return gulp.src(PATHS.entries)
+    return gulp
+      .src(PATHS.entries)
       .pipe(named())
       .pipe(webpackStream(webpack.config, webpack2))
-      .pipe($.if(PRODUCTION, $.uglify()
-        .on('error', e => { console.log(e); }),
-      ))
-      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
+      .pipe(
+        $.if(
+          PRODUCTION,
+          $.uglify().on('error', (e) => {
+            console.log(e)
+          })
+        )
+      )
+      .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV), $.rev()))
       .pipe(gulp.dest(PATHS.dist + '/assets/js'))
-      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
-      .pipe(gulp.dest(PATHS.dist + '/assets/js'));
+      .pipe(
+        $.if(
+          (REVISIONING && PRODUCTION) || (REVISIONING && DEV),
+          $.rev.manifest()
+        )
+      )
+      .pipe(gulp.dest(PATHS.dist + '/assets/js'))
   },
 
   watch() {
     const watchConfig = Object.assign(webpack.config, {
       watch: true,
       devtool: 'inline-source-map',
-    });
+    })
 
-    return gulp.src(PATHS.entries)
+    return gulp
+      .src(PATHS.entries)
       .pipe(named())
-      .pipe(webpackStream(watchConfig, webpack2, webpack.changeHandler)
-        .on('error', (err) => {
-          log('[webpack:error]', err.toString({
-            colors: true,
-          }));
-        }),
+      .pipe(
+        webpackStream(watchConfig, webpack2, webpack.changeHandler).on(
+          'error',
+          (err) => {
+            log(
+              '[webpack:error]',
+              err.toString({
+                colors: true,
+              })
+            )
+          }
+        )
       )
-      .pipe(gulp.dest(PATHS.dist + '/assets/js'));
+      .pipe(gulp.dest(PATHS.dist + '/assets/js'))
   },
-};
+}
 
 gulp.task('webpack:build', webpack.build);
 gulp.task('webpack:watch', webpack.watch);
@@ -160,25 +206,28 @@ gulp.task('webpack:watch', webpack.watch);
 // Copy images to the "dist" folder
 // In production, the images are compressed
 function images() {
-  return gulp.src('src/assets/images/**/*')
-    .pipe($.if(PRODUCTION, $.imagemin([
-      $.imagemin.jpegtran({
-        progressive: true,
-      }),
-      $.imagemin.optipng({
-        optimizationLevel: 5,
-      }),
-			$.imagemin.gifsicle({
-        interlaced: true,
-      }),
-			$.imagemin.svgo({
-        plugins: [
-          {cleanupAttrs: true},
-          {removeComments: true},
-        ]
-      })
-		])))
-    .pipe(gulp.dest(PATHS.dist + '/assets/images'));
+  return gulp
+    .src('src/assets/images/**/*')
+    .pipe(
+      $.if(
+        PRODUCTION,
+        $.imagemin([
+          // $.imagemin.jpegtran({
+          //   progressive: true,
+          // }),
+          $.imagemin.optipng({
+            progressive: true,
+          }),
+          $.imagemin.gifsicle({
+            interlaced: true,
+          }),
+          $.imagemin.svgo({
+            plugins: [{cleanupAttrs: true}, {removeComments: true}],
+          }),
+        ])
+      )
+    )
+    .pipe(gulp.dest(PATHS.dist + '/assets/images'))
 }
 
 // Create a .zip archive of the theme

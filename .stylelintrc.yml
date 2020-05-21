@@ -1,0 +1,138 @@
+plugins:
+  - stylelint-scss
+  - stylelint-declaration-block-no-ignored-properties
+extends:
+  - stylelint-config-wordpress
+  - stylelint-config-standard-scss
+  - stylelint-config-recess-order
+  # - stylelint-prettier/recommended
+syntax:
+  - scss
+rules:
+  indentation: [2, {baseIndentLevel: 0}]
+  # scss/dollar-variable-colon-space-after: always
+  scss/dollar-variable-colon-space-before: never
+  scss/operator-no-unspaced: true
+  scss/at-rule-no-unknown: true
+  # at-rule-no-unknown: null
+  at-rule-whitelist:
+    [
+      'extend',
+      'keyframes',
+      'import',
+      'include',
+      'charset',
+      'font-face',
+      'content',
+      'mixin',
+      'if',
+      'else',
+      'media',
+      'for',
+      'at-root',
+      'supports',
+      'function',
+      'return',
+      'warn',
+      'get-color',
+      'scale-color',
+      'each',
+    ]
+  at-rule-no-unknown: null
+  at-rule-no-vendor-prefix: true # @ルールのベンタープリフィックス禁止
+  font-family-name-quotes: always-where-recommended # 'font-family'はスペースで区切られたフォント名の場合クオートで囲む
+  font-weight-notation: named-where-possible # 'font-weight'はnormalなどのキーワードが使える場合はそちらを使う（400はNG）
+  function-url-quotes: always # 'url()'の引数はクオートで囲む
+  media-feature-name-no-vendor-prefix: true # '@media'内のベンダープリフィックス禁止
+  no-descending-specificity: null # 詳細度の高いセレクタより後に詳細度の低いセレクタを定義するのを許容
+  property-no-vendor-prefix: null
+  # selector-attribute-quotes: never # '[type=text]'などのセレクタの属性はクオートで囲まない
+  selector-no-vendor-prefix: true # セレクタのベンダープリフィックス禁止
+  string-quotes: single # 文字列はシングルクオートで囲む
+  value-no-vendor-prefix: null # 値のベンダープリフィックス禁止
+  plugin/declaration-block-no-ignored-properties: true
+  number-leading-zero: always
+  length-zero-no-unit: true
+  comment-empty-line-before: always
+  function-comma-space-after: always
+  function-parentheses-space-inside: never
+  declaration-colon-space-after: always-single-line
+  declaration-colon-space-before: never
+  declaration-colon-newline-after: always-multi-line # 複数行の時のコロン後には改行が必須
+  value-list-comma-newline-after: always-multi-line
+  value-list-comma-space-after: always-single-line
+  value-list-comma-space-before: never
+  at-rule-empty-line-before:
+    [
+      always,
+      {
+        except:
+          [first-nested, inside-block, blockless-after-same-name-blockless],
+        ignore: [first-nested, inside-block, after-comment],
+      },
+    ]
+  custom-property-empty-line-before:
+    [always, {except: [after-comment, after-custom-property, first-nested]}]
+  declaration-empty-line-before:
+    [
+      always,
+      {
+        except: [after-comment, after-declaration, first-nested],
+        ignore: [inside-single-line-block],
+      },
+    ]
+  block-opening-brace-space-before: always # 単一行で閉じ括弧前に空白を必須
+  block-opening-brace-space-after: always-single-line #単一行の時に閉じ括弧後に空白を必須
+  block-closing-brace-empty-line-before: never
+  rule-empty-line-before: never
+  function-max-empty-lines: 0
+  max-empty-lines: 1
+  selector-max-empty-lines: 0
+  at-rule-blacklist: ['debug']
+  # declaration-property-value-blacklist: [{'/^border/': ['none']}]
+  declaration-property-value-blacklist: null
+  color-named: null
+  color-no-hex: null
+  color-no-invalid-hex: true
+  # function-blacklist: ["/^rgb/", "/^hsl/"]
+  function-whitelist:
+    [
+      'my-color',
+      '/^rem/',
+      /scale/,
+      /^get/,
+      /^rgb*/,
+      /^gba/,
+      /darken/,
+      /lighten/,
+      /map-get/,
+      /local/,
+      /url/,
+      /format/,
+      /linear-gradient/,
+      /rotate/,
+      /skew/,
+      /floor/,
+      /z/,
+      /rect/,
+      /translate3d/,
+      /translateY/,
+      /translateX/,
+      /translate3d/,
+      /calc/,
+      /map-merge/,
+      /translate/,
+    ]
+  unit-whitelist:
+    ['em', 'rem', '%', 's', 'ms', 'vh', 'vw', 'px', 'deg', 'dpi', 'fr']
+  selector-pseudo-class-no-unknown: [true, {ignorePseudoClasses: [global]}]
+  declaration-no-important: null
+  font-family-no-duplicate-names: true
+  function-calc-no-invalid: true
+  max-nesting-depth: 10
+  unit-case: lower
+  unit-no-unknown:
+    - true
+    - ignoreUnits:
+        - /^[-+][\d$(]/
+  # value-keyword-case: lower

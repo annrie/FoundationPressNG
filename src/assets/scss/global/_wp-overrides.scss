@@ -1,14 +1,14 @@
-.wp-caption > figcaption {
+.wp-caption>figcaption {
   max-width: 100%;
   font-size: 0.8rem;
   color: #999;
   padding: 0.25rem 0;
 }
 
-p.wp-caption-text{
-  font-size:90%;
+p.wp-caption-text {
+  font-size: 90%;
   color: #666;
-  padding:rem-calc(10) 0;
+  padding: rem-calc(10) 0;
 }
 
 .alignleft {
@@ -32,26 +32,31 @@ p.wp-caption-text{
 .gallery {
   @include xy-grid;
   @include xy-gutters($negative: true);
+
   @for $i from 1 through 9 {
     &.gallery-columns-#{$i} {
-      @include xy-grid-layout(2, '.gallery-item', true);
+      @include xy-grid-layout(2, '.gallery-item');
     }
-    @include breakpoint(medium){
+
+    @include breakpoint(medium) {
       &.gallery-columns-#{$i} {
-        @include xy-grid-layout(4, '.gallery-item', true, (small: 30px));
+        @include xy-grid-layout(4, '.gallery-item', $gutters: (small: 30px));
       }
     }
+
     @include breakpoint(large) {
       &.gallery-columns-#{$i} {
-        @include xy-grid-layout($i, '.gallery-item', true, (small: 30px));
+        @include xy-grid-layout($i, '.gallery-item', $gutters: (small: 30px));
       }
     }
   }
-  .gallery-icon > a {
+
+  .gallery-icon>a {
     @include thumbnail;
     @include thumbnail-link;
   }
-  .gallery-icon > img {
+
+  .gallery-icon>img {
     @include thumbnail;
   }
 }
