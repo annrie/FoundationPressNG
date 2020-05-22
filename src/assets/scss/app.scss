@@ -69,6 +69,9 @@
 @import 'components/mixins/avatar';
 @import 'components/mixins/pseudo';
 @import 'components/mixins/push-center';
+@import "components/mixins/font-family";
+@import 'components/mixins/sidelines';
+@import 'components/mixins/container-border';
 
 // Global
 @import "global/accessibility";
@@ -81,7 +84,6 @@
 @import "global/helper-classes";
 @import "global/url-friendly-color"; // used for colors in SVGs in background-image
 @import "global/general";
-@import "global/font-family";
 
 // Modules
 @import "modules/navigation";
@@ -99,9 +101,7 @@
 @import 'components/gravity-forms';
 @import 'components/reversed';
 @import "components/back-to-top";
-@import 'components//container-border';
 @import 'components/zindex';
-@import 'components/sidelines';
 
 // Templates
 @import "templates/front";
