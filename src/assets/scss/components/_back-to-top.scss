@@ -1,0 +1,80 @@
+#top {
+  position: absolute;
+  top: 0;
+}
+
+#content-top {
+  position: absolute;
+  top: 100vh;
+}
+
+.back-to-top-sticky {
+  min-height: rem-calc(84);
+}
+
+.back-to-top-grid {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.back-to-top {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9;
+  visibility: hidden;
+
+  a {
+    color: $secondary-color;
+    font-size: rem-calc(22);
+    pointer-events: all;
+    background-color: $white;
+    border-radius: 50%;
+    box-shadow: 0 0 rem-calc(10) rgba($black,.4);
+    transition: all .3s;
+    width: rem-calc(52);
+    height: rem-calc(52);
+
+    &:hover {
+      background-color: $light-gray;
+      color: scale-color($secondary-color, $lightness: -15%);
+    }
+
+    .button-tooltip {
+      padding: .5rem 1rem .5rem 1rem;
+      border-bottom: 0; // Overrides default tooltip underline
+      cursor: inherit; // Overrides default tooltip underline
+    }
+  }
+
+  &.is-stuck {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.is-anchored {
+
+    &.is-at-top {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &.is-at-bottom {
+      opacity: 1;
+      height: 0;
+      visibility: visible;
+    }
+  }
+
+}
+
+.back-to-top-offset-bottom {
+  padding-bottom: rem-calc(92);
+}
+
+.back-to-top-offset-top {
+  padding-top: rem-calc(92);
+}

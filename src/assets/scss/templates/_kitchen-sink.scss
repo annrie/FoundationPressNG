@@ -46,7 +46,7 @@
     }
 
     .docs-toc {
-      width: 100%;
+      // width: 100%;
       padding-left: 4rem;
       padding-right: 1rem;
     }
@@ -70,7 +70,7 @@
     font-size: 12px;
     line-height: 2rem;
     margin-bottom: 1.5rem;
-    
+
     .cell,:nth-child(odd) {
       background: #7bc1ef;
       color: #0a0a0a;

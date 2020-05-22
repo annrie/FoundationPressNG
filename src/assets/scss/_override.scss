@@ -1,0 +1,76 @@
+$ghost: #faf;
+$snow: #f9f;
+$vapor: #f6f;
+$white-smoke: #f5f;
+$silver: #efe;
+$smoke: #eee;
+$gainsboro: #ddd;
+$iron: #ccc;
+$base: #aaa;
+$aluminum: #999;
+$jumbo: #888;
+$monsoon: #777;
+$steel: #666;
+$charcoal: #555;
+$tuatara: #444;
+$oil: #333;
+$jet: #222;
+
+// JISå®‰å…¨è‰²  ( JIS Z 9103 )
+$red: #ff4b00; // rgb (255,75,0)
+$orange: #f6aa00; // rgb (246,170,0)
+$yellow: #f2e700; // rgb (242,231,0)
+$green: #00b06b; // rgb (0,176,107)
+$blue: #1971ff; //  rgb (25,113,255)
+$magenta: #990; // rgb (153,0,153)
+
+// font size
+$h1-font-size: rem-calc (40);
+$h2-font-size: rem-calc (32);
+$h3-font-size: rem-calc (28);
+$h4-font-size: rem-calc (24);
+$h5-font-size: rem-calc (20);
+$h6-font-size: 1rem;
+
+$global-lineheight: 1.6;
+$global-prototype-breakpoints: true;
+$print-transparent-backgrounds: false;
+
+$body-background: $white;
+$body-font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', 'Roboto',
+  'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',
+  sans-serif;
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  tablet: 768px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px
+);
+$breakpoint-classes: (small medium tablet large xlarge xxlarge);
+
+$print-breakpoint: medium;
+$font-family-monospace: $font-family-monospace;
+
+$closebutton-color: rgba ($white, 0.8);
+$closebutton-color-hover: $red;
+$drilldown-arrow-color: $white;
+$dropdownmenu-arrows: true;
+$dropdown-background: rgba ($primary-color, 0.9);
+$dropdown-border: 1px solid rgba ($black, 0.9);
+$dropdownmenu-background: rgba ($orange, 0.9);
+$dropdownmenu-submenu-background: rgba ($red, 0.9);
+$dropdown-menu-item-background-active: lighten ($dark-nav-color, 5%);
+$dropdownmenu-arrow-color: $white;
+$off-canvas-width: map-get ($offcanvas-sizes, small);
+$offcanvas-background: $black;
+$table-is-striped: false;
+$table-border: 1px solid $black;
+$titlebar-background: rgba ($primary-color, 0.9);
+$titlebar-icon-color-hover: lighten ($primary-color, 30%);
+$topbar-padding: 0;
+$topbar-background: $primary-color;
+$topbar-submenu-background: $topbar-background;
