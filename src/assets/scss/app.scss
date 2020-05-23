@@ -84,6 +84,7 @@
 @import "global/helper-classes";
 @import "global/url-friendly-color"; // used for colors in SVGs in background-image
 @import "global/general";
+@import 'global/helpers';
 
 // Modules
 @import "modules/navigation";
@@ -92,7 +93,6 @@
 @import "modules/editor-style";
 
 // Components
-@import 'components/helpers';
 @import 'components/buttons';
 @import 'components/cards';
 @import 'components/featured-image';
