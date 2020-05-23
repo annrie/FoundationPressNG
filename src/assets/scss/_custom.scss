@@ -2,11 +2,3 @@
  Global styles for FoundationPressNG
  Demo: https://FoundationPressNG.phantomoon.com/
 */
-
-@import "components/font-family";
-
-// We use these to control header font sizes
-
-body {
-  @include font-family(sans-serif);
-}
