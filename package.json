@@ -11,8 +11,8 @@
     "dev": "gulp build --dev",
     "build": "gulp build --production",
     "package": "gulp package --production",
-    "phpcs": "gulp phpcs",
-    "phpcbf": "gulp phpcbf"
+    "phpcs": "gulp ./vendor/bin/phpcs",
+    "phpcbf": "gulp ./vendor/bin/phpcbf"
   },
   "keywords": [
     "FoundationPressNG",
