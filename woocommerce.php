@@ -5,7 +5,7 @@
  * http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
  *
  * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @since   FoundationPress 1.0.0
  */
 
 get_header(); ?>
@@ -18,4 +18,5 @@ get_header(); ?>
 	<?php get_sidebar(); ?>
 	</div>
 </div>
-<?php get_footer();
+<?php
+get_footer();

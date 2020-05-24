@@ -3,7 +3,7 @@
  * Template part for mobile top bar menu
  *
  * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @since   FoundationPress 1.0.0
  */
 
 ?>

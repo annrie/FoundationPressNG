@@ -2,9 +2,9 @@
 /**
  * Configure responsive images sizes
  *
- * @package WordPress
+ * @package    WordPress
  * @subpackage FoundationPress
- * @since FoundationPress 2.6.0
+ * @since      FoundationPress 2.6.0
  */
 
 // Add featured image sizes
@@ -25,7 +25,8 @@ add_image_size( 'fp-xlarge', 1920 );
 // Register the new image sizes for use in the add media modal in wp-admin
 function foundationpress_custom_sizes( $sizes ) {
 	return array_merge(
-		$sizes, array(
+		$sizes,
+		array(
 			'fp-small'  => __( 'FP Small' ),
 			'fp-medium' => __( 'FP Medium' ),
 			'fp-large'  => __( 'FP Large' ),
@@ -37,7 +38,6 @@ add_filter( 'image_size_names_choose', 'foundationpress_custom_sizes' );
 
 // Add custom image sizes attribute to enhance responsive image functionality for content images
 function foundationpress_adjust_image_sizes_attr( $sizes, $size ) {
-
 	// Actual width of image
 	$width = $size[0];
 

@@ -3,7 +3,7 @@
  * The template for displaying 404 pages (not found)
  *
  * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @since   FoundationPress 1.0.0
  */
 
 get_header(); ?>
@@ -31,7 +31,7 @@ get_header(); ?>
 									__( 'Return to the <a href="%s">home page</a>', 'foundationpress' ),
 									home_url()
 								);
-							?>
+								?>
 						</li>
 						<li>
 							<?php _e( 'Click the <a href="javascript:history.back()">Back</a> button', 'foundationpress' ); ?>
@@ -43,4 +43,5 @@ get_header(); ?>
 		<?php get_sidebar(); ?>
 	</div>
 </div>
-<?php get_footer();
+<?php
+get_footer();

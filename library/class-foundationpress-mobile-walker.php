@@ -3,7 +3,7 @@
  * Customize the output of menus for Foundation mobile walker
  *
  * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @since   FoundationPress 1.0.0
  */
 
 /**
@@ -12,6 +12,7 @@
 
 if ( ! class_exists( 'Foundationpress_Mobile_Walker' ) ) :
 	class Foundationpress_Mobile_Walker extends Walker_Nav_Menu {
+
 		function start_lvl( &$output, $depth = 0, $args = array() ) {
 			$indent  = str_repeat( "\t", $depth );
 			$output .= "\n$indent<ul class=\"vertical nested menu\">\n";

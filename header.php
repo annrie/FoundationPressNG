@@ -5,7 +5,7 @@
  * Displays all of the head element and everything up until the "container" div.
  *
  * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @since   FoundationPress 1.0.0
  */
 
 ?>

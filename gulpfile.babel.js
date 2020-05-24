@@ -19,6 +19,7 @@ import gulpStylelint from "gulp-stylelint";
 // import autoprefixer from "autoprefixer";
 import log           from 'fancy-log';
 import colors        from 'ansi-colors';
+// import phpcs from 'gulp-phpcs'
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -27,7 +28,7 @@ const $ = plugins();
 const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
-// const { PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
+const { PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
 
 // Check for --development flag unminified with sourcemaps
 const DEV = !!(yargs.argv.dev);
@@ -69,21 +70,21 @@ function loadConfig() {
     process.exit(1);
   }
 }
-const originalEmitWarning = process.emitWarning;
-process.emitWarning = function (warning, type, code, ctor) {
-  if (code === "DEP0097") {
-    // Undertaker uses a deprecated approach that causes NodeJS 10 to print
-    // this warning to stderr:
-    //
-    // "Using a domain property in MakeCallback is deprecated. Use the  async_context
-    // variant of MakeCallback or the AsyncResource class instead."
+// const originalEmitWarning = process.emitWarning;
+// process.emitWarning = function (warning, type, code, ctor) {
+//   if (code === "DEP0097") {
+//     // Undertaker uses a deprecated approach that causes NodeJS 10 to print
+//     // this warning to stderr:
+//     //
+//     // "Using a domain property in MakeCallback is deprecated. Use the  async_context
+//     // variant of MakeCallback or the AsyncResource class instead."
 
-    // Suppress the warning:
-    return;
-  }
+//     // Suppress the warning:
+//     return;
+//   }
 
-  originalEmitWarning(warning, type, code, ctor);
-};
+//   originalEmitWarning(warning, type, code, ctor);
+// };
 
 // Delete the "dist" folder
 // This happens every time a build starts
@@ -245,7 +246,7 @@ function archive() {
 gulp.task('phpcs', function() {
   return gulp.src(PATHS.phpcs)
     .pipe($.phpcs({
-      bin: 'wpcs/vendor/bin/phpcs',
+      bin: 'vendor/bin/phpcs',
       standard: './codesniffer.ruleset.xml',
       showSniffCode: true,
     }))
@@ -256,7 +257,7 @@ gulp.task('phpcs', function() {
 gulp.task('phpcbf', function () {
   return gulp.src(PATHS.phpcs)
   .pipe($.phpcbf({
-    bin: 'wpcs/vendor/bin/phpcbf',
+    bin: 'vendor/bin/phpcbf',
     standard: './codesniffer.ruleset.xml',
     warningSeverity: 0
   }))
