@@ -62,6 +62,7 @@
     "rimraf": "^3.0.2",
     "style-sherpa": "^1.0.2",
     "stylelint": "^13.5.0",
+    "stylelint-config-wordpress": "^16.0.0",
     "uncss": "^0.17.3",
     "vinyl-named": "^1.1.0",
     "webpack": "^4.43.0",

@@ -5104,9 +5104,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"foundationpress@workspace:.":
+"foundationpressng@workspace:.":
   version: 0.0.0-use.local
-  resolution: "foundationpress@workspace:."
+  resolution: "foundationpressng@workspace:."
   dependencies:
     "@babel/core": ^7.0.0
     "@babel/preset-env": ^7.0.0
@@ -5142,6 +5142,7 @@ __metadata:
     rimraf: ^3.0.2
     style-sherpa: ^1.0.2
     stylelint: ^13.5.0
+    stylelint-config-wordpress: ^16.0.0
     uncss: ^0.17.3
     vinyl-named: ^1.1.0
     webpack: ^4.43.0
@@ -11839,6 +11840,55 @@ resolve@^1.10.0:
     marked: ^0.3.5
     string-template: ^0.2.1
   checksum: 3/09ba6845c434a211441f9ac66a6a91942984d9540f50745a3991ea99e24e001b02dc08d67e7b242bdce001730b48a6e6516fc9b115b57c72bc5c5bdc76b5b23d
+  languageName: node
+  linkType: hard
+
+"stylelint-config-recommended-scss@npm:^4.1.0":
+  version: 4.2.0
+  resolution: "stylelint-config-recommended-scss@npm:4.2.0"
+  dependencies:
+    stylelint-config-recommended: ^3.0.0
+  peerDependencies:
+    stylelint: ^10.1.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
+    stylelint-scss: ^3.0.0
+  checksum: 3/a7cbb1cf97465baeac480bb58e477740d2e45409e03e6b0238a5bf538c4c1b819e13e09e363a5cadbb9163e6f09c4dd760bf3048d0583ab3f003666bc9610b09
+  languageName: node
+  linkType: hard
+
+"stylelint-config-recommended@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "stylelint-config-recommended@npm:3.0.0"
+  peerDependencies:
+    stylelint: ">=10.1.0"
+  checksum: 3/455fcb427786528495f66c2de1fbcb7cc7e8007aca303d21ad8f34b7150a3f4b7669a46d2b1c69ea7ac7f4f446c43b94c0920a3619b4a8d4dc5f3eee9df7cfa2
+  languageName: node
+  linkType: hard
+
+"stylelint-config-wordpress@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "stylelint-config-wordpress@npm:16.0.0"
+  dependencies:
+    stylelint-config-recommended: ^3.0.0
+    stylelint-config-recommended-scss: ^4.1.0
+    stylelint-scss: ^3.13.0
+  peerDependencies:
+    stylelint: ^10.1.0 || ^11.0.0 || ^12.0.0
+  checksum: 3/8567255e8db158f308934587e530cc0b178a3bbedd1490b95f3ab22d9ab625d134caeef54950f629929b4a243d09b266b3f65b90b9ea8068fc074f4b62f0e78e
+  languageName: node
+  linkType: hard
+
+"stylelint-scss@npm:^3.13.0":
+  version: 3.17.2
+  resolution: "stylelint-scss@npm:3.17.2"
+  dependencies:
+    lodash: ^4.17.15
+    postcss-media-query-parser: ^0.2.3
+    postcss-resolve-nested-selector: ^0.1.1
+    postcss-selector-parser: ^6.0.2
+    postcss-value-parser: ^4.1.0
+  peerDependencies:
+    stylelint: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
+  checksum: 3/d47cb835a4cb3a07161d6b99506885ad4f95886a8784178d0c722db24da93e5fc5354380dcee43edd4f12f5b9fc66f6cea71cee676ad4a625ebfae0c77f08413
   languageName: node
   linkType: hard
 
