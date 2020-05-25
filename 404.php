@@ -3,14 +3,14 @@
  * The template for displaying 404 pages (not found)
  *
  * @package FoundationPress
- * @since   FoundationPress 1.0.0
+ * @since FoundationPress 1.0.0
  */
 
 get_header(); ?>
 
 <div class="main-container">
 	<div class="main-grid">
-		<main class="main-content">
+		<main id="main" class="main-content" tabindex="-1">
 			<article>
 				<header>
 					<h1 class="entry-title"><?php _e( 'File Not Found', 'foundationpress' ); ?></h1>

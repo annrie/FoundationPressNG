@@ -1,11 +1,7 @@
 <?php
-/**
- * The template for displaying all single posts and attachments
- *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
- */
-
+/*
+Template Name: Full Width
+*/
 get_header(); ?>
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
@@ -16,8 +12,7 @@ get_header(); ?>
 			while ( have_posts() ) :
 				the_post();
 				?>
-				<?php get_template_part( 'template-parts/content', '' ); ?>
-				<?php the_post_navigation(); ?>
+				<?php get_template_part( 'template-parts/content', 'page' ); ?>
 				<?php comments_template(); ?>
 			<?php endwhile; ?>
 		</main>

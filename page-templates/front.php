@@ -4,99 +4,197 @@ Template Name: Front
 */
 get_header(); ?>
 
-<header class="front-hero" role="banner">
-	<div class="marketing">
-		<div class="tagline">
-			<h1><?php bloginfo( 'name' ); ?></h1>
-			<h4 class="subheader"><?php bloginfo( 'description' ); ?></h4>
-			<a role="button" class="download large button sites-button hide-for-small-only" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
-		</div>
-
-		<div class="watch">
-			<span id="stargazers"><a href="https://github.com/olefredrik/foundationpress">1.5k stargazers</a></span>
-			<span id="twitter"><a href="https://twitter.com/olefredrik">@olefredrik</a></span>
-		</div>
-	</div>
-
-</header>
-
-<?php do_action( 'foundationpress_before_content' ); ?>
 <?php
-while ( have_posts() ) :
-	the_post();
-	?>
-<section class="intro" role="main">
-	<div class="fp-intro">
-
-		<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-	<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-			<div class="entry-content">
-				<?php the_content(); ?>
+/**
+ * Hero
+ */
+?>
+<section class="front-hero full-height" aria-labelledby="hero-title">
+	<div class="reversed full-height">
+		<div class="grid-container full-height">
+			<div class="grid-x full-height align-center-middle">
+				<div class="cell medium-8 large-6">
+					<article class="marketing text-center">
+						<header class="tagline">
+							<h1 id="hero-title" class="hero-title"><?php the_title(); ?></h1>
+							<h2 class="h4"><?php bloginfo( 'description' ); ?></h2>
+						</header>
+					</article>
+				</div>
 			</div>
-			<footer>
-				<?php
-					wp_link_pages(
-						array(
-							'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
-							'after'  => '</p></nav>',
-						)
-					);
-				?>
-				<p><?php the_tags(); ?></p>
-			</footer>
-	<?php do_action( 'foundationpress_page_before_comments' ); ?>
-	<?php comments_template(); ?>
-	<?php do_action( 'foundationpress_page_after_comments' ); ?>
 		</div>
-
 	</div>
-
 </section>
-<?php endwhile; ?>
-<?php do_action( 'foundationpress_after_content' ); ?>
+<?php // END Hero ?>
 
-<div class="section-divider">
-	<hr />
-</div>
+<?php
+// END Top Frame
+echo '</div>';
+?>
+
+<main id="main" tabindex="-1">
+
+	<?php
+	/**
+	 * Intro
+	 */
+	?>
+	<?php do_action( 'foundationpress_before_content' ); ?>
+	<?php
+	while ( have_posts() ) :
+		the_post();
+		?>
+	<section class="intro" aria-labelledby="intro-title">
+		<div class="section-spacing">
+			<div class="grid-container">
+				<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+					<div class="grid-x grid-padding-x grid-padding-y align-center-middle">
+						<div class="cell small-3 medium-5 large-4 text-center medium-text-left">
+							<svg xmlns="http://www.w3.org/2000/svg" width="300" viewBox="0 0 57 97" role="img">
+							  <title>Rocket ship</title>
+							  <defs>
+								<linearGradient id="rocket-a" x1="100%" x2="0%" y1="50%" y2="50%">
+								  <stop offset="0%" stop-color="#00C97A"/>
+								  <stop offset="100%" stop-color="#005876"/>
+								</linearGradient>
+							  </defs>
+							  <g fill="none" fill-rule="evenodd" transform="translate(.567 .367)">
+								<path fill="#00C97A" d="M18.2666667,17.2790667 C11.6554333,22.4999667 6.56303333,29.5602333 3.75976667,37.6878667 C3.6388,38.0383333 3.39426667,38.2695333 3.108,38.383 C2.53383333,38.6125333 1.7961,38.3671667 1.57326667,37.6577667 C0.5518,34.3964 0.00183333333,30.9255333 0.00183333333,27.3278 C0.00183333333,16.2542333 5.21606667,6.39746667 13.3228333,0.0799333333 C13.3437,0.0632333333 13.3654,0.0482333333 13.3871,0.0332 C13.4246333,0.301966667 13.4638667,0.569833333 13.5047667,0.837733333 C13.569,1.26083333 13.6382667,1.6823 13.7109,2.10203333 C14.2692,5.33423333 15.062,8.48713333 16.0718,11.5449333 C16.6067667,13.1647667 17.2026333,14.7570667 17.8560667,16.3201667 C17.9904333,16.6406333 18.1273,16.9602667 18.2666667,17.2790667" transform="translate(.027 48.95)"/>
+								<path fill="#008E79" d="M17.2666667,15.2064333 C10.6554333,20.4273333 5.56303333,27.4876 2.75976667,35.6152333 C2.6388,35.9657 2.39426667,36.1969 2.108,36.3103667 C1.83343333,36.1977 1.59976667,35.9707333 1.49296667,35.6293667 C0.5282,32.5482667 0.0083,29.2685 0.0083,25.8685667 C0.0083,15.4058667 4.93543333,6.09156667 12.5949,0.122866667 C12.6065667,0.1137 12.6633,0.0678 12.7109,0.0294 C13.2692,3.2616 14.062,6.4145 15.0718,9.4723 C15.6067667,11.0921333 16.2026333,12.6844333 16.8560667,14.2475333 C16.9904333,14.568 17.1273,14.8876333 17.2666667,15.2064333" transform="translate(1.027 51.023)"/>
+								<path fill="#00C97A" d="M0,17.2790667 C6.61123333,22.4999667 11.7036333,29.5602333 14.5068667,37.6878667 C14.6278667,38.0383333 14.8724,38.2695333 15.1586667,38.383 C15.7328,38.6125333 16.4705667,38.3671667 16.6934,37.6577667 C17.7148333,34.3964 18.2648333,30.9255333 18.2648333,27.3278 C18.2648333,16.2542333 13.0506,6.39746667 4.9438,0.0799333333 C4.92296667,0.0632333333 4.90126667,0.0482333333 4.87956667,0.0332 C4.84203333,0.301966667 4.8028,0.569833333 4.7619,0.837733333 C4.69766667,1.26083333 4.6284,1.6823 4.55576667,2.10203333 C3.99746667,5.33423333 3.20466667,8.48713333 2.19486667,11.5449333 C1.6599,13.1647667 1.06403333,14.7570667 0.410566667,16.3201667 C0.276233333,16.6406333 0.139366667,16.9602667 0,17.2790667" transform="translate(37.583 48.95)"/>
+								<path fill="#008E79" d="M0,15.2064333 C6.61123333,20.4273333 11.7036333,27.4876 14.5068667,35.6152333 C14.6278667,35.9657 14.8724,36.1969 15.1586667,36.3103667 C15.4332,36.1977 15.6669,35.9707333 15.7737,35.6293667 C16.7384333,32.5482667 17.2583667,29.2685 17.2583667,25.8685667 C17.2583667,15.4058667 12.3312333,6.09156667 4.67176667,0.122866667 C4.6601,0.1137 4.60336667,0.0678 4.55576667,0.0294 C3.99746667,3.2616 3.20466667,6.4145 2.19486667,9.4723 C1.6599,11.0921333 1.06403333,12.6844333 0.410566667,14.2475333 C0.276233333,14.568 0.139366667,14.8876333 0,15.2064333" transform="translate(37.583 51.023)"/>
+								<path fill="#4D4D4D" d="M20.3333333,14.0084 L0.0280333333,14.0084 C1.82646667,9.71216667 4.06136667,5.64876667 6.67683333,1.87163333 C7.91363333,0.0857 10.1602333,-0.4 11.9595,0.393666667 C12.6646667,0.7041 13.3014667,1.2115 13.7821667,1.91336667 C16.3633667,5.68633333 18.5649,9.7372 20.3333333,14.0084" transform="translate(17.867 .022)"/>
+								<path fill="#CCC" d="M30.4333333,27.2439 C30.3690667,29.5622667 30.1854667,31.8480667 29.8909,34.098 C29.8341333,34.5336333 29.7724,34.9684333 29.7073,35.4015667 C28.8585667,41.0113667 27.3121333,46.385 25.1598667,51.4323 C25.0221667,51.7553 24.8819667,52.0765667 24.7392667,52.3962 C23.9973333,54.0644667 23.1878333,55.6951667 22.3149,57.2858333 C21.5688,58.6461 20.7776667,59.9764 19.9414333,61.2757667 C19.2546333,62.3448 18.1422,63.0525333 16.9045667,63.2252667 L16.9029,63.2252667 C16.7067667,63.2536333 16.5081333,63.2678333 16.307,63.2678333 L13.9953333,63.2678333 C12.5198667,63.2678333 11.1470333,62.5125667 10.3550333,61.2682333 C9.60563333,60.0907 8.8921,58.889 8.2178,57.6630333 C7.24136667,55.8921333 6.3434,54.072 5.52973333,52.2084667 C5.39033333,51.8896333 5.25346667,51.57 5.11913333,51.2495667 C4.46566667,49.6864333 3.8698,48.0941667 3.33486667,46.4743 C2.19403333,43.0193 1.32946667,39.4416 0.7678,35.7671 C0.726933333,35.4992 0.6877,35.2313333 0.650133333,34.9626 C0.597566667,34.5912333 0.548333333,34.2190333 0.502433333,33.8451333 C0.0976666667,30.5595667 -0.0659,27.2013333 0.0292333333,23.7905667 C0.264566667,15.3641667 2.0605,7.34753333 5.13163333,0.00933333333 L25.4369333,0.00933333333 C28.9028,8.38153333 30.7029,17.6015667 30.4333333,27.2439" transform="translate(12.763 14.021)"/>
+								<path fill="#333" d="M16.8333333,13.6147333 L0.0331,13.6147333 C1.83156667,9.3185 4.06646667,5.2551 6.68193333,1.47796667 C7.15426667,0.796133333 7.7735,0.302933333 8.4595,0 C9.16466667,0.310433333 9.80146667,0.817833333 10.2821667,1.5197 C12.8633667,5.29266667 15.0649,9.34353333 16.8333333,13.6147333" transform="translate(21.367 .416)"/>
+								<path fill="#B3B3B3" d="M26.9333333,27.2531333 C26.8690667,29.5715 26.6854667,31.8573 26.3909,34.1072333 C26.3341333,34.5428667 26.2724,34.9776667 26.2073,35.4108 C25.3585667,41.0206 23.8121333,46.3942333 21.6598667,51.4415333 C21.5221667,51.7645333 21.3819667,52.0858 21.2392667,52.4054333 C20.4973333,54.0737 19.6878333,55.7044 18.8149,57.2950667 C18.0688,58.6553333 17.2776667,59.9856333 16.4414333,61.285 C15.7546333,62.3540333 14.6422,63.0617667 13.4045667,63.2345 L13.4029,63.2345 C12.1610667,63.0617667 11.0436333,62.3515333 10.3601333,61.2774667 C9.6107,60.0999333 8.8972,58.8982333 8.22286667,57.6722667 C7.24646667,55.9013667 6.3485,54.0812333 5.5348,52.2177 C5.39543333,51.8988667 5.25856667,51.5792333 5.1242,51.2588 C4.47076667,49.6956667 3.8749,48.1034 3.33996667,46.4835333 C2.19913333,43.0285333 1.33453333,39.4508333 0.7729,35.7763333 C0.732,35.5084333 0.692766667,35.2405667 0.655233333,34.9718333 C0.602633333,34.6004667 0.5534,34.2282667 0.507533333,33.8543667 C0.102766667,30.5688 -0.0608333333,27.2105667 0.0343333333,23.7998 C0.269666667,15.3734 2.0656,7.35676667 5.13673333,0.0186666667 L21.9369333,0.0186666667 C25.4028,8.39076667 27.2029,17.6108 26.9333333,27.2531333" transform="translate(16.263 14.012)"/>
+								<path fill="#00C97A" d="M8.5,6.8241 C8.5,11.3145667 6.92826667,16.7940333 4.24803333,19.0258 C1.58656667,16.7890667 0.0293666667,11.3233667 0.0293666667,6.85156667 C0.0293666667,2.3611 1.60113333,2.26336667 4.28133333,0.0316333333 C6.9428,2.2683 8.5,2.35233333 8.5,6.8241" transform="translate(23.413 76.707)"/>
+								<path fill="#00B67A" d="M6.06666667,4.8644 C6.06666667,8.0762 4.94246667,11.9954667 3.02543333,13.5917 C1.1218,11.9919 0.00803333333,8.0825 0.00803333333,4.88406667 C0.00803333333,1.67223333 1.1322,1.60233333 3.04926667,0.00603333333 C4.9529,1.60586667 6.06666667,1.66596667 6.06666667,4.8644" transform="translate(24.64 78.679)"/>
+								<path fill="#00CC7A" d="M4.93333333,3.96446667 C4.93333333,6.5674 4.02226667,9.74366667 2.46863333,11.0373333 C0.925866667,9.74076667 0.0232333333,6.5725 0.0232333333,3.9804 C0.0232333333,1.37746667 0.934333333,1.32076667 2.48793333,0.0271333333 C4.0307,1.32363333 4.93333333,1.37236667 4.93333333,3.96446667" transform="translate(25.2 78.279)"/>
+								<polygon fill="#333" points="4.692 11.934 12.656 11.934 16.792 0 0 0" transform="matrix(-1 0 0 1 36.336 68.943)"/>
+								<path fill="#CCC" d="M11.4333333,5.73333333 C11.4333333,8.89053333 8.87393333,11.4499667 5.7167,11.4499667 C2.5595,11.4499667 6.66666667e-05,8.89053333 6.66666667e-05,5.73333333 C6.66666667e-05,2.57613333 2.5595,0.0167 5.7167,0.0167 C8.87393333,0.0167 11.4333333,2.57613333 11.4333333,5.73333333" transform="translate(22.149 23.611)"/>
+								<circle cx="5.049" cy="10.098" r="5.049" fill="url(#rocket-a)" transform="matrix(0 1 1 0 17.767 24.295)"/>
+								<path fill="#333" d="M8.93333333,4.46666667 C8.93333333,6.93273333 6.9346,8.93146667 4.46853333,8.93146667 C3.57723333,8.93146667 2.74686667,8.67026667 2.05003333,8.22043333 C0.819066667,7.42596667 0.00373333333,6.04146667 0.00373333333,4.46666667 C0.00373333333,2.0006 2.00246667,0.00186666667 4.46853333,0.00186666667 C6.04333333,0.00186666667 7.42783333,0.8172 8.2223,2.04816667 C8.67213333,2.745 8.93333333,3.57536667 8.93333333,4.46666667" transform="translate(23.397 24.878)"/>
+								<path fill="#4D4D4D" d="M6.9,2.42036667 C6.9,4.88643333 4.90126667,6.88516667 2.4352,6.88516667 C1.5439,6.88516667 0.713533333,6.62396667 0.0167,6.17413333 L6.18896667,0.00186666667 C6.6388,0.6987 6.9,1.52906667 6.9,2.42036667" transform="translate(25.43 26.924)"/>
+								<path fill="#CCC" d="M2.83333333,0.112833333 L0.1127,2.83346667 C0.0476,2.62813333 0.0125666667,2.4095 0.0125666667,2.1825 C0.0125666667,0.9841 0.984,0.0127 2.18236667,0.0127 C2.40936667,0.0127 2.62803333,0.0477333333 2.83333333,0.112833333" transform="translate(24.556 26.452)"/>
+								<path fill="#333" d="M0.233333333,0.0316333333 L9.81696667,0.0316333333 C9.94583333,0.0316333333 10.0503,0.1361 10.0503,0.264966667 L10.0503,0.966666667 C10.0503,1.09553333 9.94583333,1.2 9.81696667,1.2 L0.233333333,1.2 C0.104466667,1.2 0,1.09553333 0,0.966666667 L0,0.264966667 C0,0.1361 0.104466667,0.0316333333 0.233333333,0.0316333333" transform="translate(22.84 55.309)"/>
+								<path fill="#333" d="M0.233333333,0.0316333333 L9.81696667,0.0316333333 C9.94583333,0.0316333333 10.0503,0.1361 10.0503,0.264966667 L10.0503,0.966666667 C10.0503,1.09553333 9.94583333,1.2 9.81696667,1.2 L0.233333333,1.2 C0.104466667,1.2 0,1.09553333 0,0.966666667 L0,0.264966667 C0,0.1361 0.104466667,0.0316333333 0.233333333,0.0316333333" transform="translate(22.84 57.645)"/>
+								<path fill="#333" d="M0.233333333,0.0316333333 L9.81696667,0.0316333333 C9.94583333,0.0316333333 10.0503,0.136133333 10.0503,0.264966667 L10.0503,0.966666667 C10.0503,1.09553333 9.94583333,1.2 9.81696667,1.2 L0.233333333,1.2 C0.104466667,1.2 0,1.09553333 0,0.966666667 L0,0.264966667 C0,0.136133333 0.104466667,0.0316333333 0.233333333,0.0316333333" transform="translate(22.84 59.982)"/>
+							  </g>
+							</svg>
+
+						</div>
+						<div class="cell medium-7 large-8 text-center medium-text-left">
+							<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+							<header class="show-for-sr">
+							<h2 id="intro-title" class="intro-title">Intro</h2>
+							</header>
+							<div class="intro-content">
+								<?php the_content(); ?>
+							</div>
+							<footer>
+								<?php
+									wp_link_pages(
+										array(
+											'before' => '<nav id="page-nav" aria-label="Page navigation"><p>' . __( 'Pages:', 'foundationpress' ),
+											'after'  => '</p></nav>',
+										)
+									);
+								?>
+								<p><?php the_tags(); ?></p>
+							</footer>
+							<?php do_action( 'foundationpress_page_before_comments' ); ?>
+							<?php comments_template(); ?>
+							<?php do_action( 'foundationpress_page_after_comments' ); ?>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+	<?php endwhile; ?>
+	<?php do_action( 'foundationpress_after_content' ); ?>
+	<?php // END Intro ?>
 
 
-<section class="benefits">
-	<header>
-		<h2>Build Foundation based sites, powered by WordPress</h2>
-		<h4>Foundation is the professional choice for designers, developers and teams. <br /> WordPress is by far, <a href="http://trends.builtwith.com/cms">the world's most popular CMS</a> (currently powering 38% of the web).</h4>
-	</header>
+	<?php
+	/**
+	 * Latest Posts
+	 */
 
-	<div class="semantic">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/semantic.svg" alt="semantic">
-		<h3>Semantic</h3>
-		<p>Everything is semantic. You can have the cleanest markup without sacrificing the utility and speed of Foundation.</p>
-	</div>
+	// Vars
+	$posts_total = 3;
+	?>
 
-	<div class="responsive">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/responsive.svg" alt="responsive">
-		<h3>Responsive</h3>
-		<p>You can build for small devices first. Then, as devices get larger and larger, layer in more complexity for a complete responsive design.</p>
+	<?php
+	// WP_Query arguments
+	$args = array(
+		'post_type'      => array( 'post' ),
+		'post_status'    => array( 'publish' ),
+		'paged'          => '1',
+		'posts_per_page' => $posts_total,
+	);
 
-	</div>
+	// The Query
+	$query = new WP_Query( $args );
 
-	<div class="customizable">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/customizable.svg" alt="customizable">
-		<h3>Customizable</h3>
-		<p>You can customize your build to include or remove certain elements, as well as define the size of columns, colors, font size and more.</p>
+	// The Loop
+	if ( $query->have_posts() ) :
+		?>
+	<section class="latest-posts" aria-labelledby="latest-post-title">
+		<div class="section-spacing">
+			<div class="grid-container">
+				<div class="grid-x grid-padding-x grid-padding-y align-center align-stretch">
+					<div class="cell reversed">
+						<header>
+							<h2 id="latest-post-title" class="latest-post-title" class="text-center">Latest Posts</h2>
+						</header>
+					</div>
 
-	</div>
+					<?php $i = 1; // Count ?>
+					<?php
+					while ( $query->have_posts() ) :
+						$query->the_post();
+						?>
 
-	<div class="professional">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/professional.svg" alt="professional">
-		<h3>Professional</h3>
-		<p>Millions of designers and developers depend on Foundation. We have business support, training and consulting to help grow your product or service.</p>
-	</div>
+						<?php // The content ?>
+					<div class="cell small-8 medium-6 large-4 text-center
+						<?php
+						if ( $i == $posts_total ) :
+							?>
+						 hide-for-medium-only<?php endif; ?>">
+						<article <?php post_class( 'card full-height' ); ?> id="post-<?php the_ID(); ?>" aria-labelledby="post-title-<?php the_ID(); ?>">
+							<div class="card-image">
+								<?php
+								if ( has_post_thumbnail( $post->ID ) ) :
+									echo the_post_thumbnail( 'small' );
+								endif;
+								?>
+							</div>
+						  <div class="card-section">
+								<header>
+									<h3 id="post-title-<?php the_ID(); ?>" class="post-title"><?php the_title(); ?></h3>
+								</header>
+								<?php the_content(); ?>
+						  </div>
+						</article>
+					</div>
 
-	<div class="why-foundation">
-		<a href="/kitchen-sink">See what's in Foundation out of the box →</a>
-	</div>
+					<?php endwhile; ?>
+				</div>
+			</div>
+		</div>
+	</section>
+		<?php // END Latest Posts ?>
 
-</section>
+	<?php endif; ?>
+
+	<?php
+	// Restore original Post Data
+	wp_reset_postdata();
+	?>
+
+</main>
+
 
 <?php
 get_footer();

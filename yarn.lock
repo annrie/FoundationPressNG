@@ -5142,6 +5142,7 @@ __metadata:
     rimraf: ^3.0.2
     style-sherpa: ^1.0.2
     stylelint: ^13.5.0
+    stylelint-config-standard-scss: ^1.1.0
     stylelint-config-wordpress: ^16.0.0
     uncss: ^0.17.3
     vinyl-named: ^1.1.0
@@ -11855,12 +11856,44 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
+"stylelint-config-recommended@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "stylelint-config-recommended@npm:2.2.0"
+  peerDependencies:
+    stylelint: ^8.3.0 || ^9.0.0 || ^10.0.0
+  checksum: 3/52228918446ddbb78ec5963e01a337213666b8cb1272cdc10e7e7e31aa13244df0fc6d0abfc741e0ad87628711915ed1e52d4143e33f5a7d665b63765cd331c2
+  languageName: node
+  linkType: hard
+
 "stylelint-config-recommended@npm:^3.0.0":
   version: 3.0.0
   resolution: "stylelint-config-recommended@npm:3.0.0"
   peerDependencies:
     stylelint: ">=10.1.0"
   checksum: 3/455fcb427786528495f66c2de1fbcb7cc7e8007aca303d21ad8f34b7150a3f4b7669a46d2b1c69ea7ac7f4f446c43b94c0920a3619b4a8d4dc5f3eee9df7cfa2
+  languageName: node
+  linkType: hard
+
+"stylelint-config-standard-scss@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "stylelint-config-standard-scss@npm:1.1.0"
+  dependencies:
+    stylelint-config-standard: ~18.3.0
+  peerDependencies:
+    stylelint: ^8.3.0 || ^9.0.0 || ^10.0.0
+    stylelint-scss: ^2.0.0 || ^3.0.0
+  checksum: 3/d723d53ef98c093b1a26ff4abafa512e07a176dc37a106506a2148a96db824b262f6adbcfa72c75ad87174270cd9582a055756dd8a05a430de4033920ce6f25b
+  languageName: node
+  linkType: hard
+
+"stylelint-config-standard@npm:~18.3.0":
+  version: 18.3.0
+  resolution: "stylelint-config-standard@npm:18.3.0"
+  dependencies:
+    stylelint-config-recommended: ^2.2.0
+  peerDependencies:
+    stylelint: ^8.3.0 || ^9.0.0 || ^10.0.0
+  checksum: 3/b4611d8079188eb7475ccbd276c47abb663ba550e6c6def088a0140276cf3cab7a21500d7f974b2c8c16a1e735cdb5088a33e1c3d3630e6ae5a908b9571f0e41
   languageName: node
   linkType: hard
 

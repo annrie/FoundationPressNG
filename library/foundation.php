@@ -3,7 +3,7 @@
  * Foundation PHP template
  *
  * @package FoundationPress
- * @since   FoundationPress 1.0.0
+ * @since FoundationPress 1.0.0
  */
 
 // Pagination.
@@ -22,52 +22,21 @@ if ( ! function_exists( 'foundationpress_pagination' ) ) :
 				'total'     => $wp_query->max_num_pages,
 				'mid_size'  => 5,
 				'prev_next' => true,
-				'prev_text' => '',
-				'next_text' => '',
+				'prev_text' => __( '&laquo;', 'foundationpress' ),
+				'next_text' => __( '&raquo;', 'foundationpress' ),
 				'type'      => 'list',
 			)
 		);
 
-		   // Display the pagination if more than one page is found.
+		$paginate_links = str_replace( "<ul class='page-numbers'>", "<ul class='pagination text-center' aria-label='Pagination'>", $paginate_links );
+		$paginate_links = str_replace( '<li><span class="page-numbers dots">', "<li><a href='#'>", $paginate_links );
+		$paginate_links = str_replace( '</span>', '</a>', $paginate_links );
+		$paginate_links = str_replace( "<li><span class='page-numbers current'>", "<li class='current'>", $paginate_links );
+		$paginate_links = str_replace( "<li><a href='#'>&hellip;</a></li>", "<li><span class='dots'>&hellip;</span></li>", $paginate_links );
+		$paginate_links = preg_replace( '/\s*page-numbers/', '', $paginate_links );
+
+		// Display the pagination if more than one page is found.
 		if ( $paginate_links ) {
-
-			// Match patterns for preg_replace
-			$preg_find = array(
-				'/\s*page-numbers\s*/', // Captures string 'page-numbers' and any whitespace before and after
-				"/\s*class=''/", // Captures any empty class attributes
-				'/<li><a class="prev" href="(\S+)">/', // '(\S+)' Captures href value for backreference
-				'/<li><a class="next" href="(\S+)">/', // '(\S+)' Captures href value for backreference
-				"/<li><span aria-current='page' class='current'>(\d+)<\/span><\/li>/", // '(\d+)' Captures page number for backreference
-				"/<li><a href='(\S+)'>(\d+)<\/a><\/li>/", // '(\S+)' Captures href value for backreference, (\d+)' Captures page number for backreference
-			);
-
-			// preg_replace replacements
-			$preg_replace = array(
-				'',
-				'',
-				'<li class="pagination-previous"><a href="$1" aria-label="Previous page">', // '$1' Outputs backreference href value
-				'<li class="pagination-next"><a href="$1" aria-label="Next page">', // '$1' Outputs backreference href value
-				'<li class="current" aria-current="page"><span class="show-for-sr">You\'re on page </span>$1</li>', // '$1' Outputs backreference page number
-				'<li><a href="$1" aria-label="Page $2">$2</a></li>', // '$1' Ouputs backreference href, '$2' outputs backreference page number
-			);
-
-			// Match patterns for str_replace
-			$str_find = array(
-				'<ul>',
-				'<li><span class="dots">&hellip;</span></li>',
-			);
-
-			// str_replace replacements
-			$str_replace = array(
-				'<ul class="pagination text-center">',
-				'<li class="ellipsis" aria-hidden="true"></li>',
-			);
-
-			$paginate_links = preg_replace( $preg_find, $preg_replace, $paginate_links );
-			$paginate_links = str_replace( $str_find, $str_replace, $paginate_links );
-
-			$paginate_links = '<nav aria-label="Pagination">' . $paginate_links . '</nav>';
-
 			echo $paginate_links;
 		}
 	}
@@ -76,29 +45,26 @@ endif;
 // Custom Comments Pagination.
 if ( ! function_exists( 'foundationpress_get_the_comments_pagination' ) ) :
 	function foundationpress_get_the_comments_pagination( $args = array() ) {
-		$navigation   = '';
-		$args         = wp_parse_args(
-			$args,
-			array(
-				'prev_text'     => __( '&laquo;', 'foundationpress' ),
-				'next_text'     => __( '&raquo;', 'foundationpress' ),
-				'size'          => 'default',
-				'show_disabled' => true,
-			)
-		);
+		$navigation = '';
+		$args = wp_parse_args( $args, array(
+			'prev_text'				=> __( '&laquo;', 'foundationpress' ),
+			'next_text'				=> __( '&raquo;', 'foundationpress' ),
+			'size'					=> 'default',
+			'show_disabled'			=> true,
+		) );
 		$args['type'] = 'array';
 		$args['echo'] = false;
-		$links        = paginate_comments_links( $args );
+		$links = paginate_comments_links( $args );
 		if ( $links ) {
-			$link_count       = count( $links );
+			$link_count = count( $links );
 			$pagination_class = 'pagination';
 			if ( 'large' == $args['size'] ) {
 				$pagination_class .= ' pagination-lg';
 			} elseif ( 'small' == $args['size'] ) {
 				$pagination_class .= ' pagination-sm';
 			}
-			$current     = get_query_var( 'cpage' ) ? intval( get_query_var( 'cpage' ) ) : 1;
-			$total       = get_comment_pages_count();
+			$current = get_query_var( 'cpage' ) ? intval( get_query_var( 'cpage' ) ) : 1;
+			$total = get_comment_pages_count();
 			$navigation .= '<ul class="' . $pagination_class . '">';
 			if ( $args['show_disabled'] && 1 === $current ) {
 				$navigation .= '<li class="page-item disabled">' . $args['prev_text'] . '</li>';
@@ -123,7 +89,7 @@ if ( ! function_exists( 'foundationpress_get_the_comments_pagination' ) ) :
 				$navigation .= '<li class="page-item disabled">' . $args['next_text'] . '</li>';
 			}
 			$navigation .= '</ul>';
-			$navigation  = _navigation_markup( $navigation, 'comments-pagination' );
+			$navigation = _navigation_markup( $navigation, 'comments-pagination' );
 		}
 		return $navigation;
 	}
@@ -219,131 +185,91 @@ if ( ! function_exists( 'foundationpress_title_bar_responsive_toggle' ) ) :
 endif;
 
 /**
- * Custom markup for WordPress gallery
+ * Custom markup for Wordpress gallery
  */
 if ( ! function_exists( 'foundationpress_gallery' ) ) :
-	function foundationpress_gallery( $attr ) {
+	function foundationpress_gallery($attr) {
 
-		$post            = get_post();
+		$post = get_post();
 		static $instance = 0;
 		$instance++;
 
 		if ( ! empty( $attr['ids'] ) ) {
 			// 'ids' is explicitly ordered, unless you specify otherwise.
-			if ( empty( $attr['orderby'] ) ) {
+			if ( empty( $attr['orderby'] ) )
 				$attr['orderby'] = 'post__in';
-			}
 			$attr['include'] = $attr['ids'];
 		}
 
 		// Allow plugins/themes to override the default gallery template.
-		$output = apply_filters( 'post_gallery', '', $attr, $instance );
-		if ( $output != '' ) {
+		$output = apply_filters('post_gallery', '', $attr, $instance);
+		if ( $output != '' )
 			return $output;
-		}
 
 		// Let's make sure it looks like a valid orderby statement
 		if ( isset( $attr['orderby'] ) ) {
 			$attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
-			if ( ! $attr['orderby'] ) {
+			if ( !$attr['orderby'] )
 				unset( $attr['orderby'] );
-			}
 		}
 
-		$atts = shortcode_atts(
-			array(
-				'order'          => 'ASC',
-				'orderby'        => 'menu_order ID',
-				'id'             => $post ? $post->ID : 0,
-				'itemtag'        => 'figure',
-				'icontag'        => 'div',
-				'captiontag'     => 'figcaption',
-				'columns-small'  => 2, // set default columns for small screen
-				'columns-medium' => 4, // set default columns for medium screen
-				'columns'        => 3, // set default columns for large screen (3 = wordpress default)
-				'size'           => 'thumbnail',
-				'include'        => '',
-				'exclude'        => '',
-			),
-			$attr,
-			'gallery'
-		);
+		$atts = shortcode_atts(array(
+			'order'         => 'ASC',
+			'orderby'       => 'menu_order ID',
+			'id'            => $post ? $post->ID : 0,
+			'itemtag'       => 'figure',
+			'icontag'       => 'div',
+			'captiontag'    => 'figcaption',
+			'columns-small' => 2, // set default columns for small screen
+			'columns-medium'=> 4, // set default columns for medium screen
+			'columns'       => 3, // set default columns for large screen (3 = wordpress default)
+			'size'          => 'thumbnail',
+			'include'       => '',
+			'exclude'       => ''
+		), $attr, 'gallery');
 
-		$id = intval( $atts['id'] );
+		$id = intval($atts['id']);
 
-		if ( ! empty( $atts['include'] ) ) {
-			$_attachments = get_posts(
-				array(
-					'include'        => $atts['include'],
-					'post_status'    => 'inherit',
-					'post_type'      => 'attachment',
-					'post_mime_type' => 'image',
-					'order'          => $atts['order'],
-					'orderby'        => $atts['orderby'],
-				)
-			);
+		if ( !empty($atts['include']) ) {
+			$_attachments = get_posts( array('include' => $atts['include'], 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $atts['order'], 'orderby' => $atts['orderby']) );
 
 			$attachments = array();
 			foreach ( $_attachments as $key => $val ) {
-				$attachments[ $val->ID ] = $_attachments[ $key ];
+				$attachments[$val->ID] = $_attachments[$key];
 			}
-		} elseif ( ! empty( $atts['exclude'] ) ) {
-			$attachments = get_children(
-				array(
-					'post_parent'    => $id,
-					'exclude'        => $atts['exclude'],
-					'post_status'    => 'inherit',
-					'post_type'      => 'attachment',
-					'post_mime_type' => 'image',
-					'order'          => $atts['order'],
-					'orderby'        => $atts['orderby'],
-				)
-			);
+		} elseif ( !empty($atts['exclude']) ) {
+			$attachments = get_children( array('post_parent' => $id, 'exclude' => $atts['exclude'], 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $atts['order'], 'orderby' => $atts['orderby']) );
 		} else {
-			$attachments = get_children(
-				array(
-					'post_parent'    => $id,
-					'post_status'    => 'inherit',
-					'post_type'      => 'attachment',
-					'post_mime_type' => 'image',
-					'order'          => $atts['order'],
-					'orderby'        => $atts['orderby'],
-				)
-			);
+			$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $atts['order'], 'orderby' => $atts['orderby']) );
 		}
 
-		if ( empty( $attachments ) ) {
+		if ( empty($attachments) )
 			return '';
-		}
 
 		if ( is_feed() ) {
 			$output = "\n";
-			foreach ( $attachments as $att_id => $attachment ) {
-				$output .= wp_get_attachment_link( $att_id, $atts['size'], true ) . "\n";
-			}
+			foreach ( $attachments as $att_id => $attachment )
+				$output .= wp_get_attachment_link($att_id, $atts['size'], true) . "\n";
 			return $output;
 		}
 
-		$item_tag    = tag_escape( $atts['itemtag'] );
-		$caption_tag = tag_escape( $atts['captiontag'] );
-		$icon_tag    = tag_escape( $atts['icontag'] );
-		$valid_tags  = wp_kses_allowed_html( 'post' );
+		$item_tag = tag_escape($atts['itemtag']);
+		$caption_tag = tag_escape($atts['captiontag']);
+		$icon_tag = tag_escape($atts['icontag']);
+		$valid_tags = wp_kses_allowed_html( 'post' );
 
-		if ( ! isset( $valid_tags[ $item_tag ] ) ) {
+		if ( ! isset( $valid_tags[ $item_tag ] ) )
 			$item_tag = 'figure';
-		}
-		if ( ! isset( $valid_tags[ $caption_tag ] ) ) {
+		if ( ! isset( $valid_tags[ $caption_tag ] ) )
 			$caption_tag = 'figcaption';
-		}
-		if ( ! isset( $valid_tags[ $icon_tag ] ) ) {
+		if ( ! isset( $valid_tags[ $icon_tag ] ) )
 			$icon_tag = 'div';
-		}
 
-		$columns        = intval( $atts['columns'] );
-		$columns_small  = intval( $atts['columns-small'] );
-		$columns_medium = intval( $atts['columns-medium'] );
-		$selector       = "gallery-{$instance}";
-		$size_class     = sanitize_html_class( $atts['size'] );
+		$columns = intval($atts['columns']);
+		$columns_small = intval($atts['columns-small']);
+		$columns_medium = intval($atts['columns-medium']);
+		$selector = "gallery-{$instance}";
+		$size_class = sanitize_html_class( $atts['size'] );
 
 		// Edit this line to modify the default number of grid columns for the small and medium sizes. The large size is passed in the WordPress gallery settings.
 		$output = "<div id='$selector' class='fp-gallery galleryid-{$id} gallery-size-{$size_class} grid-x grid-margin-x small-up-{$columns_small} medium-up-{$columns_medium} large-up-{$columns}'>";
@@ -351,45 +277,17 @@ if ( ! function_exists( 'foundationpress_gallery' ) ) :
 		foreach ( $attachments as $id => $attachment ) {
 
 			// Check if destination is file, nothing or attachment page.
-			if ( isset( $attr['link'] ) && $attr['link'] == 'file' ) {
-				$link = wp_get_attachment_link(
-					$id,
-					$size_class,
-					false,
-					false,
-					false,
-					array(
-						'class' => '',
-						'id'    => "imageid-$id",
-					)
-				);
+			if ( isset($attr['link']) && $attr['link'] == 'file' ){
+				$link = wp_get_attachment_link($id, $size_class, false, false, false,array('class' => '', 'id' => "imageid-$id"));
 
 				// Edit this line to implement your html params in <a> tag with use a custom lightbox plugin.
-				$link = str_replace( '<a href', '<a class="thumbnail fp-gallery-lightbox" data-gall="fp-gallery-' . $post->ID . '" data-title="' . wptexturize( $attachment->post_excerpt ) . '" title="' . wptexturize( $attachment->post_excerpt ) . '" href', $link );
+				$link = str_replace('<a href', '<a class="thumbnail fp-gallery-lightbox" data-gall="fp-gallery-'. $post->ID .'" data-title="'. wptexturize($attachment->post_excerpt) .'" title="'. wptexturize($attachment->post_excerpt) .'" href', $link);
 
-			} elseif ( isset( $attr['link'] ) && $attr['link'] == 'none' ) {
-				$link = wp_get_attachment_image(
-					$id,
-					$size_class,
-					false,
-					array(
-						'class' => "thumbnail attachment-$size_class size-$size_class",
-						'id'    => "imageid-$id",
-					)
-				);
+			} elseif ( isset($attr['link']) && $attr['link'] == 'none' ){
+				$link = wp_get_attachment_image($id,$size_class,false, array('class' => "thumbnail attachment-$size_class size-$size_class", 'id' => "imageid-$id"));
 			} else {
-				$link = wp_get_attachment_link(
-					$id,
-					$size_class,
-					true,
-					false,
-					false,
-					array(
-						'class' => '',
-						'id'    => "imageid-$id",
-					)
-				);
-				$link = str_replace( '<a href', '<a class="thumbnail" title="' . wptexturize( $attachment->post_excerpt ) . '" href', $link );
+				$link = wp_get_attachment_link($id, $size_class, true, false, false,array('class' => '', 'id' => "imageid-$id"));
+				$link = str_replace('<a href', '<a class="thumbnail" title="'. wptexturize($attachment->post_excerpt) .'" href', $link);
 			}
 
 			$image_meta  = wp_get_attachment_metadata( $id );
@@ -406,10 +304,10 @@ if ( ! function_exists( 'foundationpress_gallery' ) ) :
 			// Uncomment if you wish to display captions inline on gallery.
 			/*
 			if ( $caption_tag && trim($attachment->post_excerpt) ) {
-			$output .= "
-					<{$caption_tag} class='wp-caption-text gallery-caption'>
-					" . wptexturize($attachment->post_excerpt) . "
-					</{$caption_tag}>";
+				$output .= "
+		            <{$caption_tag} class='wp-caption-text gallery-caption'>
+		            " . wptexturize($attachment->post_excerpt) . "
+		            </{$caption_tag}>";
 			}
 			*/
 
@@ -420,5 +318,5 @@ if ( ! function_exists( 'foundationpress_gallery' ) ) :
 
 		return $output;
 	}
-	add_shortcode( 'gallery', 'foundationpress_gallery' );
+	add_shortcode('gallery', 'foundationpress_gallery');
 endif;

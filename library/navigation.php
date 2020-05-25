@@ -2,15 +2,16 @@
 /**
  * Register Menus
  *
- * @link    http://codex.wordpress.org/Function_Reference/register_nav_menus#Examples
+ * @link http://codex.wordpress.org/Function_Reference/register_nav_menus#Examples
  * @package FoundationPress
- * @since   FoundationPress 1.0.0
+ * @since FoundationPress 1.0.0
  */
 
 register_nav_menus(
 	array(
 		'top-bar-r'  => esc_html__( 'Right Top Bar', 'foundationpress' ),
 		'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
+		'privacy-nav' => esc_html__( 'Privacy', 'foundationpress' ),
 	)
 );
 
@@ -25,8 +26,8 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 		wp_nav_menu(
 			array(
 				'container'      => false,
-				'menu_class'     => 'dropdown menu desktop-menu',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
+				'menu_class'     => 'dropdown menu',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu>%3$s</ul>',
 				'theme_location' => 'top-bar-r',
 				'depth'          => 3,
 				'fallback_cb'    => false,
@@ -55,6 +56,25 @@ if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 		);
 	}
 }
+
+
+/**
+ * Privacy navigation
+ */
+ if ( ! function_exists( 'foundationpress_privacy_nav' ) ) {
+ 	function foundationpress_privacy_nav() {
+ 		wp_nav_menu(
+ 			array(
+ 				'container'      => false,
+ 				'menu_class'     => 'menu',
+ 				'items_wrap'     => '<ul id="%1$s" class="%2$s privacy-menu align-center">%3$s</ul>',
+ 				'theme_location' => 'privacy-nav',
+ 				'depth'          => 1,
+ 				'fallback_cb'    => false,
+ 			)
+ 		);
+ 	}
+ }
 
 
 /**

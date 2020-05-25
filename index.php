@@ -10,14 +10,14 @@
  * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
  *
  * @package FoundationPress
- * @since   FoundationPress 1.0.0
+ * @since FoundationPress 1.0.0
  */
 
 get_header(); ?>
 
 <div class="main-container">
 	<div class="main-grid">
-		<main class="main-content">
+		<main id="main" class="main-content" tabindex="-1">
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
@@ -39,7 +39,7 @@ get_header(); ?>
 				foundationpress_pagination();
 			elseif ( is_paged() ) :
 				?>
-				<nav id="post-nav">
+				<nav id="post-nav" aria-label="Post navigation">
 					<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
 					<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
 				</nav>
