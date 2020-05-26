@@ -12,7 +12,7 @@ $z-layers: (
     @return map-get($z-layers, $key);
   }
 
-  @warn "Unknown `#{$key}` in $z-layers.";
+  @warn 'Unknown `#{$key}` in $z-layers.';
   @return null;
 }
 

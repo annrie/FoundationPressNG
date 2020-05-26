@@ -1,6 +1,5 @@
 @charset 'utf-8';
 
-
 @import 'settings';
 @import 'override';
 @import 'foundation';
@@ -63,34 +62,33 @@
   Add your scss files below to structure your project styles
 */
 
-
 // Mixins
 @import 'components/mixins/flex';
 @import 'components/mixins/avatar';
 @import 'components/mixins/pseudo';
 @import 'components/mixins/push-center';
-@import "components/mixins/font-family";
+@import 'components/mixins/font-family';
 @import 'components/mixins/sidelines';
 @import 'components/mixins/container-border';
 
 // Global
-@import "global/accessibility";
-@import "global/colors";
-@import "global/wp-admin";
-@import "global/wp-overrides";
-@import "global/gutenberg";
+@import 'global/accessibility';
+@import 'global/colors';
+@import 'global/wp-admin';
+@import 'global/wp-overrides';
+@import 'global/gutenberg';
 @import 'global/svg';
-@import "global/headers";
-@import "global/helper-classes";
-@import "global/url-friendly-color"; // used for colors in SVGs in background-image
-@import "global/general";
+@import 'global/headers';
+@import 'global/helper-classes';
+@import 'global/url-friendly-color'; // used for colors in SVGs in background-image
+@import 'global/general';
 @import 'global/helpers';
 
 // Modules
-@import "modules/navigation";
-@import "modules/content";
-@import "modules/footer";
-@import "modules/editor-style";
+@import 'modules/navigation';
+@import 'modules/content';
+@import 'modules/footer';
+@import 'modules/editor-style';
 
 // Components
 @import 'components/buttons';
@@ -100,11 +98,11 @@
 @import 'components/links';
 @import 'components/gravity-forms';
 @import 'components/reversed';
-@import "components/back-to-top";
+@import 'components/back-to-top';
 @import 'components/zindex';
 
 // Templates
-@import "templates/front";
+@import 'templates/front';
 // @import "templates/kitchen-sink";
 
 // customizer

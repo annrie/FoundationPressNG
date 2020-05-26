@@ -2,7 +2,7 @@ $border-color: $light-gray;
 $border-style: solid;
 $border-width: 1px;
 $container-border: 1px $border-style $border-color;
-$container-box-shadow: 0 3px 25px rgba(0,0,0,.3);
+$container-box-shadow: 0 3px 25px rgba(0, 0, 0, 0.3);
 
 @mixin container-border($shadow: false) {
   border: $container-border;
@@ -10,7 +10,8 @@ $container-box-shadow: 0 3px 25px rgba(0,0,0,.3);
 
   @if $shadow {
     box-shadow: $container-box-shadow;
-  } @else {
+  }
+  @else {
     box-shadow: none;
   }
 }
@@ -18,7 +19,6 @@ $container-box-shadow: 0 3px 25px rgba(0,0,0,.3);
 @mixin border($direction, $width: $border-width, $style: $border-style, $color: $border-color) {
   border-#{$direction}: $width $style $color;
 }
-
 .container-divider-right {
   border-bottom: $container-border;
 

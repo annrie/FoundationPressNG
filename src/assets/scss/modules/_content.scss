@@ -1,10 +1,10 @@
 .main-container {
   @include xy-grid-container;
 }
-
 .main-grid {
   @include xy-grid();
   @include flex-align(center);
+
   padding-top: 1rem;
   padding-bottom: 1rem;
 
@@ -12,7 +12,6 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
-
   &.sidebar-left {
 
     // Place the sidebar below main content on small screens ...
@@ -20,7 +19,6 @@
       .main-content {
         order: 1;
       }
-
       .sidebar {
         order: 2;
       }
@@ -31,7 +29,6 @@
       .main-content {
         order: 2;
       }
-
       .sidebar {
         order: 1;
       }
@@ -53,7 +50,6 @@
       @include xy-cell(8);
     }
   }
-
   .sidebar {
     @include breakpoint(small) {
       @include xy-cell(12);
@@ -61,8 +57,8 @@
 
     @include breakpoint(medium) {
       @include xy-cell(4);
+
       padding-top: 1rem;
     }
-
   }
 }

@@ -16,35 +16,34 @@ $sidelines-double-line-spacing: 0.5em !default;
   $line-style: $sidelines-line-style,
   $double-line: $sidelines-double-line,
   $double-line-spacing: $sidelines-double-line-spacing ) {
-
   display: block;
   overflow: hidden;
   white-space: nowrap;
 
   @if $text-left {
     text-align: left;
-  } @else {
+  }
+  @else {
     text-align: center;
   }
-
   span {
-    display: inline-block;
     position: relative;
+    display: inline-block;
     padding-right: $text-padding;
 
     @if $text-left {
       padding-left: 0;
-    } @else {
+    }
+    @else {
       padding-left: $text-padding;
     }
-
-    &:before,
-    &:after {
-      content: '';
+    &::before,
+    &::after {
       position: absolute;
+      top: 50%;
       // height: 100%;
       width: $line-length;
-      top: 50%;
+      content: '';
       border-top-style: $line-style;
       border-top-width: $line-thickness;
 
@@ -58,33 +57,28 @@ $sidelines-double-line-spacing: 0.5em !default;
         border-bottom-color: $line-color;
         height: $double-line-spacing;
         margin-top: -($double-line-spacing/2);
-      } @else if $line-thickness > 1 {
+      }
+      @else if $line-thickness > 1 {
         margin-top: -(floor($line-thickness/2));
       }
     }
-
-    &:before {
+    &::before {
       right: 100%;
     }
-
-    &:after {
+    &::after {
       left: 100%;
     }
   }
 }
-
 .type-sidelines {
   @include sidelines($text-left: true);
 }
-
 .type-sidelines-dotted {
   @include sidelines($text-left: true, $line-style: dotted);
 }
-
 .double {
   @include sidelines($double-line: true);
 }
-
 .custom {
   @include sidelines(
     $text-padding: 20px,
@@ -94,7 +88,6 @@ $sidelines-double-line-spacing: 0.5em !default;
     $line-style: dotted
   );
 }
-
 .custom-2 {
   @include sidelines(
     $line-color: #27ae60,

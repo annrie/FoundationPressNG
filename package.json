@@ -11,8 +11,26 @@
     "dev": "gulp build --dev",
     "build": "gulp build --production",
     "package": "gulp package --production",
-    "phpcs": "gulp phpcs ",
-    "phpcbf": "phpcbf --standard=WordPress"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format-test:prettier": "node_modules/.bin/prettier --config .prettierrc --write \"test/*.{css,js}\" ",
+    "lint:css": "stylelint --fix src/assets/scss/**/*.scss",
+    "phpcs": "gulp phpcs",
+    "phpcbf": "gulp phpcbf"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ],
+    "*.css*": [
+      "stylelint --fix"
+    ]
   },
   "keywords": [
     "FoundationPressNG",
@@ -34,10 +52,14 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@wordpress/eslint-plugin": "^6.0.0",
     "ansi-colors": "^4.1.1",
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.7",
     "dateformat": "^3.0.3",
+    "eslint": "^7.1.0",
     "fancy-log": "^1.3.3",
     "gulp": "^4.0",
     "gulp-autoprefixer": "^7.0.1",
@@ -57,13 +79,20 @@
     "gulp-stylelint": "^13.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^5.0.1",
+    "husky": "^4.2.5",
     "js-yaml": "^3.13.1",
+    "lint-staged": "^10.2.6",
     "panini": "^1.6.3",
+    "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "style-sherpa": "^1.0.2",
     "stylelint": "^13.5.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-recess-order": "^2.0.4",
     "stylelint-config-standard-scss": "^1.1.0",
     "stylelint-config-wordpress": "^16.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+    "stylelint-prettier": "^1.1.2",
     "uncss": "^0.17.3",
     "vinyl-named": "^1.1.0",
     "webpack": "^4.43.0",
@@ -73,14 +102,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/olefredrik/foundationpress.git"
+    "url": "https://github.com/annrie/FoundationPressNG.git"
   },
   "bugs": {
-    "url": "https://github.com/olefredrik/foundationpress/issues"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "url": "https://github.com/annrie/FoundationPressNG/issues"
   }
 }

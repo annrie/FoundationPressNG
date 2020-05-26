@@ -71,16 +71,16 @@ rules:
         ignore: [first-nested, inside-block, after-comment],
       },
     ]
-  custom-property-empty-line-before:
-    [always, {except: [after-comment, after-custom-property, first-nested]}]
-  declaration-empty-line-before:
-    [
-      always,
-      {
-        except: [after-comment, after-declaration, first-nested],
-        ignore: [inside-single-line-block],
-      },
-    ]
+  # custom-property-empty-line-before:
+  #   [always, {except: [after-comment, after-custom-property, first-nested]}]
+  # declaration-empty-line-before:
+  #   [
+  #     always,
+  #     {
+  #       except: [after-comment, after-declaration, first-nested],
+  #       ignore: [inside-single-line-block],
+  #     },
+  #   ]
   block-opening-brace-space-before: always # 単一行で閉じ括弧前に空白を必須
   block-opening-brace-space-after: always-single-line #単一行の時に閉じ括弧後に空白を必須
   block-closing-brace-empty-line-before: never
@@ -122,6 +122,7 @@ rules:
       /calc/,
       /map-merge/,
       /translate/,
+      /map-deep-get/,
     ]
   unit-whitelist:
     ['em', 'rem', '%', 's', 'ms', 'vh', 'vw', 'px', 'deg', 'dpi', 'fr']
