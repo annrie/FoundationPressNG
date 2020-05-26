@@ -72,6 +72,7 @@ function loadConfig() {
 	}
 	// Exit if config.yml & config-default.yml do not exist
 	log('Exiting process, no config file exists.');
+	// eslint-disable-next-line no-undef
 	log('Error Code:', err.code);
 	process.exit(1);
 }
