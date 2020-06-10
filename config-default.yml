@@ -4,13 +4,13 @@ BROWSERSYNC:
   url: ""
 
 # Autoprefixer will make sure your CSS works with these browsers
-COMPATIBILITY:
-  - "last 2 versions"
-  - "ie >= 9"
-  - "ios >= 7"
-  
+# COMPATIBILITY:
+#   - "last 2 versions"
+#   - "ie >= 9"
+#   - "ios >= 7"
+
 # Set to true if you want static asset revisioning, helpful for cache busting
-REVISIONING: false  
+REVISIONING: false
 
 # Gulp will reference these paths when it copies files
 PATHS:
@@ -46,4 +46,4 @@ PATHS:
   phpcs:
     - "**/*.php"
     - "!wpcs"
-    - "!wpcs/**"  
+    - "!wpcs/**"
