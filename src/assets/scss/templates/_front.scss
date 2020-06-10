@@ -6,24 +6,27 @@
   }
 
   @include breakpoint(small) {
-    background: url('../images/demo/hero-bg-foundation-6-small.svg') bottom center;
-    background-size: cover;
-    background-position: bottom;
+    position: relative;
+    height: auto;
     padding: rem-calc(65%) 0;
     margin: 0 0 rem-calc(32);
-    height: auto;
-    position: relative;
     text-align: left;
+    background:
+      url('../images/demo/hero-bg-foundation-6-small.svg') bottom
+      center;
+    background-position: bottom;
+    background-size: cover;
   }
 
   @include breakpoint(medium) {
-    background: url('../images/demo/hero-bg-foundation-6-large.svg') bottom center;
-    background-size: cover;
-    background-position: center;
     height: rem-calc(685);
     margin: 0 0 rem-calc(72);
+    background:
+      url('../images/demo/hero-bg-foundation-6-large.svg') bottom
+      center;
+    background-position: center;
+    background-size: cover;
   }
-
   .watch {
     @include breakpoint(small) {
       @include xy-cell(7);
@@ -32,44 +35,38 @@
     @include breakpoint(medium) {
       @include xy-cell(12);
     }
-
     a {
-      color: #B4C9D1;
-      cursor: pointer;
-      font-weight: 400;
       margin-right: rem-calc(20);
+      font-weight: 400;
+      color: #b4c9d1;
+      cursor: pointer;
     }
-
     a:hover {
       color: #fff;
     }
-
     #stargazers {
-      :before {
-        content: "\f09b";
-        font-family: FontAwesome;
+      ::before {
+        margin-right: rem-calc(8);
+        font-family: FontAwesome, sans-serif;
         font-style: normal;
         font-weight: normal;
+        color: #b4c9d1;
         text-decoration: inherit;
-        color: #B4C9D1;
-        margin-right: rem-calc(8);
+        content: '\f09b';
       }
     }
-
     #twitter {
-      :before {
-        content: "\f099";
-        font-family: FontAwesome;
+      ::before {
+        margin-right: rem-calc(8);
+        font-family: FontAwesome, sans-serif;
         font-style: normal;
         font-weight: normal;
+        color: #b4c9d1;
         text-decoration: inherit;
-        color: #B4C9D1;
-        margin-right: rem-calc(8);
+        content: '\f099';
       }
     }
-
   }
-
   .tagline {
     @include breakpoint(small) {
       @include xy-cell(8);
@@ -77,13 +74,13 @@
 
     @include breakpoint(medium) {
       @include xy-cell(5);
+
       padding-top: 6rem;
     }
   }
-
   h1 {
-    color: #fff;
     font-weight: 500;
+    color: #fff;
 
     @include breakpoint(small) {
       font-size: 2.2rem;
@@ -93,13 +90,11 @@
       font-size: 2.875rem;
     }
   }
-
   h4 {
-    color: #fefefe;
-    font-weight: 300;
     font-size: 1.3125rem;
+    font-weight: 300;
+    color: #fefefe;
   }
-
   .download {
     margin-top: rem-calc(20);
   }
@@ -109,7 +104,6 @@
 .intro {
   @include xy-grid-container;
   @include xy-grid;
-
   .fp-intro {
     @include breakpoint(small) {
       @include xy-cell(12);
@@ -118,17 +112,15 @@
     @include breakpoint(medium) {
       @include xy-cell(10);
       @include xy-cell-offset(1);
-
       h2 {
-        font-weight: 300;
         margin-bottom: 1.5rem;
+        font-weight: 300;
       }
-
       h4 {
+        margin-bottom: 2rem;
         font-size: 1.125rem;
         line-height: 1.6;
         color: #777;
-        margin-bottom: 2rem;
       }
     }
   }
@@ -138,10 +130,10 @@
 .section-divider {
   @include xy-grid-container;
   @include xy-grid;
-
   hr {
     @include xy-cell(12);
-    @extend .dotted;
+    @extend .dotted !optional;
+
     box-sizing: border-box;
   }
 }
@@ -150,22 +142,19 @@
 .benefits {
   @include xy-grid-container;
   @include xy-grid;
-  text-align: center;
 
+  text-align: center;
   header {
     @include xy-cell(12);
-
     h2 {
       font-weight: 300;
     }
-
     h4 {
       font-size: 1.125rem;
       line-height: 1.6;
       color: #777;
     }
   }
-
   .semantic,
   .responsive,
   .customizable,
@@ -177,25 +166,22 @@
     @include breakpoint(medium) {
       @include xy-cell(3);
     }
-
     img {
       padding: 1.25rem;
       margin: 1rem auto 0 auto;
     }
-
     h3 {
-      color: #0a0a0a;
-      font-weight: 300;
       font-size: 1.75rem;
+      font-weight: 300;
+      color: #0a0a0a;
     }
-
     p {
       font-size: 0.9375rem;
     }
   }
-
   .why-foundation {
     @include xy-cell(12);
+
     margin-top: 4rem;
   }
 }

@@ -1,9 +1,18 @@
 @charset 'utf-8';
 
-
 @import 'settings';
+@import 'global/colors';
+@import 'override';
 @import 'foundation';
 @import 'motion-ui';
+@import 'modules/content';
+// @import 'components/mixins/font-family';
+// @import 'global/variables';
+// @import 'global/font-face';
+
+// Load Foundation
+
+// @include foundation-everything(true);
 
 @include foundation-global-styles;
 //@include foundation-grid;
@@ -48,7 +57,7 @@
 // @include foundation-float-classes;
 @include foundation-flex-classes;
 
-// @include foundation-prototype-classes;
+// // @include foundation-prototype-classes;
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
@@ -58,26 +67,51 @@
   Add your scss files below to structure your project styles
 */
 
+// Mixins
+// Mixins
+// @import 'components/mixins/flex';
+// @import 'components/mixins/avatar';
+// @import 'components/mixins/pseudo';
+@import 'components/mixins/push-center';
+// @import 'components/mixins/sidelines';
+// @import 'components/mixins/container-border';
+
 // Global
-@import "global/accessibility";
-@import "global/colors";
-@import "global/wp-admin";
-@import "global/wp-overrides";
-@import "global/gutenberg";
+@import 'global/accessibility';
+@import 'global/wp-admin';
+@import 'global/wp-overrides';
+@import 'global/gutenberg';
+// @import 'global/svg';
+@import 'global/headers';
+// @import 'global/helper-classes';
+// @import 'global/url-friendly-color'; // used for colors in SVGs in background-image
+// @import 'global/general';
+// @import 'global/helpers';
 
 // Modules
-@import "modules/navigation";
-@import "modules/content";
-@import "modules/footer";
-@import "modules/editor-style";
+@import 'modules/navigation';
+@import 'modules/footer';
+@import 'modules/editor-style';
+@import 'modules/side-navigation';
 
 // Components
-@import "components/buttons";
-@import "components/cards";
-@import "components/featured-image";
-@import "components/dividers";
-@import "components/links";
+// @import 'components/keyframe';
+// @import 'components/buttons';
+// @import 'components/cards';
+// @import 'components/featured-image';
+// @import 'components/dividers';
+// @import 'components/links';
+// @import 'components/gravity-forms';
+// @import 'components/reversed';
+@import 'components/back-to-top';
+// @import 'components/zindex';
 
 // Templates
-@import "templates/front";
-@import "templates/kitchen-sink";
+@import 'templates/front';
+@import 'templates/kitchen-sink';
+
+// customizer
+@import 'custom';
+
+// Print
+@import 'global/print';

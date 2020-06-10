@@ -9,50 +9,120 @@
  * theme as custom template tags. Others are attached to action and filter
  * hooks in WordPress to change core functionality.
  *
- * @link https://codex.wordpress.org/Theme_Development
+ * @link    https://codex.wordpress.org/Theme_Development
  * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @since   FoundationPress 1.0.0
  */
 
-/** Various clean up functions */
-require_once( 'library/cleanup.php' );
+/**
+ * Various clean up functions
+ */
 
-/** Required for Foundation to work properly */
-require_once( 'library/foundation.php' );
+require_once 'library/cleanup.php';
 
-/** Format comments */
-require_once( 'library/class-foundationpress-comments.php' );
+/**
+ * Required for Foundation to work properly
+ */
 
-/** Register all navigation menus */
-require_once( 'library/navigation.php' );
+require_once 'library/foundation.php';
 
-/** Add menu walkers for top-bar and off-canvas */
-require_once( 'library/class-foundationpress-top-bar-walker.php' );
-require_once( 'library/class-foundationpress-mobile-walker.php' );
+/**
+ * Format comments
+ */
+require_once 'library/class-foundationpress-comments.php';
 
-/** Create widget areas in sidebar and footer */
-require_once( 'library/widget-areas.php' );
+/**
+ * Register all navigation menus
+ */
+require_once 'library/navigation.php';
 
-/** Return entry meta information for posts */
-require_once( 'library/entry-meta.php' );
+/**
+ * Add menu walkers for top-bar and off-canvas
+ */
+require_once 'library/class-foundationpress-top-bar-walker.php';
+require_once 'library/class-foundationpress-mobile-walker.php';
 
-/** Enqueue scripts */
-require_once( 'library/enqueue-scripts.php' );
+/**
+ * Create widget areas in sidebar and footer
+*/
+require_once 'library/widget-areas.php';
 
-/** Add theme support */
-require_once( 'library/theme-support.php' );
+/**
+ * Return entry meta information for posts
+*/
+require_once 'library/entry-meta.php';
 
-/** Add Nav Options to Customer */
-require_once( 'library/custom-nav.php' );
+/**
+ * Enqueue scripts
+*/
+require_once 'library/enqueue-scripts.php';
 
-/** Change WP's sticky post class */
-require_once( 'library/sticky-posts.php' );
+/**
+ * Add theme support
+*/
+require_once 'library/theme-support.php';
 
-/** Configure responsive image sizes */
-require_once( 'library/responsive-images.php' );
+/**
+ * Add Nav Options to Customer
+*/
+require_once 'library/custom-nav.php';
 
-/** Gutenberg editor support */
-require_once( 'library/gutenberg.php' );
+/**
+ * Change WP's sticky post class
+*/
+require_once 'library/sticky-posts.php';
 
-/** If your site requires protocol relative url's for theme assets, uncomment the line below */
-// require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
+/**
+ * Configure responsive image sizes
+*/
+require_once 'library/responsive-images.php';
+
+/**
+ * Gutenberg editor support
+*/
+require_once 'library/gutenberg.php';
+
+/**
+ * If your site requires protocol relative url's for theme assets, uncomment the line below
+*/
+require_once 'library/class-foundationpress-protocol-relative-theme-assets.php';
+
+/**
+ * Override WooCommerce image sizes
+*/
+require_once 'library/woocommerce-image-sizes.php';
+
+/**
+ * Declare WooCommerce support
+*/
+require_once 'library/woocommerce-support.php';
+
+/**
+ * TinyMCE style changes
+*/
+require_once 'library/tinymce-styles.php';
+
+/**
+ * Add ACF options pages
+*/
+require_once 'library/acf-options.php';
+
+/**
+ * Attachment functions
+*/
+require_once 'library/attachment-functions.php';
+
+/**
+ * Convert string to slug
+*/
+require_once 'library/string-to-slug.php';
+
+/**
+ * Format phone numbers
+*/
+require_once 'library/phone-format.php';
+
+/**
+ * Remove type= from <script> and <style>
+*/
+require_once 'library/remove-type.php';

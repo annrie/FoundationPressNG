@@ -1,8 +1,8 @@
 .featured-hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   height: rem-calc(100);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
   @include breakpoint(medium) {
     height: rem-calc(200);

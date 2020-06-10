@@ -1,11 +1,11 @@
 /*
-Theme Name:         FoundationPress
-Theme URI:          http://foundationpress.olefredrik.com
-Github Theme URI:   https://github.com/olefredrik/FoundationPress
-Description:        FoundationPress is a WordPress starter theme based on Foundation 6 by Zurb
-Version:            2.10.4
-Author:             Ole Fredrik Lie
-Author URI:         http://olefredrik.com/
+Theme Name:         FoundationPressNG
+Theme URI:          https://phantomoon.com
+Github Theme URI:   https://github.com/annrie/FoundationPressNG
+Description:        FoundationPressNG is a WordPress starter theme based on Foundation 6
+Version:            2.10.7
+Author:             annrie
+Author URI:         https://phantomoon.com/
 
 License:            MIT License
 License URI:        http://www.opensource.org/licenses/mit-license.php
@@ -13,7 +13,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 
 /* ----------------------------------------------------------------------------
 
-  Unfortunately WordPress will require a style.css file
+  Unfortunately WordPressNG will require a style.css file
   located in the theme's root folder for stuff to work.
 
   However, we will not be using vanilla CSS. We're using Sass.
@@ -28,7 +28,7 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 
   Please read the README.md file before getting started. More info on how
   to use Sass with Foundation can be found here:
-  http://foundation.zurb.com/docs/sass.html
+  https://get.foundation/sites/docs/sass.html
 
   If you for some reason would like to write plain css instead of using Sass,
   you could just enqueue this file (style.css) to the header and add your styles in this file

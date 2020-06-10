@@ -1,0 +1,66 @@
+#top {
+  position: absolute;
+  top: 0;
+}
+#content-top {
+  position: absolute;
+  top: 100vh;
+}
+.back-to-top-sticky {
+  min-height: rem-calc(84);
+}
+.back-to-top-grid {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.back-to-top {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  pointer-events: none;
+  visibility: hidden;
+  a {
+    width: rem-calc(52);
+    height: rem-calc(52);
+    font-size: rem-calc(22);
+    color: $secondary-color;
+    pointer-events: all;
+    background-color: $white;
+    border-radius: 50%;
+    box-shadow: 0 0 rem-calc(10) rgba($black, 0.4);
+    transition: all 0.3s;
+    &:hover {
+      color: scale-color($secondary-color, $lightness: -15%);
+      background-color: $light-gray;
+    }
+    .button-tooltip {
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      cursor: inherit; // Overrides default tooltip underline
+      border-bottom: 0; // Overrides default tooltip underline
+    }
+  }
+  &.is-stuck {
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+  &.is-anchored {
+    &.is-at-top {
+      visibility: hidden;
+      opacity: 0;
+    }
+    &.is-at-bottom {
+      height: 0;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+.back-to-top-offset-bottom {
+  padding-bottom: rem-calc(92);
+}
+.back-to-top-offset-top {
+  padding-top: rem-calc(92);
+}

@@ -1,11 +1,19 @@
 <?php
 /**
- * Clean up WordPress defaults
+ * ACF Option Pages
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * PHP Version >=7.0
+ *
+ * @category FoundationPressNG
+ * @package  FoundationPressNG
+ * @author   annrie <blastspinner@gmail.com>
+ * @license  MIT
+ * @link     https://foundationpressng.phantomoon.com
  */
 
+?>
+
+<?php
 if ( ! function_exists( 'foundationpress_start_cleanup' ) ) :
 	function foundationpress_start_cleanup() {
 
@@ -24,6 +32,7 @@ if ( ! function_exists( 'foundationpress_start_cleanup' ) ) :
 	}
 	add_action( 'after_setup_theme', 'foundationpress_start_cleanup' );
 endif;
+
 /**
  * Clean up head.+
  * ----------------------------------------------------------------------------

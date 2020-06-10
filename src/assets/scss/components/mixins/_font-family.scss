@@ -1,0 +1,15 @@
+@mixin font-family($font-family: sans-serif) {
+  @if $font-family-sans-serif == sans-serif {
+    font-family: $font-family-sans-serif;
+    @media all and (-ms-high-contrast: none) {
+      & {
+        font-family: $ie-font;
+      }
+    }
+  } @else if $font-family == serif {
+    font-family: $font-family-serif;
+    font-feature-settings: 'palt';
+  } @else if $font-family == monospace {
+    font-family: $font-family-monospace;
+  }
+}

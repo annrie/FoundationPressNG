@@ -10,3 +10,6 @@ config.yml
 packaged/
 wpcs/
 vendor/
+.history/
+.vscode/
+.yarn/

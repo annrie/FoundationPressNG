@@ -1,0 +1,26 @@
+.reversed {
+  color: $white;
+  *:not(.button),
+  a {
+    &.clear {
+      &.button {
+        color: inherit;
+      }
+      &:not(.button) {
+        text-decoration: underline;
+      }
+      &:hover {
+        color: darken($white, 20%);
+      }
+    }
+  }
+  a {
+    &.clear {
+      &.button {
+        &:hover {
+          color: darken($white, 20%);
+        }
+      }
+    }
+  }
+}

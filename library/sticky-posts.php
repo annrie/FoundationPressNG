@@ -1,11 +1,19 @@
 <?php
 /**
- * Change the class for sticky posts to .wp-sticky to avoid conflicts with Foundation's Sticky plugin
+ * ACF Option Pages
  *
- * @package FoundationPress
- * @since FoundationPress 2.2.0
+ * PHP Version >=7.0
+ *
+ * @category FoundationPressNG
+ * @package  FoundationPressNG
+ * @author   annrie <blastspinner@gmail.com>
+ * @license  MIT
+ * @link     https://foundationpressng.phantomoon.com
  */
 
+?>
+
+<?php
 if ( ! function_exists( 'foundationpress_sticky_posts' ) ) :
 	function foundationpress_sticky_posts( $classes ) {
 		if ( in_array( 'sticky', $classes, true ) ) {

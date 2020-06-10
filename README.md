@@ -1,19 +1,14 @@
-# DEPRECATED
-This project will no longer be maintained. As Zurb Foundation is [no longer in active development ](https://github.com/foundation/foundation-sites/issues/11767), I would recommend that you base your front-end code on another framework, such as [Semantic UI](https://semantic-ui.com) or [Bootstrap](https://getbootstrap.com).
-
-To all of you who have contributed to FoundationPress over the years:
-**Thank you!**
-
-– Ole Fredrik
-
-
-# FoundationPress
+# FoundationPressNG
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/olefredrik/foundationpress?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![GitHub version](https://badge.fury.io/gh/olefredrik%2Ffoundationpress.svg)](https://github.com/olefredrik/FoundationPress/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is a starter-theme for WordPress based on Zurb's [Foundation for Sites 6](https://foundation.zurb.com/sites.html), the most advanced responsive (mobile-first) framework in the world. The purpose of FoundationPress, is to act as a small and handy toolbox that contains the essentials needed to build any design. FoundationPress is meant to be a starting point, not the final product.
+English | [Japanese](./README.JA.md)
+
+> NG is New Generation. Thanks for olefredrik's [FoundationPress](https://github.com/olefredrik/FoundationPress).
+
+This is a starter-theme for WordPress based on Zurb's [Foundation for Sites 6](https://get.foundation), the most advanced responsive (mobile-first) framework in the world. The purpose of FoundationPressNG, is to act as a small and handy toolbox that contains the essentials needed to build any design. FoundationPressNG is meant to be a starting point, not the final product.
 
 Please fork, copy, modify, delete, share or do whatever you like with this.
 
@@ -21,13 +16,13 @@ All contributions are welcome!
 
 ## Requirements
 
-**This project requires [Node.js](http://nodejs.org) v6.x.x 11.6.x to be installed on your machine.** Please be aware that you might encounter problems with the installation if you are using the most current Node version (bleeding edge) with all the latest features.
+**This project requires [Node.js](http://nodejs.org) v12.1.0 or higher is recommended.** Please be aware that you might encounter problems with the installation if you are using the most current Node version (bleeding edge) with all the latest features.
 
-FoundationPress uses [Sass](http://Sass-lang.com/) (CSS with superpowers). In short, Sass is a CSS pre-processor that allows you to write styles more effectively and tidy.
+FoundationPressNG uses [Sass](http://Sass-lang.com/) (CSS with superpowers). In short, Sass is a CSS pre-processor that allows you to write styles more effectively and tidy.
 
 The Sass is compiled using libsass, which requires the GCC to be installed on your machine. Windows users can install it through [MinGW](http://www.mingw.org/), and Mac users can install it through the [Xcode Command-line Tools](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/).
 
-If you have not worked with a Sass-based workflow before, I would recommend reading [FoundationPress for beginners](https://foundationpress.olefredrik.com/posts/tutorials/foundationpress-for-beginners), a short blog post that explains what you need to know.
+<!-- If you have not worked with a Sass-based workflow before, I would recommend reading [FoundationPress for beginners](https://foundationpress.olefredrik.com/posts/tutorials/foundationpress-for-beginners), a short blog post that explains what you need to know. -->
 
 ## Quickstart
 
@@ -112,8 +107,8 @@ If you need to output additional JavaScript files separate from `app.js`, do the
 
 ## Demo
 
-* [Clean FoundationPress install](http://foundationpress.olefredrik.com/)
-* [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
+* [Clean FoundationPressNG install](https://foundationpressng.phantomoon.com)
+* [FoundationPressNG Kitchen Sink - see every single element in action](https://foundationpressng.phantomoon.com/kitchen-sink/)
 
 ## Local Development
 We recommend using one of the following setups for local WordPress development:
@@ -124,7 +119,7 @@ We recommend using one of the following setups for local WordPress development:
 * [Local](https://local.getflywheel.com/) (macOS/Windows)
 * [VVV (Varying Vagrant Vagrants)](https://github.com/Varying-Vagrant-Vagrants/VVV) (Vagrant Box)
 * [Trellis](https://roots.io/trellis/)
-
+* [vccw](git@github.com:vccw-team/vccw.git) (Vagrant Box)
 
 ## Tutorials
 
@@ -135,8 +130,8 @@ We recommend using one of the following setups for local WordPress development:
 
 ## Documentation
 
-* [Zurb Foundation Docs](http://foundation.zurb.com/docs/)
-* [WordPress Codex](http://codex.wordpress.org/)
+* [Zurb Foundation Docs](https://get.foundation/frameworks-docs.html)
+* [WordPress Codex](https://codex.wordpress.org/)
 
 ## Showcase
 
@@ -162,14 +157,14 @@ We recommend using one of the following setups for local WordPress development:
 
 >Credit goes to all the brilliant designers and developers out there. Have **you** made a site that should be on this list? [Please let me know](https://twitter.com/olefredrik)
 
-## Contributing
+<!-- ## Contributing
 #### Here are ways to get involved:
 
 1. [Star](https://github.com/olefredrik/FoundationPress/stargazers) the project!
 2. Answer questions that come through [GitHub issues](https://github.com/olefredrik/FoundationPress/issues)
 3. Report a bug that you find
 4. Share a theme you've built on top of FoundationPress
-5. [Tweet](https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Ffoundationpress.olefredrik.com%2F&text=Check%20out%20FoundationPress%2C%20the%20ultimate%20%23WordPress%20starter-theme%20built%20on%20%23Foundation%206&tw_p=tweetbutton&url=http%3A%2F%2Ffoundationpress.olefredrik.com&via=olefredrik) and [blog](http://www.justinfriebel.com/my-first-experience-with-foundationpress-a-wordpress-starter-theme-106/) your experience of FoundationPress.
+5. [Tweet](https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Ffoundationpress.olefredrik.com%2F&text=Check%20out%20FoundationPress%2C%20the%20ultimate%20%23WordPress%20starter-theme%20built%20on%20%23Foundation%206&tw_p=tweetbutton&url=http%3A%2F%2Ffoundationpress.olefredrik.com&via=olefredrik) and [blog](http://www.justinfriebel.com/my-first-experience-with-foundationpress-a-wordpress-starter-theme-106/) your experience of FoundationPress. -->
 
 #### Pull Requests
 
