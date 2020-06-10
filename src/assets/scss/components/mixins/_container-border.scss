@@ -10,13 +10,17 @@ $container-box-shadow: 0 3px 25px rgba(0, 0, 0, 0.3);
 
   @if $shadow {
     box-shadow: $container-box-shadow;
-  }
-  @else {
+  } @else {
     box-shadow: none;
   }
 }
 
-@mixin border($direction, $width: $border-width, $style: $border-style, $color: $border-color) {
+@mixin border(
+  $direction,
+  $width: $border-width,
+  $style: $border-style,
+  $color: $border-color
+) {
   border-#{$direction}: $width $style $color;
 }
 .container-divider-right {

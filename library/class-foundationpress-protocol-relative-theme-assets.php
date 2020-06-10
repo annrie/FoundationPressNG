@@ -3,11 +3,13 @@
  * Protocol Relative Theme Assets
  *
  * @package FoundationPress
- * @since FoundationPress 1.1.0
+ * @since   FoundationPress 1.1.0
  */
 
 if ( ! class_exists( 'Foundationpress_Protocol_Relative_Theme_Assets' ) ) :
 	class Foundationpress_Protocol_Relative_Theme_Assets {
+
+
 		/**
 		 * Plugin URI: https://github.com/ryanjbonnell/Protocol-Relative-Theme-Assets
 		 * Description: Transforms enqueued CSS and JavaScript theme URLs to use protocol-relative paths.
@@ -17,8 +19,8 @@ if ( ! class_exists( 'Foundationpress_Protocol_Relative_Theme_Assets' ) ) :
 		 *
 		 * Class Constructor
 		 *
-		 * @access  public
-		 * @since   1.0
+		 * @access public
+		 * @since  1.0
 		 */
 		public function __construct() {
 			add_filter( 'style_loader_src', array( $this, 'style_loader_src' ), 10, 2 );
@@ -31,9 +33,9 @@ if ( ! class_exists( 'Foundationpress_Protocol_Relative_Theme_Assets' ) ) :
 		/**
 		 * Convert
 		 *
-		 * @access  private
-		 * @return  string
-		 * @since   1.0
+		 * @access private
+		 * @return string
+		 * @since  1.0
 		 */
 		private function make_protocol_relative_url( $url ) {
 			return preg_replace( '(https?://)', '//', $url );
@@ -42,9 +44,9 @@ if ( ! class_exists( 'Foundationpress_Protocol_Relative_Theme_Assets' ) ) :
 		/**
 		 * Transform Enqueued Stylesheet URLs
 		 *
-		 * @access  public
-		 * @return  string
-		 * @since   1.0
+		 * @access public
+		 * @return string
+		 * @since  1.0
 		 */
 		public function style_loader_src( $src, $handle ) {
 			return $this->make_protocol_relative_url( $src );
@@ -53,9 +55,9 @@ if ( ! class_exists( 'Foundationpress_Protocol_Relative_Theme_Assets' ) ) :
 		/**
 		 * Transform Enqueued JavaScript URLs
 		 *
-		 * @access  public
-		 * @return  string
-		 * @since   1.0
+		 * @access public
+		 * @return string
+		 * @since  1.0
 		 */
 		public function script_loader_src( $src, $handle ) {
 			return $this->make_protocol_relative_url( $src );
@@ -64,10 +66,10 @@ if ( ! class_exists( 'Foundationpress_Protocol_Relative_Theme_Assets' ) ) :
 		/**
 		 * Transform Enqueued Theme Files
 		 *
-		 * @access  public
-		 * @return  string
-		 * @since   1.0
-		 * @link    http://codex.wordpress.org/Function_Reference/get_template_directory_uri
+		 * @access public
+		 * @return string
+		 * @since  1.0
+		 * @link   http://codex.wordpress.org/Function_Reference/get_template_directory_uri
 		 */
 		public function template_directory_uri( $template_dir_uri, $template, $theme_root_uri ) {
 			return $this->make_protocol_relative_url( $template_dir_uri );
@@ -76,15 +78,15 @@ if ( ! class_exists( 'Foundationpress_Protocol_Relative_Theme_Assets' ) ) :
 		/**
 		 * Transform Enqueued Theme Files
 		 *
-		 * @access  public
-		 * @return  string
-		 * @since   1.0
-		 * @link    http://codex.wordpress.org/Function_Reference/get_stylesheet_directory_uri
+		 * @access public
+		 * @return string
+		 * @since  1.0
+		 * @link   http://codex.wordpress.org/Function_Reference/get_stylesheet_directory_uri
 		 */
 		public function stylesheet_directory_uri( $stylesheet_dir_uri, $stylesheet, $theme_root_uri ) {
 			return $this->make_protocol_relative_url( $stylesheet_dir_uri );
 		}
 	}
 
-	$foundationpress_protocol_relative_theme_assets = new Foundationpress_Protocol_Relative_Theme_Assets;
+	$foundationpress_protocol_relative_theme_assets = new Foundationpress_Protocol_Relative_Theme_Assets();
 endif;

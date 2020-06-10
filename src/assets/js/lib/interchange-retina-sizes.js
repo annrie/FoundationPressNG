@@ -1,6 +1,7 @@
 /**
  * Custom Interchange Sizes to Support Retina at Each Size
  */
+import Foundation from 'foundation-sites';
 
 Foundation.Interchange.SPECIAL_QUERIES['small-retina'] =
 	'screen and (min-width: 0em) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 0em) and (min--moz-device-pixel-ratio: 2), screen and (min-width: 0em) and (-o-min-device-pixel-ratio: 2/1), screen and (min-width: 0em) and (min-device-pixel-ratio: 2), screen and (min-width: 0em) and (min-resolution: 192dpi), screen and (min-width: 0em) and (min-resolution: 2dppx)';

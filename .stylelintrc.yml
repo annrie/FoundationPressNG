@@ -1,47 +1,52 @@
 plugins:
   - stylelint-scss
   - stylelint-declaration-block-no-ignored-properties
+  - stylelint-prettier
 extends:
   - stylelint-config-wordpress
   - stylelint-config-standard-scss
   - stylelint-config-recess-order
-  # - stylelint-prettier/recommended
+  - stylelint-config-standard
+  - stylelint-config-prettier
 syntax:
   - scss
 rules:
+  prettier/prettier: true
   indentation: [2, {baseIndentLevel: 0}]
   # scss/dollar-variable-colon-space-after: always
   scss/dollar-variable-colon-space-before: never
-  scss/operator-no-unspaced: true
+  scss/operator-no-unspaced: null
   scss/at-rule-no-unknown: true
-  # at-rule-no-unknown: null
-  at-rule-whitelist:
-    [
-      'extend',
-      'keyframes',
-      'import',
-      'include',
-      'charset',
-      'font-face',
-      'content',
-      'mixin',
-      'if',
-      'else',
-      'media',
-      'for',
-      'at-root',
-      'supports',
-      'function',
-      'return',
-      'warn',
-      'get-color',
-      'scale-color',
-      'each',
-    ]
   at-rule-no-unknown: null
+  property-no-unknown: null
+  font-weight-notation: null
+  selector-class-pattern: null
+  selector-id-pattern: null
+  # at-rule-whitelist:
+  #   [
+  #     'extend',
+  #     'keyframes',
+  #     'import',
+  #     'include',
+  #     'charset',
+  #     'font-face',
+  #     'content',
+  #     'mixin',
+  #     'if',
+  #     'else',
+  #     'media',
+  #     'for',
+  #     'at-root',
+  #     'supports',
+  #     'function',
+  #     'return',
+  #     'warn',
+  #     'get-color',
+  #     'scale-color',
+  #     'each',
+  #   ]
   at-rule-no-vendor-prefix: true # @ルールのベンタープリフィックス禁止
   font-family-name-quotes: always-where-recommended # 'font-family'はスペースで区切られたフォント名の場合クオートで囲む
-  font-weight-notation: named-where-possible # 'font-weight'はnormalなどのキーワードが使える場合はそちらを使う（400はNG）
   function-url-quotes: always # 'url()'の引数はクオートで囲む
   media-feature-name-no-vendor-prefix: true # '@media'内のベンダープリフィックス禁止
   no-descending-specificity: null # 詳細度の高いセレクタより後に詳細度の低いセレクタを定義するのを許容
@@ -56,6 +61,7 @@ rules:
   comment-empty-line-before: always
   function-comma-space-after: always
   function-parentheses-space-inside: never
+  function-linear-gradient-no-nonstandard-direction: null
   declaration-colon-space-after: always-single-line
   declaration-colon-space-before: never
   declaration-colon-newline-after: always-multi-line # 複数行の時のコロン後には改行が必須
@@ -94,38 +100,41 @@ rules:
   color-named: null
   color-no-hex: null
   color-no-invalid-hex: true
+  declaration-property-unit-whitelist: null
   # function-blacklist: ["/^rgb/", "/^hsl/"]
-  function-whitelist:
-    [
-      'my-color',
-      '/^rem/',
-      /scale/,
-      /^get/,
-      /^rgb*/,
-      /^gba/,
-      /darken/,
-      /lighten/,
-      /map-get/,
-      /local/,
-      /url/,
-      /format/,
-      /linear-gradient/,
-      /rotate/,
-      /skew/,
-      /floor/,
-      /z/,
-      /rect/,
-      /translate3d/,
-      /translateY/,
-      /translateX/,
-      /translate3d/,
-      /calc/,
-      /map-merge/,
-      /translate/,
-      /map-deep-get/,
-    ]
-  unit-whitelist:
-    ['em', 'rem', '%', 's', 'ms', 'vh', 'vw', 'px', 'deg', 'dpi', 'fr']
+  # function-whitelist:
+  #   [
+  #     'my-color',
+  #     '/^rem/',
+  #     /scale/,
+  #     /^get/,
+  #     /^rgb*/,
+  #     /^gba/,
+  #     /darken/,
+  #     /lighten/,
+  #     /map-get/,
+  #     /local/,
+  #     /url/,
+  #     /format/,
+  #     /linear-gradient/,
+  #     /rotate/,
+  #     /skew/,
+  #     /floor/,
+  #     /z/,
+  #     /rect/,
+  #     /translate3d/,
+  #     /translateY/,
+  #     /translateX/,
+  #     /translate3d/,
+  #     /calc/,
+  #     /map-merge/,
+  #     /translate/,
+  #     /map-deep-get/,
+  #     /to/,
+  #     /color-stop/,
+  #   ]
+  # unit-whitelist:
+  #   ['em', 'rem', '%', 's', 'ms', 'vh', 'vw', 'px', 'deg', 'dpi', 'fr']
   selector-pseudo-class-no-unknown: [true, {ignorePseudoClasses: [global]}]
   declaration-no-important: null
   font-family-no-duplicate-names: true

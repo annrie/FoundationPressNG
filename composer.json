@@ -10,5 +10,10 @@
   },
   "require": {
     "wp-coding-standards/wpcs": "*"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "bash _tools/setup.sh"
+    ]
   }
 }

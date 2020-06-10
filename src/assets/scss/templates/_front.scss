@@ -11,7 +11,9 @@
     padding: rem-calc(65%) 0;
     margin: 0 0 rem-calc(32);
     text-align: left;
-    background: url('../images/demo/hero-bg-foundation-6-small.svg') bottom center;
+    background:
+      url('../images/demo/hero-bg-foundation-6-small.svg') bottom
+      center;
     background-position: bottom;
     background-size: cover;
   }
@@ -19,7 +21,9 @@
   @include breakpoint(medium) {
     height: rem-calc(685);
     margin: 0 0 rem-calc(72);
-    background: url('../images/demo/hero-bg-foundation-6-large.svg') bottom center;
+    background:
+      url('../images/demo/hero-bg-foundation-6-large.svg') bottom
+      center;
     background-position: center;
     background-size: cover;
   }
@@ -43,7 +47,7 @@
     #stargazers {
       ::before {
         margin-right: rem-calc(8);
-        font-family: FontAwesome;
+        font-family: FontAwesome, sans-serif;
         font-style: normal;
         font-weight: normal;
         color: #b4c9d1;
@@ -54,7 +58,7 @@
     #twitter {
       ::before {
         margin-right: rem-calc(8);
-        font-family: FontAwesome;
+        font-family: FontAwesome, sans-serif;
         font-style: normal;
         font-weight: normal;
         color: #b4c9d1;
@@ -128,7 +132,7 @@
   @include xy-grid;
   hr {
     @include xy-cell(12);
-    @extend .dotted;
+    @extend .dotted !optional;
 
     box-sizing: border-box;
   }

@@ -1,40 +1,51 @@
 <?php
 /**
- * Foundation Styles for TinyMCE
+ * ACF Option Pages
+ *
+ * PHP Version >=7.0
+ *
+ * @category FoundationPressNG
+ * @package  FoundationPressNG
+ * @author   annrie <blastspinner@gmail.com>
+ * @license  MIT
+ * @link     https://foundationpressng.phantomoon.com
  */
 
- // Callback function to insert 'styleselect' into the $buttons array
- function my_mce_buttons_2( $buttons ) {
- 	array_unshift( $buttons, 'styleselect' );
- 	return $buttons;
- }
- // Register our callback to the appropriate filter
- add_filter( 'mce_buttons_2', 'my_mce_buttons_2' );
+?>
+
+<?php
+// Callback function to insert 'styleselect' into the $buttons array
+function my_mce_buttons_2( $buttons ) {
+	array_unshift( $buttons, 'styleselect' );
+	return $buttons;
+}
+// Register our callback to the appropriate filter
+add_filter( 'mce_buttons_2', 'my_mce_buttons_2' );
 
 
- // Callback function to filter the MCE settings
+// Callback function to filter the MCE settings
 function my_mce_before_init_insert_formats( $init_array ) {
 	// Define the style_formats array
 	$style_formats = array(
 		// Each array child is a format with it's own settings
 		array(
-			'title' => 'Primary Button',
+			'title'    => 'Primary Button',
 			'selector' => 'a',
-			'classes' => 'large button',
+			'classes'  => 'large button',
 		),
 		array(
-			'title' => 'Secondary Button',
+			'title'    => 'Secondary Button',
 			'selector' => 'a',
-			'classes' => 'large secondary button',
+			'classes'  => 'large secondary button',
 		),
-    array(
-			'title' => 'Clear Button',
+		array(
+			'title'    => 'Clear Button',
 			'selector' => 'a',
-			'classes' => 'large clear button',
+			'classes'  => 'large clear button',
 		),
 	);
 	// Insert the array, JSON ENCODED, into 'style_formats'
-	$init_array['style_formats'] = json_encode( $style_formats );
+	$init_array['style_formats'] = wp_json_encode( $style_formats );
 
 	return $init_array;
 
@@ -45,10 +56,10 @@ add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
 /*
  * Modify TinyMCE editor to remove H1.
  */
-function tiny_mce_remove_unused_formats($init) {
+function tiny_mce_remove_unused_formats( $init ) {
 	// Add block format elements you want to show in dropdown
 	$init['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6;Address=address;Pre=pre';
 	return $init;
 }
 
-add_filter('tiny_mce_before_init', 'tiny_mce_remove_unused_formats' );
+add_filter( 'tiny_mce_before_init', 'tiny_mce_remove_unused_formats' );

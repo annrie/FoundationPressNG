@@ -8,7 +8,11 @@
 .gform_validation_container,
 .gform_wrapper .gform_validation_container,
 body .gform_wrapper li.gform_validation_container,
-body .gform_wrapper .gform_body ul.gform_fields li.gfield.gform_validation_container,
+body
+.gform_wrapper
+.gform_body
+ul.gform_fields
+li.gfield.gform_validation_container,
 body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
   position: absolute !important;
   left: -9000px;

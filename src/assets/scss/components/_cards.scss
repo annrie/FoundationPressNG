@@ -1,16 +1,15 @@
 .cards-container {
-
   @include xy-grid;
   .card {
     @include breakpoint(small) {
-      @include xy-cell( 12 );
+      @include xy-cell(12);
       .card-content {
         padding: 1rem;
       }
     }
 
     @include breakpoint(medium) {
-      @include xy-cell( 1 of 3, $gutters: ( 0.7rem ) );
+      @include xy-cell(1 of 3, $gutters: (0.7rem));
     }
   }
 }

@@ -2,8 +2,8 @@
 /**
  * The template for displaying 404 pages (not found)
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @package FoundationPressNG
+ * @since   FoundationPressNG 1.0.0
  */
 
 get_header(); ?>
@@ -26,9 +26,9 @@ get_header(); ?>
 						</li>
 						<li>
 							<?php
-								/* translators: %s: home page url */
 								printf(
-									__( 'Return to the <a href="%s">home page</a>', 'foundationpress' ),
+								/* translators: %s: home page url */
+                __( 'Return to the <a href="%s">home page</a>', 'foundationpress' ),
 									home_url()
 								);
 								?>

@@ -3,14 +3,14 @@
  * The template for displaying search results pages.
  *
  * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @since   FoundationPress 1.0.0
  */
 
 get_header(); ?>
 
 <div class="main-container">
 	<div class="main-grid">
-		<main id="main" class="main-content" tabindex="-1">
+		<main id="main" class="main-content" role="main" tabindex="-1">
 			<div id="search-results">
 
 				<header>
@@ -29,7 +29,7 @@ get_header(); ?>
 					<?php else : ?>
 						<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-				<?php endif; ?>
+					<?php endif; ?>
 
 				<?php
 				if ( function_exists( 'foundationpress_pagination' ) ) :

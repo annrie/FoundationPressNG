@@ -10,14 +10,14 @@
  * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
  *
  * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @since   FoundationPress 1.0.0
  */
 
 get_header(); ?>
 
 <div class="main-container">
 	<div class="main-grid">
-		<main id="main" class="main-content" tabindex="-1">
+		<main id="main" class="main-content" role="main" tabindex="-1">
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
@@ -47,7 +47,6 @@ get_header(); ?>
 
 		</main>
 		<?php get_sidebar(); ?>
-
 	</div>
 </div>
 <?php

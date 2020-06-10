@@ -12,22 +12,48 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @since   FoundationPress 1.0.0
  */
 
 get_header(); ?>
 
 <div class="main-container">
 	<div class="main-grid">
-		<main id="main" class="main-content" tabindex="-1">
+		<main id="main" class="main-content" role="main" tabindex="-1">
 		<?php if ( have_posts() ) : ?>
+		<header class="page-header">
+			<?php the_category_image(); ?>
+			<h1 class="page-title">
+			<?php
+			if ( is_category() ) {
+				echo '<small>カテゴリー</small>「' . single_cat_title( '', false ) . '」<small>の投稿一覧</small>';
+			} elseif ( is_tag() ) {
+					echo '<small>タグ</small>「' . single_tag_title( '', false ) . '」<small>の投稿一覧</small>';
+			} elseif ( is_day() ) {
+					echo '「' . get_the_date( 'Y年n月j日' ) . '」<small>の投稿一覧</small>';
+			} elseif ( is_month() ) {
+					echo '「' . get_the_date( 'Y年n月' ) . '」<small>の投稿一覧</small>';
+			} elseif ( is_year() ) {
+					echo '「' . get_the_date( 'Y年' ) . '」<small>の投稿一覧</small>';
+			} elseif ( is_tax() ) {
+					echo '「' . single_term_title( '', false ) . '」<small>の投稿一覧</small>';
+			} elseif ( is_search() ) {
+					echo '「' . get_search_query() . '」<small>の投稿一覧</small>';
+			} elseif ( is_author() ) {
+					echo esc_html( get_the_author_meta( 'display_name', get_query_var( 'author' ) ) );
+			} else {
+					echo 'Blog';
+			}
+			?>
+			</h1>
+		</header>
 
 			<?php /* Start the Loop */ ?>
 			<?php
 			while ( have_posts() ) :
 				the_post();
 				?>
-				<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+				<?php get_template_part( 'template-parts/content', 'archive', get_post_format() ); ?>
 			<?php endwhile; ?>
 
 			<?php else : ?>
@@ -49,6 +75,7 @@ get_header(); ?>
 
 		</main>
 		<?php get_sidebar(); ?>
+		<?php get_template_part( 'back-to-top' ); ?>
 
 	</div>
 </div>

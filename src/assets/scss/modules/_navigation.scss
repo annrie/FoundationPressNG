@@ -1,3 +1,16 @@
+.no-js {
+  @include breakpoint(medium only) {
+    .desktop-menu {
+      display: none;
+    }
+  }
+
+  @include breakpoint(medium) {
+    .mobile-menu {
+      display: none;
+    }
+  }
+}
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {

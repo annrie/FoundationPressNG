@@ -1,5 +1,19 @@
 # Change Log
 
+## [v2.10.7](https://github.com/annrie/FoundationPressNG.git/tree/v2.10.7) (2020-06-10)
+
+** Changes **
+- Update Foundation to 6.6.3
+- Update JQuery to 3.5
+- Update Bavel to 7
+- Update Webpack to 4
+- Update codesniffer.ruleset.xml for new phpcs/phpcbf
+- Added new Close Button scss settings $closebutton-default-size: medium;
+$closebutton-z-index: 10;
+- Updated cards.scss and wp-overrides.scss
+- Add new sereral scss files
+
+
 ## [v2.10.6](https://github.com/olefredrik/FoundationPress/tree/v2.10.6) (2019-04-12)
 
 ** Changes **

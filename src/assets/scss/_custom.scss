@@ -2,3 +2,12 @@
  Global styles for FoundationPressNG
  Demo: https://FoundationPressNG.phantomoon.com/
 */
+body {
+  // @include font-family(sans-serif);
+
+  overflow-x: hidden;
+  color: #333;
+  background-color: #dcedc8;
+  font-feature-settings: 'halt';
+  font-variant-east-asian: proportional-width;
+}

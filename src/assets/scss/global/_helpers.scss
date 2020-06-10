@@ -2,6 +2,6 @@
   $margin: ($i);
 
   .mb#{$i} {
-    margin-bottom: $margin+rem !important;
+    margin-bottom: $margin + rem !important;
   }
 }

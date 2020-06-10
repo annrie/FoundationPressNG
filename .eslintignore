@@ -1,1 +1,4 @@
-/vendor/**
+vendor/**
+files/**
+dist/**
+.cz*

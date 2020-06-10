@@ -15,6 +15,7 @@ $charcoal: #555;
 $tuatara: #444;
 $oil: #333;
 $jet: #222;
+$dark-nav-color: #2c3840;
 
 // JISå®‰å…¨è‰²  ( JIS Z 9103 )
 $red: #ff4b00; // rgb (255,75,0)
@@ -32,6 +33,7 @@ $h4-font-size: rem-calc (24);
 $h5-font-size: rem-calc (20);
 $h6-font-size: 1rem;
 
+$global-font-size: 16px;
 $global-lineheight: 1.6;
 $global-prototype-breakpoints: true;
 $print-transparent-backgrounds: false;
@@ -48,7 +50,7 @@ $breakpoints: (
   tablet: 768px,
   large: 1024px,
   xlarge: 1200px,
-  xxlarge: 1440px
+  xxlarge: 1440px,
 );
 $breakpoint-classes: (small medium tablet large xlarge xxlarge);
 

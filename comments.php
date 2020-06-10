@@ -1,14 +1,19 @@
 <?php
 /**
- * The template for displaying comments
+ * ACF Option Pages
  *
- * The area of the page that contains both current comments
- * and the comment form.
+ * PHP Version >=7.0
  *
- * @package FoundationPress
- * @since   FoundationPress 1.0.0
+ * @category FoundationPressNG
+ * @package  FoundationPressNG
+ * @author   annrie <blastspinner@gmail.com>
+ * @license  MIT
+ * @link     https://foundationpressng.phantomoon.com
  */
 
+?>
+
+<?php
 if ( have_comments() ) :
 	?>
 	<section id="comments">
@@ -45,11 +50,10 @@ endif;
 ?>
 
 <?php
-
-	/*
-	Do not delete these lines.
-	Prevent access to this file directly
-	*/
+/*
+Do not delete these lines.
+Prevent access to this file directly
+*/
 
 	defined( 'ABSPATH' ) || die( __( 'Please do not load this page directly. Thanks!', 'foundationpress' ) );
 

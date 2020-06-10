@@ -4,8 +4,8 @@
  *
  * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @package FoundationPressNG
+ * @since   FoundationPressNG 1.0.0
  */
 
 ?>
@@ -20,11 +20,11 @@
 
 		<p>
 			<?php
-				/* translators: %1$s: new post url */
-				printf(
-					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'foundationpress' ),
-					admin_url( 'post-new.php' )
-				);
+			printf(
+			/* translators: %1$s: new post url */
+				__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'foundationpress' ),
+				admin_url( 'post-new.php' )
+			);
 			?>
 		</p>
 

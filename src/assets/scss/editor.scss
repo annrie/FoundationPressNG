@@ -7,22 +7,29 @@
 @charset 'utf-8';
 
 @import 'settings';
+@import 'override';
 @import 'foundation';
 
 @include foundation-typography;
 @include foundation-button;
 @include foundation-table;
 
-
 /** === Content Width === */
 .wp-block {
-  width: calc(100vw - (2 * 10));
+  max-width: 760px;
   @each $breakpoint, $size in $grid-margin-gutters {
-
     @include breakpoint($breakpoint) {
       width: calc(100vw - ($size));
     }
   }
+}
+.wp-blocl-categories.aligncenter,
+.wp-block-latest-posts.aligncenter,
+.wp-block-archives.aligncenter,
+.wp-blocl-tag.cloud.aligncenter,
+.wp-block-latest-comments.aligncenter,
+.wp-block-rss.aligncenter {
+  text-align: center;
 }
 
 /** === Base Typography === */
@@ -34,12 +41,12 @@ body {
 
 /** === Post Title === */
 .editor-post-title__block .editor-post-title__input {
+  font-family: inherit;
   @extend h1;
 }
 
-/** === Button === */
+//** === Button === */
 .wp-block-button {
-
   // add general foundation button styling to button in editor
   .wp-block-button__link {
     @extend .button;
@@ -82,4 +89,67 @@ body {
 /** === Latest Posts grid view === */
 .wp-block-latest-posts.is-grid {
   list-style: none;
+}
+
+// gutengerg用のつもり
+.alignleft {
+  float: left;
+  margin: 0 2rem 2rem 0;
+}
+.alignright {
+  float: right;
+  margin: 0 0 2rem 2rem;
+}
+.aligncenter {
+  display: block;
+  margin: 2rem auto;
+  clear: both;
+}
+article {
+  box-sizing: border-box;
+  display: flow-root;
+}
+article::after {
+  display: block;
+  clear: both;
+
+  /* 未対応ブラウザ用の設定 */
+  content: '';
+}
+article *,
+article *::before,
+article *::after {
+  box-sizing: inherit;
+}
+
+/* 色設定 */
+.has-primary-background-color {
+  gackground-color: #1779ba;
+}
+.has-secondary-background-color {
+  gackground-color: #767676;
+}
+.has-success-background-color {
+  gackground-color: #3adb76;
+}
+.has-warning-backrgound-color {
+  gackground-color: #ffae00;
+}
+.has-alert-backrgound-color {
+  gackground-color: #cc4b37;
+}
+.has-primary-color {
+  color: #1779ba;
+}
+.has-secondary-color {
+  color: #767676;
+}
+.has-success-color {
+  color: #3adb76;
+}
+.has-warning-color {
+  gackground-color: #ffae00;
+}
+.has-alert-color {
+  color: #cc4b37;
 }

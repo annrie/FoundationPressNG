@@ -1,33 +1,41 @@
 <?php
-
 /**
- * Return the slug of a string to be used in a URL.
+ * ACF Option Pages
  *
- * @return String
+ * PHP Version >=7.0
+ *
+ * @category FoundationPressNG
+ * @package  FoundationPressNG
+ * @author   annrie <blastspinner@gmail.com>
+ * @license  MIT
+ * @link     https://foundationpressng.phantomoon.com
  */
 
-function to_slug($text){
-    // replace non letter or digits by -
-    $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+?>
 
-    // transliterate
-    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+<?php
+function to_slug( $text ) {
+	// replace non letter or digits by -
+	$text = preg_replace( '~[^\pL\d]+~u', '-', $text );
 
-    // remove unwanted characters
-    $text = preg_replace('~[^-\w]+~', '', $text);
+	// transliterate
+	$text = iconv( 'utf-8', 'us-ascii//TRANSLIT', $text );
 
-    // trim
-    $text = trim($text, '-');
+	// remove unwanted characters
+	$text = preg_replace( '~[^-\w]+~', '', $text );
 
-    // remove duplicated - symbols
-    $text = preg_replace('~-+~', '-', $text);
+	// trim
+	$text = trim( $text, '-' );
 
-    // lowercase
-    $text = strtolower($text);
+	// remove duplicated - symbols
+	$text = preg_replace( '~-+~', '-', $text );
 
-    if (empty($text)) {
-      return 'n-a';
-    }
+	// lowercase
+	$text = strtolower( $text );
 
-    return $text;
+	if ( empty( $text ) ) {
+		return 'n-a';
+	}
+
+	return $text;
 }

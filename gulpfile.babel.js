@@ -5,30 +5,20 @@ import yargs from 'yargs';
 import browser from 'browser-sync';
 import gulp from 'gulp';
 import rimraf from 'rimraf';
-// import sherpa from 'style-sherpa';
 import yaml from 'js-yaml';
 import fs from 'fs';
 import dateFormat from 'dateformat';
 import webpackStream from 'webpack-stream';
 import webpack2 from 'webpack';
 import named from 'vinyl-named';
-// import uncss from 'uncss';
-// import gulpSass from 'gulp-sass';
-// import gulpStylelint from 'gulp-stylelint';
-// import changed from "gulp-changed-in-place";
-// import autoprefixer from "autoprefixer";
 import log from 'fancy-log';
 import colors from 'ansi-colors';
-// import phpcs from 'gulp-phpcs'
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
 
 // Check for --production flag
 const PRODUCTION = !!yargs.argv.production;
-
-// Load settings from settings.yml
-// const { PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
 
 // Check for --development flag unminified with sourcemaps
 const DEV = !!yargs.argv.dev;
@@ -141,7 +131,7 @@ function sass() {
 // In production, the file is minified
 const webpack = {
 	config: {
-		mode: PRODUCTION ? 'production' : 'development',
+		mode: 'development',
 		module: {
 			rules: [
 				{
@@ -302,7 +292,7 @@ function server(done) {
 		proxy: BROWSERSYNC.url,
 
 		ui: {
-			port: 8000,
+			port: 8080,
 		},
 	});
 	done();

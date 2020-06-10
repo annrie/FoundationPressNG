@@ -51,14 +51,14 @@ echo '</div>';
 					<div class="grid-x grid-padding-x grid-padding-y align-center-middle">
 						<div class="cell small-3 medium-5 large-4 text-center medium-text-left">
 							<svg xmlns="http://www.w3.org/2000/svg" width="300" viewBox="0 0 57 97" role="img">
-							  <title>Rocket ship</title>
-							  <defs>
+							<title>Rocket ship</title>
+							<defs>
 								<linearGradient id="rocket-a" x1="100%" x2="0%" y1="50%" y2="50%">
-								  <stop offset="0%" stop-color="#00C97A"/>
-								  <stop offset="100%" stop-color="#005876"/>
+								<stop offset="0%" stop-color="#00C97A"/>
+								<stop offset="100%" stop-color="#005876"/>
 								</linearGradient>
-							  </defs>
-							  <g fill="none" fill-rule="evenodd" transform="translate(.567 .367)">
+							</defs>
+							<g fill="none" fill-rule="evenodd" transform="translate(.567 .367)">
 								<path fill="#00C97A" d="M18.2666667,17.2790667 C11.6554333,22.4999667 6.56303333,29.5602333 3.75976667,37.6878667 C3.6388,38.0383333 3.39426667,38.2695333 3.108,38.383 C2.53383333,38.6125333 1.7961,38.3671667 1.57326667,37.6577667 C0.5518,34.3964 0.00183333333,30.9255333 0.00183333333,27.3278 C0.00183333333,16.2542333 5.21606667,6.39746667 13.3228333,0.0799333333 C13.3437,0.0632333333 13.3654,0.0482333333 13.3871,0.0332 C13.4246333,0.301966667 13.4638667,0.569833333 13.5047667,0.837733333 C13.569,1.26083333 13.6382667,1.6823 13.7109,2.10203333 C14.2692,5.33423333 15.062,8.48713333 16.0718,11.5449333 C16.6067667,13.1647667 17.2026333,14.7570667 17.8560667,16.3201667 C17.9904333,16.6406333 18.1273,16.9602667 18.2666667,17.2790667" transform="translate(.027 48.95)"/>
 								<path fill="#008E79" d="M17.2666667,15.2064333 C10.6554333,20.4273333 5.56303333,27.4876 2.75976667,35.6152333 C2.6388,35.9657 2.39426667,36.1969 2.108,36.3103667 C1.83343333,36.1977 1.59976667,35.9707333 1.49296667,35.6293667 C0.5282,32.5482667 0.0083,29.2685 0.0083,25.8685667 C0.0083,15.4058667 4.93543333,6.09156667 12.5949,0.122866667 C12.6065667,0.1137 12.6633,0.0678 12.7109,0.0294 C13.2692,3.2616 14.062,6.4145 15.0718,9.4723 C15.6067667,11.0921333 16.2026333,12.6844333 16.8560667,14.2475333 C16.9904333,14.568 17.1273,14.8876333 17.2666667,15.2064333" transform="translate(1.027 51.023)"/>
 								<path fill="#00C97A" d="M0,17.2790667 C6.61123333,22.4999667 11.7036333,29.5602333 14.5068667,37.6878667 C14.6278667,38.0383333 14.8724,38.2695333 15.1586667,38.383 C15.7328,38.6125333 16.4705667,38.3671667 16.6934,37.6577667 C17.7148333,34.3964 18.2648333,30.9255333 18.2648333,27.3278 C18.2648333,16.2542333 13.0506,6.39746667 4.9438,0.0799333333 C4.92296667,0.0632333333 4.90126667,0.0482333333 4.87956667,0.0332 C4.84203333,0.301966667 4.8028,0.569833333 4.7619,0.837733333 C4.69766667,1.26083333 4.6284,1.6823 4.55576667,2.10203333 C3.99746667,5.33423333 3.20466667,8.48713333 2.19486667,11.5449333 C1.6599,13.1647667 1.06403333,14.7570667 0.410566667,16.3201667 C0.276233333,16.6406333 0.139366667,16.9602667 0,17.2790667" transform="translate(37.583 48.95)"/>
@@ -79,12 +79,12 @@ echo '</div>';
 								<path fill="#333" d="M0.233333333,0.0316333333 L9.81696667,0.0316333333 C9.94583333,0.0316333333 10.0503,0.1361 10.0503,0.264966667 L10.0503,0.966666667 C10.0503,1.09553333 9.94583333,1.2 9.81696667,1.2 L0.233333333,1.2 C0.104466667,1.2 0,1.09553333 0,0.966666667 L0,0.264966667 C0,0.1361 0.104466667,0.0316333333 0.233333333,0.0316333333" transform="translate(22.84 55.309)"/>
 								<path fill="#333" d="M0.233333333,0.0316333333 L9.81696667,0.0316333333 C9.94583333,0.0316333333 10.0503,0.1361 10.0503,0.264966667 L10.0503,0.966666667 C10.0503,1.09553333 9.94583333,1.2 9.81696667,1.2 L0.233333333,1.2 C0.104466667,1.2 0,1.09553333 0,0.966666667 L0,0.264966667 C0,0.1361 0.104466667,0.0316333333 0.233333333,0.0316333333" transform="translate(22.84 57.645)"/>
 								<path fill="#333" d="M0.233333333,0.0316333333 L9.81696667,0.0316333333 C9.94583333,0.0316333333 10.0503,0.136133333 10.0503,0.264966667 L10.0503,0.966666667 C10.0503,1.09553333 9.94583333,1.2 9.81696667,1.2 L0.233333333,1.2 C0.104466667,1.2 0,1.09553333 0,0.966666667 L0,0.264966667 C0,0.136133333 0.104466667,0.0316333333 0.233333333,0.0316333333" transform="translate(22.84 59.982)"/>
-							  </g>
+							</g>
 							</svg>
 
 						</div>
 						<div class="cell medium-7 large-8 text-center medium-text-left">
-							<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+		<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 							<header class="show-for-sr">
 							<h2 id="intro-title" class="intro-title">Intro</h2>
 							</header>
@@ -102,9 +102,9 @@ echo '</div>';
 								?>
 								<p><?php the_tags(); ?></p>
 							</footer>
-							<?php do_action( 'foundationpress_page_before_comments' ); ?>
-							<?php comments_template(); ?>
-							<?php do_action( 'foundationpress_page_after_comments' ); ?>
+		<?php do_action( 'foundationpress_page_before_comments' ); ?>
+		<?php comments_template(); ?>
+		<?php do_action( 'foundationpress_page_after_comments' ); ?>
 						</div>
 					</div>
 				</article>
@@ -150,36 +150,36 @@ echo '</div>';
 						</header>
 					</div>
 
-					<?php $i = 1; // Count ?>
-					<?php
-					while ( $query->have_posts() ) :
-						$query->the_post();
-						?>
+		<?php $i = 1; // Count ?>
+		<?php
+		while ( $query->have_posts() ) :
+			$query->the_post();
+			?>
 
-						<?php // The content ?>
+			<?php // The content ?>
 					<div class="cell small-8 medium-6 large-4 text-center
-						<?php
-						if ( $i == $posts_total ) :
-							?>
-						 hide-for-medium-only<?php endif; ?>">
+			<?php
+			if ( $i === $posts_total ) :
+				?>
+hide-for-medium-only<?php endif; ?>">
 						<article <?php post_class( 'card full-height' ); ?> id="post-<?php the_ID(); ?>" aria-labelledby="post-title-<?php the_ID(); ?>">
 							<div class="card-image">
-								<?php
-								if ( has_post_thumbnail( $post->ID ) ) :
-									echo the_post_thumbnail( 'small' );
-								endif;
-								?>
+			<?php
+			if ( has_post_thumbnail( $post->ID ) ) :
+				echo the_post_thumbnail( 'small' );
+			endif;
+			?>
 							</div>
-						  <div class="card-section">
+						<div class="card-section">
 								<header>
 									<h3 id="post-title-<?php the_ID(); ?>" class="post-title"><?php the_title(); ?></h3>
 								</header>
-								<?php the_content(); ?>
-						  </div>
+			<?php the_content(); ?>
+						</div>
 						</article>
 					</div>
 
-					<?php endwhile; ?>
+		<?php endwhile; ?>
 				</div>
 			</div>
 		</div>

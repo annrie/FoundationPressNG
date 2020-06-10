@@ -1,16 +1,23 @@
 <?php
 /**
- * Register Menus
+ * ACF Option Pages
  *
- * @link http://codex.wordpress.org/Function_Reference/register_nav_menus#Examples
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * PHP Version >=7.0
+ *
+ * @category FoundationPressNG
+ * @package  FoundationPressNG
+ * @author   annrie <blastspinner@gmail.com>
+ * @license  MIT
+ * @link     https://foundationpressng.phantomoon.com
  */
 
+?>
+
+<?php
 register_nav_menus(
 	array(
-		'top-bar-r'  => esc_html__( 'Right Top Bar', 'foundationpress' ),
-		'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
+		'top-bar-r'   => esc_html__( 'Right Top Bar', 'foundationpress' ),
+		'mobile-nav'  => esc_html__( 'Mobile', 'foundationpress' ),
 		'privacy-nav' => esc_html__( 'Privacy', 'foundationpress' ),
 	)
 );
@@ -26,8 +33,8 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 		wp_nav_menu(
 			array(
 				'container'      => false,
-				'menu_class'     => 'dropdown menu',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu>%3$s</ul>',
+				'menu_class'     => 'dropdown menu desktop-menu',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
 				'theme_location' => 'top-bar-r',
 				'depth'          => 3,
 				'fallback_cb'    => false,
@@ -49,7 +56,7 @@ if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 				'menu'           => __( 'mobile-nav', 'foundationpress' ),
 				'menu_class'     => 'vertical menu',
 				'theme_location' => 'mobile-nav',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s" data-accordion-menu data-submenu-toggle="true">%3$s</ul>',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s" data-drilldown data-parent-link="true" data-submenu-toggle="true">%3$s</ul>',
 				'fallback_cb'    => false,
 				'walker'         => new Foundationpress_Mobile_Walker(),
 			)
@@ -61,20 +68,20 @@ if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 /**
  * Privacy navigation
  */
- if ( ! function_exists( 'foundationpress_privacy_nav' ) ) {
- 	function foundationpress_privacy_nav() {
- 		wp_nav_menu(
- 			array(
- 				'container'      => false,
- 				'menu_class'     => 'menu',
- 				'items_wrap'     => '<ul id="%1$s" class="%2$s privacy-menu align-center">%3$s</ul>',
- 				'theme_location' => 'privacy-nav',
- 				'depth'          => 1,
- 				'fallback_cb'    => false,
- 			)
- 		);
- 	}
- }
+if ( ! function_exists( 'foundationpress_privacy_nav' ) ) {
+	function foundationpress_privacy_nav() {
+		wp_nav_menu(
+			array(
+				'container'      => false,
+				'menu_class'     => 'vertical menu accordion-menu',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s nested privacy-menu align-center">%3$s</ul>',
+				'theme_location' => 'privacy-nav',
+				'depth'          => 3,
+				'fallback_cb'    => false,
+			)
+		);
+	}
+}
 
 
 /**

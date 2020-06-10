@@ -7,15 +7,15 @@
  * other "pages" on your WordPress site will use a different template.
  *
  * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @since   FoundationPress 1.0.0
  */
 
- get_header(); ?>
+get_header(); ?>
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 <div class="main-container">
 	<div class="main-grid">
-		<main id="main" class="main-content-full-width" tabindex="-1">
+		<main id="main" class="main-content" role="main" tabindex="-1">
 			<?php
 			while ( have_posts() ) :
 				the_post();
@@ -24,6 +24,8 @@
 				<?php comments_template(); ?>
 			<?php endwhile; ?>
 		</main>
+		<?php get_sidebar(); ?>
+		<?php get_template_part( 'back-to-top' ); ?>
 	</div>
 </div>
 <?php
