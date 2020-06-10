@@ -14,35 +14,6 @@
 		<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 			<meta charset="<?php bloginfo( 'charset' ); ?>" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-			<?php
-			if ( is_single() && ( in_category( 'blog' ) || in_category( 'web' ) || in_category( 'information' ) || in_category( 'machaki' ) ) ) :
-				get_template_part( 'header_ogp' );
-			endif;
-			?>
-	<?php if ( is_single() ) : ?>
-		<?php if ( have_posts() ) : ?>
-			<?php
-			while ( have_posts() ) :
-				the_post();
-				?>
-				<link rel="alternate" hreflang="ja" href="<?php the_permalink(); ?>">
-			<?php endwhile; ?>
-		<?php endif; ?>
-		<?php
-		elseif ( is_home() || is_front_page() ) :
-			?>
-		<link rel="alternate" hreflang="ja" href="<?php echo home_url(); ?>">
-	<?php endif; ?>
-		<?php wp_head(); ?>
-</head>
-    <body <?php body_class(); ?>>
-    <?php
-    if ( ! function_exists( 'wp_body_open' ) ) {
-    function wp_body_open() {
-        do_action( 'wp_body_open' );
-    }
-    }
-    ?>
 		<?php
 		/**
 		 * Skip Links
@@ -99,35 +70,16 @@
 				<section class="site-navigation top-bar" aria-label="Site navigation" id="<?php foundationpress_mobile_menu_id(); ?>">
 					<div class="top-bar-left">
 						<div class="site-desktop-title top-bar-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/assets/images/icons/logo.png" alt="不安と月ロゴ">
-							<span>
-								<?php if ( ! is_front_page() ) : ?>
-										<?php bloginfo( 'name' ); ?>
-								<?php endif; ?>
-							</span></a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					</div>
 					</div>
 					<nav id="menu" class="top-bar-right" aria-label="Main menu" tabindex="-1">
 						<?php foundationpress_top_bar_r(); ?>
-						<ul class="social-icons fa-ul fa-pull-right hide-for-small-only hide-for-xsmall-only">
-								<li><a href="https://twitter.com/muraie_jin" rel="external nofollow"><i class="fab fa-twitter-square fa-2x"></i></a></li>
-								<li><a href="https://www.facebook.com/muraiejin" rel="external nofollow"><i class="fab fa-facebook fa-2x"></i></a></li>
-						</ul>
-					</nav>
+
 						<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) : ?>
 								<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
 						<?php endif; ?>
+					</nav>
 				</section>
-				</header>
+			</header>
 		</div>
-	<div class="container">
-		<?php if ( ! is_front_page() ) : ?>
-			<div class="breadcrumbs">
-				<?php
-				if ( function_exists( 'bcn_display' ) ) {
-						bcn_display();
-				}
-				?>
-			</div>
-			<?php
-			endif;
