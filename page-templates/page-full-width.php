@@ -1,7 +1,13 @@
 <?php
 /*
 Template Name: Full Width
+ * Template Post Type: post, page
+ *
+ * @package WordPress
+ * @subpackage FoundationPressNG
+ * @since FoundationPressNG 1.0
 */
+
 get_header(); ?>
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
