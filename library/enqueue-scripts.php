@@ -19,12 +19,12 @@ if ( ! function_exists( 'foundationpress_asset_path' ) ) :
 		$manifest_path  = dirname( dirname( __FILE__ ) ) . '/dist/assets/' . $dir . '/rev-manifest.json';
 
 		if ( file_exists( $manifest_path ) ) {
-			$manifest = json_decode( wp_remote_get( $manifest_path ), true );
+			$manifest = json_decode( wp_remote_retrieve_body( $manifest_path ), true );
 		} else {
 			$manifest = array();
 		}
 
-		if ( array_key_exists( $filename, $manifest ) ) {
+		if ( array_key_exists( $filename, array( $manifest ) ) ) {
 			return $manifest[ $filename ];
 		}
 		return $filename;
@@ -35,7 +35,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
 
 		// Enqueue the main Stylesheet.
-		wp_enqueue_style( 'main-stylesheet', get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), '2.10.4', 'all' );
+		wp_enqueue_style( 'main-stylesheet', get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), '2.10.7', 'all' );
 
 		// Deregister the jquery version bundled with WordPress.
 		wp_deregister_script( 'jquery' );
@@ -44,7 +44,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '3.2.1', false );
 
 		// Deregister the jquery-migrate version bundled with WordPress.
-		// wp_deregister_script( 'jquery-migrate' );
+		wp_deregister_script( 'jquery-migrate' );
 
 		// CDN hosted jQuery migrate for compatibility with jQuery 3.x
 		wp_register_script( 'jquery-migrate', '//code.jquery.com/jquery-migrate-3.0.1.min.js', array( 'jquery' ), '3.0.1', false );
@@ -53,10 +53,10 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		// wp_enqueue_script( 'jquery-migrate' );
 
 		// Enqueue Foundation scripts
-		wp_enqueue_script( 'foundation', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'app.js' ), array( 'jquery' ), '2.10.4', true );
+		wp_enqueue_script( 'foundation', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'app.js' ), array( 'jquery' ), '2.10.7', true );
 
 		// Enqueue FontAwesome from CDN. Uncomment the line below if you need FontAwesome.
-		wp_enqueue_script( 'fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js', array(), '5.12.1', true );
+		wp_enqueue_script( 'fontawesome', '//kit.fontawesome.com/1da9fe040f.js', array(), '6', true );
 
 		// Add the comment-reply library on pages where it is necessary
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -68,9 +68,8 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
     if ( 'fontawesome' !== $handle ) {
         return $tag;
     }
-    return str_replace( ' src=', ' defer integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous" src=', $tag );
+    return str_replace( ' src=', ' defer  crossorigin="anonymous" src=', $tag );
     }
-
 }
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
 endif;

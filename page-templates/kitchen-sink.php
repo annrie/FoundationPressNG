@@ -1,7 +1,13 @@
 <?php
 /*
 Template Name: Kitchen Sink
+ * Template Post Type: post, page
+ *
+ * @package WordPress
+ * @subpackage FoundationPressNG
+ * @since FoundationPressNG 1.0
 */
+
 get_header(); ?>
 
 
