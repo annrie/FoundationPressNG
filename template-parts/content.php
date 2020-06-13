@@ -32,6 +32,14 @@ endif;
 		<?php foundationpress_entry_meta(); ?>
 	</header>
 	<div class="entry-content">
+<?php if ( has_post_thumbnail() ) : ?>
+			<div class="grid-x grid-margin-x">
+				<div class="small-12 cell text-center">
+					<?php the_post_thumbnail( 'fp-small', array('class' => 'thumbnail') ); ?>
+				</div>
+			</div>
+		<?php endif; ?>
+
 		<?php the_content(); ?>
 		<?php
 		edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' );
