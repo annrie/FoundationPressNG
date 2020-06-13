@@ -14,6 +14,16 @@
 		<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 			<meta charset="<?php bloginfo( 'charset' ); ?>" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<?php wp_head(); ?>
+	</head>
+	<body <?php body_class(); ?>>
+<?php
+    if ( ! function_exists( 'wp_body_open' ) ) {
+    function wp_body_open() {
+        do_action( 'wp_body_open' );
+    }
+    }
+    ?>
 		<?php
 		/**
 		 * Skip Links
@@ -28,32 +38,33 @@
 				?>
 				<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 		<?php endif; ?>
-				<?php
-				// Front top frame
-				if ( is_page_template( 'page-templates/front.php' ) ) {
-					echo '<div class="top-frame grid-frame grid-y">';
-				}
-				?>
-			<?php
-			/**
-			 * Site Header
-			 */
-			?>
+
+    <?php
+    // Front top frame
+		if ( is_page_template( 'page-templates/front.php' ) ) {
+			echo '<div class="top-frame grid-frame grid-y">';
+		}
+		?>
+
+		<?php
+		/**
+		 * Site Header
+		 */
+		?>
 		<div class="header-sticky-container" data-sticky-container>
-			<header id="header" class="site-header sticky" data-sticky data-options="marginTop:0;" data-sticky-on="small">
-					<?php
-						/**
-						 * Mobile Menu
-						 */
-					?>
+			<header id="header" class="site-header sticky" data-sticky data-options="marginTop:0;">
+
+				<?php
+				/**
+				 * Mobile Menu
+				 */
+				?>
 				<section class="site-title-bar title-bar" arial-label="Mobile navigation" <?php foundationpress_title_bar_responsive_toggle(); ?> data-hide-for="large">
 					<div class="title-bar-left">
 						<div class="grid-x grid-padding-x">
 							<div class="cell auto">
 								<span class="site-mobile-title title-bar-title">
-									<a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-										<?php bloginfo( 'name' ); ?>
-									</a>
+									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 								</span>
 							</div>
 							<div class="cell shrink">
@@ -62,24 +73,26 @@
 						</div>
 					</div>
 				</section>
-					<?php
-					/**
-					 * Desktop/Tablet Menu
-					 */
-					?>
-				<section class="site-navigation top-bar" aria-label="Site navigation" id="<?php foundationpress_mobile_menu_id(); ?>">
+
+				<?php
+				/**
+				 * Desktop/Tablet Menu
+				 */
+				?>
+				<section class="site-navigation top-bar" aria-label="Site navigation">
 					<div class="top-bar-left">
 						<div class="site-desktop-title top-bar-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+						</div>
 					</div>
-					</div>
-					<nav id="menu" class="top-bar-right" aria-label="Main menu" tabindex="-1">
+					<nav id="menu" class="top-bar-right" aria-label="Main menu">
 						<?php foundationpress_top_bar_r(); ?>
 
 						<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) : ?>
-								<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
+							<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
 						<?php endif; ?>
 					</nav>
 				</section>
+
 			</header>
 		</div>
