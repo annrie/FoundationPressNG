@@ -13,3 +13,4 @@ vendor/
 .history/
 .vscode/
 .yarn/
+.yarnrc.yml
