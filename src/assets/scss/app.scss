@@ -1,7 +1,6 @@
 @charset 'utf-8';
 
 @import 'settings';
-@import 'global/colors';
 @import 'override';
 @import 'foundation';
 @import 'motion-ui';
@@ -68,25 +67,24 @@
 */
 
 // Mixins
-// Mixins
-// @import 'components/mixins/flex';
-// @import 'components/mixins/avatar';
-// @import 'components/mixins/pseudo';
+@import 'components/mixins/flex';
+@import 'components/mixins/avatar';
+@import 'components/mixins/pseudo';
 @import 'components/mixins/push-center';
-// @import 'components/mixins/sidelines';
-// @import 'components/mixins/container-border';
+@import 'components/mixins/sidelines';
+@import 'components/mixins/container-border';
 
 // Global
 @import 'global/accessibility';
 @import 'global/wp-admin';
 @import 'global/wp-overrides';
 @import 'global/gutenberg';
-// @import 'global/svg';
+@import 'global/svg';
 @import 'global/headers';
-// @import 'global/helper-classes';
-// @import 'global/url-friendly-color'; // used for colors in SVGs in background-image
-// @import 'global/general';
-// @import 'global/helpers';
+@import 'global/helper-classes';
+@import 'global/url-friendly-color'; // used for colors in SVGs in background-image
+@import 'global/general';
+@import 'global/helpers';
 
 // Modules
 @import 'modules/navigation';
@@ -95,14 +93,13 @@
 @import 'modules/side-navigation';
 
 // Components
-// @import 'components/keyframe';
-// @import 'components/buttons';
-// @import 'components/cards';
-// @import 'components/featured-image';
-// @import 'components/dividers';
-// @import 'components/links';
-// @import 'components/gravity-forms';
-// @import 'components/reversed';
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/featured-image';
+@import 'components/dividers';
+@import 'components/links';
+@import 'components/gravity-forms';
+@import 'components/reversed';
 @import 'components/back-to-top';
 // @import 'components/zindex';
 
