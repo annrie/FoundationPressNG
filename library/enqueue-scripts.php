@@ -35,7 +35,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
 
 		// Enqueue the main Stylesheet.
-		wp_enqueue_style( 'main-stylesheet', get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), '2.10.7', 'all' );
+		wp_enqueue_style( 'main-stylesheet', get_theme_file_uri( '/dist/assets/css/app.css' ), array(), filemtime( get_theme_file_path( '/dist/assets/css/app.css' )), 'all' );
 
 		// Deregister the jquery version bundled with WordPress.
 		wp_deregister_script( 'jquery' );
