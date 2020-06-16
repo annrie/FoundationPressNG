@@ -16,8 +16,6 @@
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
-	</div>
-	<footer>
 		<?php
 		wp_link_pages(
 			array(
@@ -26,12 +24,14 @@
 			)
 		);
 		?>
+	</div>
 		<?php
 		$tag = get_the_tags(); if ( $tag ) {
 			?>
+	<footer>
 			<p><?php the_tags(); ?></p>
+</footer>
 					<?php
 		}
 		?>
-	</footer>
 </article>

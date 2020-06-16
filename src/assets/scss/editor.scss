@@ -9,10 +9,17 @@
 @import 'settings';
 @import 'override';
 @import 'foundation';
+@import 'modules/content';
+@import 'components/mixins/font-family';
+@import 'global/variables';
+@import 'global/font-face';
+@import 'components/mixins/mixin';
+@import 'components/mixins/push-center';
 
 @include foundation-typography;
 @include foundation-button;
 @include foundation-table;
+@import 'custom';
 
 /** === Content Width === */
 .wp-block {
@@ -34,6 +41,7 @@
 
 /** === Base Typography === */
 body {
+  @include push-center;
   font-family: $body-font-family;
   font-size: $global-font-size;
   color: $body-font-color;
@@ -91,7 +99,7 @@ body {
   list-style: none;
 }
 
-// gutengerg用のつもり
+// gutenberg用のつもり
 .alignleft {
   float: left;
   margin: 0 2rem 2rem 0;

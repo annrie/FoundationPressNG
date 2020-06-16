@@ -10,3 +10,44 @@ body {
   font-feature-settings: 'halt';
   font-variant-east-asian: proportional-width;
 }
+
+// for gutenberg
+.figure {
+  margin-right: 0;
+  margin-left: 0;
+}
+article figure:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+iframe { // eg. for WordPress block
+  width: 100%;
+}
+article figure:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.alignleft {
+  float: left;
+  margin: 0 2rem 2rem 0;
+}
+.alignright {
+  float: right;
+  margin: 0 0 2rem 2rem;
+}
+.aligncenter {
+  display: block;
+  margin: 2rem auto;
+  clear: both;
+}
+article {
+  display: flow-root;
+}
+article::after { // 未対応ブラウザ用の設定
+  content: '';
+  display: block;
+  clear: both;

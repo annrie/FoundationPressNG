@@ -44,8 +44,6 @@ endif;
 		<?php
 		edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' );
 		?>
-	</div>
-	<footer>
 		<?php
 		wp_link_pages(
 			array(
@@ -54,17 +52,19 @@ endif;
 			)
 		);
 		?>
+	</div>
 		<?php
 		$tag = get_the_tags();
 		if ( $tag ) {
 			?>
+	<footer>
 			<p>
 					<?php
 					the_tags( '<i class="fas fa-tags" aria-hidden="true"></i>', '' );
 					?>
 			</p>
+</footer>
 			<?php
 		}
 		?>
-	</footer>
 </article>
