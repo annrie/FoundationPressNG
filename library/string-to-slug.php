@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 function to_slug( $text ) {
 	// replace non letter or digits by -
 	$text = preg_replace( '~[^\pL\d]+~u', '-', $text );

@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 function format_phone( $s ) {
 	$rx = '/
     (1)?\D*     # optional country code

@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 // Add additional image sizes
 add_image_size( 'xsmall', 300 );
 add_image_size( 'small', 640 );

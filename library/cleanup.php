@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 if ( ! function_exists( 'foundationpress_start_cleanup' ) ) :
 	function foundationpress_start_cleanup() {
 

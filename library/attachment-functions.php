@@ -18,9 +18,6 @@
  * @return boolean
  */
 
-?>
-
-<?php
 function is_svg( $attachment_id ) {
 $mime_type = get_post_mime_type( $attachment_id );
 if ( 'image/svg+xml' === $mime_type ) {
