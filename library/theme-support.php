@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 if ( ! function_exists( 'foundationpress_theme_support' ) ) :
 function foundationpress_theme_support() {
     // Add language support

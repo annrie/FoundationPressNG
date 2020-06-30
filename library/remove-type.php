@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 add_action(
 	'template_redirect',
 	function () {

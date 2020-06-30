@@ -6,9 +6,6 @@
  * @since FoundationPress 1.0.0
  */
 
-?>
-
-<?php
 function foundationpress_add_woocommerce_support() {
 	add_theme_support(
 		'woocommerce',

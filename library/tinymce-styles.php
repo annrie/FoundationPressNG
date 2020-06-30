@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 // Callback function to insert 'styleselect' into the $buttons array
 function my_mce_buttons_2( $buttons ) {
 	array_unshift( $buttons, 'styleselect' );

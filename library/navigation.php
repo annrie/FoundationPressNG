@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 register_nav_menus(
 	array(
 		'top-bar-r'   => esc_html__( 'Right Top Bar', 'foundationpress' ),

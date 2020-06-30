@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 if ( ! function_exists( 'foundationpress_sidebar_widgets' ) ) :
 	function foundationpress_sidebar_widgets() {
 		register_sidebar(

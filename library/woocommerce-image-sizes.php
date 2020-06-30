@@ -6,9 +6,6 @@
  * @since FoundationPress 1.0.0
  */
 
-?>
-
-<?php
 // Override WooCommerce default image sizes
 add_filter(
 	'woocommerce_get_image_size_gallery_thumbnail',

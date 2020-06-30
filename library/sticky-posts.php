@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 if ( ! function_exists( 'foundationpress_sticky_posts' ) ) :
 	function foundationpress_sticky_posts( $classes ) {
 		if ( in_array( 'sticky', $classes, true ) ) {

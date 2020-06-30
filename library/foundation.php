@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 // Pagination.
 if ( ! function_exists( 'foundationpress_pagination' ) ) :
 	function foundationpress_pagination() {

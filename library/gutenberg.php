@@ -11,9 +11,6 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
-?>
-
-<?php
 if ( ! function_exists( 'foundationpress_gutenberg_support' ) ) :
 	function foundationpress_gutenberg_support() {
 
