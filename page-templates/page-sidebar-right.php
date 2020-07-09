@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Full Width
+Template Name: Right Sidebar
  * Template Post Type: post, page
  *
  * @package WordPress
