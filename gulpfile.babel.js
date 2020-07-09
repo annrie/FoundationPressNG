@@ -321,7 +321,8 @@ function watch() {
 		.on('unlink', (path) =>
 			log('File ' + colors.bold(colors.magenta(path)) + ' was removed.')
 		);
-	gulp.watch('src/assets/images/**/*', gulp.series(images, reload));
+	gulp.watch('src/assets/images/**/*', gulp.series(images, browser.reload));
+	gulp.watch('src/assets/images/**/*.svg', gulp.series(copy, browser.reload));
 }
 
 // Build the "dist" folder by running all of the below tasks
