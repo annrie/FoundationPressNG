@@ -35,7 +35,8 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
 
 		// Enqueue the main Stylesheet.
-		wp_enqueue_style( 'main-stylesheet', get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), '2.10.7', 'all' );
+    wp_enqueue_style( 'editor-stylesheet', get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'editor.css' ), array(), '2.10.7', 'all' );
+    wp_enqueue_style( 'main-stylesheet', get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), filemtime( get_theme_file_path( '/dist/assets/css/app.css' )), 'all' );
 
 		// Deregister the jquery version bundled with WordPress.
 		wp_deregister_script( 'jquery' );
@@ -57,9 +58,6 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 		// Enqueue FontAwesome from CDN. Uncomment the line below if you need FontAwesome.
     wp_enqueue_script( 'fontawesome', '//kit.fontawesome.com/1da9fe040f.js', array(), '6', true );
-
-    // Google map api
-    wp_enqueue_script( 'googlemapapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ok--EfDe-1tYrqFco5G9GqG6CRaIzKU', array(), '', true );
 
     wp_enqueue_script( 'fontawesome', '//kit.fontawesome.com/1da9fe040f.js', array(), '6', true );
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
