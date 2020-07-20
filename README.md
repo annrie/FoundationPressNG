@@ -20,7 +20,7 @@ All contributions are welcome!
 
 FoundationPressNG uses [Sass](http://Sass-lang.com/) (CSS with superpowers). In short, Sass is a CSS pre-processor that allows you to write styles more effectively and tidy.
 
-The Sass is compiled using libsass, which requires the GCC to be installed on your machine. Windows users can install it through [MinGW](http://www.mingw.org/), and Mac users can install it through the [Xcode Command-line Tools](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/).
+The Sass is compiled using libsass, which requires the GCC to be installed on your machine. Windows users can install it through [MinGW](http://www.mingw.org/), and Mac users can install it through the [Xcode Command-line Tools]`$ xcode-select --install`.
 
 <!-- If you have not worked with a Sass-based workflow before, I would recommend reading [FoundationPress for beginners](https://foundationpress.olefredrik.com/posts/tutorials/foundationpress-for-beginners), a short blog post that explains what you need to know. -->
 
@@ -32,6 +32,13 @@ $ cd my-wordpress-folder/wp-content/themes/
 $ git clone https://github.com/olefredrik/FoundationPress.git
 $ cd FoundationPress
 $ npm install
+```
+
+### 1-2. In the case of yarn 2
+```bash
+$ npx @yarnpkg/doctor
+$ echo "nodeLinker: node-modules" >> .yarnrc.yml
+$ yarn install
 ```
 
 ### 2. Configuration
@@ -50,7 +57,7 @@ If you want to make sure your users see the latest changes after re-deploying yo
 ### 3. Get started
 
 ```bash
-$ npm start
+$ npm start or  yarn start
 ```
 
 ### 4. Compile assets for production
@@ -58,13 +65,13 @@ $ npm start
 When building for production, the CSS and JS will be minified. To minify the assets in your `/dist` folder, run
 
 ```bash
-$ npm run build
+$ npm run build or  yarn build
 ```
 
 #### To create a .zip file of your theme, run:
 
 ```
-$ npm run package
+$ npm run package or  yarn pakcage
 ```
 
 Running this command will build and minify the theme's assets and place a .zip archive of the theme in the `packaged` directory. This excludes the developer files/directories from your theme like `/node_modules`, `/src`, etc. to keep the theme lightweight for transferring the theme to a staging or production server.
