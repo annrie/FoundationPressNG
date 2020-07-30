@@ -8,12 +8,6 @@
 
 get_header(); ?>
 
-<?php if ( has_post_thumbnail() ) : ?>
-    <figure>
-        <?php get_template_part( 'template-parts/featured-image' ); ?>
-    </figure>
-<?php endif; ?>
-
 <div class="main-container">
 	<div class="main-grid">
 		<main id="main" class="main-content" role="main" tabindex="-1">

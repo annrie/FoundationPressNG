@@ -18,7 +18,143 @@ Frontend styles for gutenberg blocks
   // add general foundation button styling
   .wp-block-button__link {
     @extend .button;
+    @each $color, $code in $foundation-palette /*
+    Frontend styles for gutenberg blocks
+    */
+
+    /** === Base Color Palatte === */
     @each $color, $code in $foundation-palette {
+      .has-#{$color}-background-color {
+        background-color: $code;
+      }
+
+      .has-#{$color}-color {
+        color: $code;
+      }
+    }
+
+    /** === Button === */
+    .wp-block-button {
+      // add general foundation button styling
+      .wp-block-button__link {
+        @extend .button;
+        @each $color, $code in $foundation-palette {
+          &.has-#{$color}-background-color {
+            background-color: $code;
+          }
+
+          &.has-#{$color}-color {
+            color: $code;
+          }
+        }
+      }
+
+      // add special styling for squared buttons
+      &.is-style-squared .wp-block-button__link {
+        border-radius: 0;
+      }
+
+      // add outline styles
+      &.is-style-outline .wp-block-button__link {
+        @extend .hollow;
+      }
+
+      // set transparent background to block for outline button
+      &.is-style-outline,
+      &.is-style-outline:hover,
+      &.is-style-outline:focus,
+      &.is-style-outline:active {
+        background: transparent;
+        .wp-block-button__link {
+          background: transparent;
+        }
+      }
+    }
+
+    /** === File === */
+    .wp-block-file .wp-block-file__button {
+      @include button();
+    }
+
+    /** === Misc === */
+    // for gutenberg
+    .figure {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    article figure:first-child {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    iframe {
+      // eg. for WordPress block
+      width: 100%;
+    }
+
+    .alignleft {
+      float: left;
+      margin: 0 2rem 2rem 0;
+    }
+
+    .alignright {
+      float: right;
+      margin: 0 0 2rem 2rem;
+    }
+
+    .aligncenter {
+      display: block;
+      margin: 2rem auto;
+      clear: both;
+    }
+    article {
+      display: flow-root;
+      &::after { /* 未対応ブラウザ用の設定 */
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+    .wp-block-categories.aligncenter,
+    .wp-block-latest-posts.aligncenter,
+    .wp-block-archives.aligncenter,
+    .wp-block-tag.cloud.aligncenter,
+    .wp-block-latest-comments.aligncenter,
+    .wp-block-rss.aligncenter {
+      text-align: center;
+    }
+    /* 色設定 */
+    .has-primary-background-color {
+      background-color: #1779ba;
+    }
+    .has-secondary-background-color {
+      background-color: #767676;
+    }
+    .has-warning-background-color {
+      background-color: #ffae00;
+    }
+    .has-alert-background-color {
+      background-color: #cc4b37;
+    }
+    .has-primary-color {
+      color: #1779ba;
+    }
+    .has-secondary-color {
+      color: #767676;
+    }
+    .has-warning-color {
+      color: #ffae00;
+    }
+    .has-alert-color {
+      color: #cc4b37;
+    }
+    {
       &.has-#{$color}-background-color {
         background-color: $code;
       }
