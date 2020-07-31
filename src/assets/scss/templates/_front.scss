@@ -1,5 +1,6 @@
 // Page header
 .front-hero {
+  z-index: -1;
   .marketing {
     @include xy-grid-container(55rem);
     @include xy-grid;
