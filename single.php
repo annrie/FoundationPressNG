@@ -8,11 +8,7 @@
 
 get_header(); ?>
 
-<?php if ( has_post_thumbnail() ) : ?>
-    <figure>
-        <?php get_template_part( 'template-parts/featured-image' ); ?>
-    </figure>
-<?php endif; ?>
+<!-- <?php get_template_part( 'template-parts/featured-image' ); ?> -->
 
 <div class="main-container">
 	<div class="main-grid">
@@ -21,7 +17,6 @@ get_header(); ?>
 			while ( have_posts() ) :
 				the_post();
 				?>
-        <?php the_category(); ?>
 				<?php get_template_part( 'template-parts/content', '' ); ?>
 				<?php the_post_navigation(); ?>
 				<?php comments_template(); ?>

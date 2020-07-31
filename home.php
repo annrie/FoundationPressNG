@@ -16,27 +16,49 @@
 get_header(); ?>
 
 <div class="main-container">
-	<div class="main-grid">
-	<main id="main" class="main-content" role="main" tabindex="-1">
-		<header class="page-header">
-			<?php the_category_image(); ?>
-				<h1 class="page-title"><?php single_post_title(); ?>一覧</h1>
-		</header>
-	<?php if ( have_posts() ) : ?>
+    <div class="main-grid">
+    <main id="main" class="main-content mymain" role="main" tabindex="-1">
+    <div class="grid-x grid-padding-x clr small-up-1 medium-up-2">
+    <?php if ( have_posts() ) : ?>
 
-		<?php /* Start the Loop */ ?>
-		<?php
-		while ( have_posts() ) :
-			the_post();
-			?>
-			<?php get_template_part( 'template-parts/content', 'blog', get_post_format() ); ?>
-		<?php endwhile; ?>
-
-		<?php else : ?>
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; // End have_posts() check. ?>
-
+    <?php /* Start the Loop */ ?>
+    <?php
+    while ( have_posts() ) :
+        the_post();
+        ?>
+        <article class="cell callout myblocks small-centered">
+                <?php
+                    if ( has_post_thumbnail() ) :
+                ?>
+                <a href="<?php the_permalink(); ?>">
+                    <figure>
+                    <?php
+                        the_post_thumbnail(
+                        'fp-small',
+                            array(
+                                'class' => 'thumbnail',
+                                'alt'   => the_title_attribute( 'echo=0' ),
+                                'title' => the_title_attribute( 'echo=0' ),
+                            )
+                        );
+                    ?>
+                    </figure>
+                </a>
+                <?php else : ?>
+                <figure>
+                <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="">
+                </figure>
+                <?php
+                endif;
+                ?>
+            <h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+        </article>
+        <?php
+    endwhile;
+    endif;
+    wp_reset_postdata();
+    ?>
+</div><!-- .grid-x end -->
 		<?php /* Display navigation to next/previous pages when applicable */ ?>
 		<?php
 		if ( function_exists( 'foundationpress_pagination' ) ) :
@@ -48,11 +70,10 @@ get_header(); ?>
 				<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
 			</nav>
 		<?php endif; ?>
-
 	</main>
 	<?php get_sidebar(); ?>
 <?php get_template_part( 'back-to-top' ); ?>
-	</div>
+</div>
 </div>
 
 <?php

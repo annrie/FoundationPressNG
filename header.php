@@ -61,16 +61,10 @@
 				?>
 				<section class="site-title-bar title-bar" arial-label="Mobile navigation" <?php foundationpress_title_bar_responsive_toggle(); ?> data-hide-for="large">
 					<div class="title-bar-left">
-						<div class="grid-x grid-padding-x">
-							<div class="cell auto">
+								<button aria-label="<?php _e( 'Main Menu', 'foundationpress' ); ?>" class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
 								<span class="site-mobile-title title-bar-title">
 									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 								</span>
-							</div>
-							<div class="cell shrink">
-								<button aria-label="<?php _e( 'Main Menu', 'foundationpress' ); ?>" class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
-							</div>
-						</div>
 					</div>
 				</section>
 

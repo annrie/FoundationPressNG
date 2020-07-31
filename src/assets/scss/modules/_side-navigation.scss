@@ -1,1 +1,28 @@
 // Component navigation menu seen on every page.
+
+aside {
+  @include xy-grid-container(vertical, true);
+  section {
+    border: solid 1px #dddddd;
+    padding: 15px;
+    box-shadow: 0 3px 5px #dddddd;
+    h2 {
+      font-size: $h4-font-size;
+      font-weight: normal;
+      color: #1b5e92;
+      text-align: center;
+      border-bottom: solid 1px #dddddd;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    ul {
+      margin-left: 20px;
+      padding: 0;
+      font-size: $h6-font-size;
+      list-style-type: none;
+      li {
+      @include xy-gutters(15px, padding,top , false);
+      }
+    }
+  }
+}

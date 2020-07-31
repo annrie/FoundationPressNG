@@ -25,20 +25,205 @@
 // Site title
 .site-desktop-title a {
   font-weight: bold;
-  color: $white;
 }
-.top-bar-right {
+
+// Mobile menu
+.mobile-menu {
+  display: none; // prevents repaint caused by JS hiding menu onload
+}
+
+.off-canvas {
+  padding: 2rem 0 0;
+  > ul.menu {
+    height: 100vh;
+    padding: 1rem;
+
+    a {
+      color: $white;
+      font-weight: 600;
+      font-size: rem-calc(15);
+      padding: 0.781rem 1rem;
+      margin-bottom: rem-calc(1);
+
+      &:hover,
+      &:focus {
+        background-color: darken($offcanvas-background,10%);
+      }
+
+    }
+
+    // offcanvas dropdown button
+    .submenu-toggle {
+      background-color: darken($offcanvas-background,30%);
+    }
+  }
+
+  .menu .is-active > a {
+    background-color: $medium-gray;
+
+    // Off canvas menu hover
+    &:hover,
+    &:focus {
+      background-color: darken($offcanvas-background,10%);
+    }
+  }
+
+}
+
+.title-bar-title {
   a {
-    color: $white;
+    font-size: 1rem;
+    color: $medium-gray;
   }
 }
+
+.mobile-menu,
+.mobile-off-canvas-menu {
+  .menu li:not(.current-menu-item) > a {
+    color: $white;
+    background-color: $black;
+    &:hover {
+      color: $white;
+      background-color: lighten($dark-nav-color, 35%);
+    }
+  }
+  .menu li.current-menu-item > a {
+    color: $white;
+    background-color: lighten($dark-nav-color, 5%);
+    &:hover {
+      background-color: lighten($dark-nav-color, 35%);
+    }
+  }
+  .close-button {
+    z-index: 20;
+    color: $white;
+    &:hover {
+      color: $red;
+    }
+  }
+}
+
+// Tablet and desktop menu
+
+.top-bar {
+
+  .top-bar-title a {
+    font-size: 1rem;
+    color: $medium-gray;
+    padding-left: 1rem;
+    line-height: 1.8;
+  }
+
+  .menu {
+
+    a {
+      color: $light-gray;
+      background-color: $primary-color !important;
+      padding-top: 0;
+      padding-bottom: 0;
+      font-weight: bold;
+      font-size: 0.8rem;
+      line-height: 1;
+
+      &:hover:not(.button),
+      &:focus:not(.button) {
+        background-color: darken($primary-color,10%) !important;
+      }
+    }
+
+    // Highlights current page
+    > li.current_page_item, li.current-menu-item {
+      > a {
+        background-color: darken($primary-color,30%) !important;
+      }
+    }
+  }
+
+  // Submenu arrow
+  .menu.vertical > li {
+
+    &.opens-left > a {
+
+      &::after {
+        border-color: transparent $white transparent transparent;
+        left: 10px;
+        margin-top: -5px;
+      }
+    }
+
+    &.opens-right > a {
+
+      &::after {
+        border-color: transparent transparent transparent $white;
+        right: 10px;
+        margin-top: -5px;
+      }
+    }
+  }
+
+  .menu>li:not(.menu-text)>a { padding: 1rem; }
+  .menu>li.is-dropdown-submenu-parent:not(.menu-text)>a { padding-right: 2rem; }
+  .menu.submenu>li.is-dropdown-submenu-parent:not(.menu-text)>a { padding-left: 2rem; padding-right: 1rem; }
+  .menu li:not(:last-child) {
+    //border-right: 1px solid $dark-gray;
+  }
+
+  .dropdown.menu .submenu { border: 0; }
+  .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
+  .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; padding-right: 2rem; }
+  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after {
+    //display: none; // Hide dropdown arrow
+    border-color: $white transparent transparent;
+    right: 10px;
+  }
+}
+
+.site-navigation {
+  @include breakpoint(medium down) {
+    padding: 0; // prevents container visibility on medium and down screens
+  }
+}
+
 // WP post navigation
-.post-navigation {
+nav.post-navigation {
   @include clearfix;
-}
-.nav-previous {
-  float: left;
-}
-.nav-next {
-  float: right;
+  position: relative;
+  padding: 1rem;
+  margin: 0 0 1rem;
+  color: #0a0a0a;
+  background-color: #f0f0f0;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 0;
+
+  > {
+    :first-child {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+  .nav-previous {
+    float: left;
+  }
+  .nav-next {
+    float: right;
+  }
+
+  .nav-previous a::before {
+    padding-right: 5px;
+    font-family: 'Font Awesome 5 free', monospace;
+    font-weight: bold;
+    color: #444;
+    content: '\f137';
+  }
+
+  .nav-next a::after {
+    padding-left: 5px;
+    font-family: 'Font Awesome 5 free', monospace;
+    font-weight: bold;
+    color: #444;
+    content: '\f138';
+  }
 }

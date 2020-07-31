@@ -36,7 +36,6 @@ $ npm install
 ### 1-2. yarn 2　の場合
 ```bash
 $ npx @yarnpkg/doctor
-$ echo "nodeLinker: node-modules" >> .yarnrc.yml
 $ yarn install
 ```
 

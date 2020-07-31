@@ -21,8 +21,27 @@ else :
 endif;
 ?>
 >
-	<header>
-	<?php
+<header>
+	<?php if ( has_post_thumbnail() ) : ?>
+			<div class="grid-x grid-margin-x">
+				<div class="small-12 cell text-center">
+        <figure>
+            <?php the_post_thumbnail( 'fp-small', array('class' => 'thumbnail') ); ?>
+        </figure>
+				</div>
+    </div>
+<?php else : ?>
+			<div class="grid-x grid-margin-x">
+				<div class="small-12 cell text-center">
+        <figure>
+        <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="">
+        </figure>
+    </div>
+    </div>
+
+		<?php endif; ?>
+    <?php the_category(); ?>
+<?php
 	if ( is_single() ) {
 		the_title( '<h1 id="entry-title" class="entry-title">', '</h1>' );
 	} else {
@@ -32,13 +51,6 @@ endif;
 		<?php foundationpress_entry_meta(); ?>
 	</header>
 	<div class="entry-content">
-<?php if ( has_post_thumbnail() ) : ?>
-			<div class="grid-x grid-margin-x">
-				<div class="small-12 cell text-center">
-					<?php the_post_thumbnail( 'fp-small', array('class' => 'thumbnail') ); ?>
-				</div>
-			</div>
-		<?php endif; ?>
 
 		<?php the_content(); ?>
 		<?php

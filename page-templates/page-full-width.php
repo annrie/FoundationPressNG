@@ -10,7 +10,11 @@ Template Name: Full Width
 
 get_header(); ?>
 
+<?php if ( has_post_thumbnail() ) : ?>
+    <figure>
 <?php get_template_part( 'template-parts/featured-image' ); ?>
+    </figure>
+<?php endif; ?>
 <div class="main-container">
 	<div class="main-grid">
 		<main class="main-content-full-width" tabindex="-1">

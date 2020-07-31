@@ -11,44 +11,88 @@ body {
   font-variant-east-asian: proportional-width;
 }
 
-// for gutenberg
-.figure {
-  margin-right: 0;
-  margin-left: 0;
+.post-categories {
+  @include menu-base;
+
+  margin-left: 20px;
+  list-style-type: none;
+  & a {
+    padding: 6px 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    font-size: rem-calc(14);
+    color: $white;
+    background-color: lighten(get-color(primary), 10%);
+    border-radius: 10px;
+  }
 }
-article figure:first-child {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-img {
-  max-width: 100%;
-  height: auto;
-}
-iframe { // eg. for WordPress block
-  width: 100%;
-}
-article figure:first-child {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.alignleft {
-  float: left;
-  margin: 0 2rem 2rem 0;
-}
-.alignright {
-  float: right;
-  margin: 0 0 2rem 2rem;
-}
-.aligncenter {
-  display: block;
-  margin: 2rem auto;
+.clr {
   clear: both;
 }
-article {
-  display: flow-root;
+
+$imgh: 56vh;
+.home, .archive {
+  article {
+    &:first-of-type {
+
+      // 最初の記事だけ大きくする場合
+      @include breakpoint(medium up) {
+        @include xy-cell(12);
+        & h2 {
+          font-size: $h2-font-size;
+        }
+        & img {
+          height: $imgh;
+          object-fit: cover;
+        }
+        }
+        @include breakpoint(large up) {
+          img {
+            height: 31vh;
+            object-fit:cover;
+          }
+        }
+      }
+      &:not(:first-of-type) {
+        @include breakpoint(medium up) {
+          @include xy-gutters(medium,margin,right left, false);
+        }
+      }
+      @include all-but(1) {
+        @include breakpoint(medium up) {
+          @include xy-cell(50%,null,5px,margin, null,null,false);
+        }
+        img {
+          height: calc( #{$imgh / 2} );
+          object-fit: cover;
+        }
+            }
+  }
+   h2 {
+    font-size: $h5-font-size;
+  }
 }
-article::after { // 未対応ブラウザ用の設定
-  content: '';
-  display: block;
-  clear: both;
+.archive {
+  h1 {
+    font-size: $h3-font-size;
+    font-weight: normal;
+    color: #1b5e92;
+    @include breakpoint(medium) {
+      font-size: $h1-font-size;
+    }
+  }
+}
+.category h1::before{
+  content: '\f0c6';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  margin-right: 10px;
+  opacity: 0.8;
+}
+.date h1::before {
+  content: '\f186';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  margin-right: 10px;
+  opacity: 0.8;
 }
