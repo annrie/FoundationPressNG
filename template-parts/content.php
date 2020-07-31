@@ -25,19 +25,19 @@ endif;
 	<?php if ( has_post_thumbnail() ) : ?>
 			<div class="grid-x grid-margin-x">
 				<div class="small-12 cell text-center">
-<figure>
+        <figure>
             <?php the_post_thumbnail( 'fp-small', array('class' => 'thumbnail') ); ?>
-</figure>
+        </figure>
 				</div>
-</div>
+    </div>
 <?php else : ?>
 			<div class="grid-x grid-margin-x">
 				<div class="small-12 cell text-center">
         <figure>
-<img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="">
+        <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="">
         </figure>
-</div>
-</div>
+    </div>
+    </div>
 
 		<?php endif; ?>
     <?php the_category(); ?>

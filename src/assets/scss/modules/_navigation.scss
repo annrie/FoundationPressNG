@@ -58,7 +58,7 @@
     }
   }
 
-  .menu .active > a {
+  .menu .is-active > a {
     background-color: $medium-gray;
 
     // Off canvas menu hover
@@ -80,6 +80,7 @@
 .mobile-menu,
 .mobile-off-canvas-menu {
   .menu li:not(.current-menu-item) > a {
+    color: $white;
     background-color: $black;
     &:hover {
       color: $white;
@@ -117,6 +118,7 @@
 
     a {
       color: $light-gray;
+      background-color: $primary-color !important;
       padding-top: 0;
       padding-bottom: 0;
       font-weight: bold;
@@ -125,14 +127,14 @@
 
       &:hover:not(.button),
       &:focus:not(.button) {
-        background-color: darken($primary-color,10%);
+        background-color: darken($primary-color,10%) !important;
       }
     }
 
     // Highlights current page
-    > li.current_page_item {
+    > li.current_page_item, li.current-menu-item {
       > a {
-        background-color: darken($primary-color,30%);
+        background-color: darken($primary-color,30%) !important;
       }
     }
   }
@@ -158,8 +160,6 @@
       }
     }
   }
-
-  .menu .active > a { background-color: darken($primary-color,30%); }
 
   .menu>li:not(.menu-text)>a { padding: 1rem; }
   .menu>li.is-dropdown-submenu-parent:not(.menu-text)>a { padding-right: 2rem; }
