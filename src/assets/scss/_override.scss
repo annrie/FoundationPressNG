@@ -38,7 +38,7 @@ $admin-bar-height: 32px;
 $admin-bar-mobile-height: 46px;
 
 $global-font-size: 16px;
-$global-lineheight: 1.6;
+$global-lineheight: 2;
 $global-prototype-breakpoints: true;
 $print-transparent-backgrounds: false;
 
@@ -75,7 +75,7 @@ $off-canvas-width: map-get($offcanvas-sizes, small);
 $offcanvas-background: $black;
 $table-is-striped: false;
 $table-border: 1px solid $black;
-$titlebar-background: rgba ($primary-color, 0.9);
+$titlebar-background: rgba($primary-color, 0.9);
 $titlebar-icon-color-hover: lighten($primary-color, 30%);
 $topbar-padding: 0;
 $topbar-background: $primary-color;
