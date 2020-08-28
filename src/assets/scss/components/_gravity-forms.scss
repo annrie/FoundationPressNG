@@ -1,5 +1,9 @@
 // Makes Gravity Forms play nice with Foundation Form styles
-.gform_body ul {
+/**
+ * Big thanks to Jon Brockett (https://github.com/jonbrockett/FoundationPress) for the creative ideas
+ */
+
+ .gform_body ul {
   margin: 0;
   list-style: none outside none;
 }

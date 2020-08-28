@@ -1,7 +1,22 @@
 /*
 Frontend styles for gutenberg blocks
 */
+/**
+ * Big thanks to EBISUCOM (https://github.com/ebisucom/wordpress-note-lp) for the creative ideas
+ */
 
+@charset 'UTF-8';
+
+@import 'settings';
+@import 'override';
+@import 'foundation';
+
+@include foundation-everything(true);
+
+article.wp-block-ugb-blog-posts.is-style-lpposts {
+  margin-bottom: 0;
+  @include xy-grid-container(full,0);
+}
 /** === Base Color Palatte === */
 @each $color, $code in $foundation-palette {
   .has-#{$color}-background-color {
@@ -44,15 +59,15 @@ Frontend styles for gutenberg blocks
   &.is-style-outline:hover,
   &.is-style-outline:focus,
   &.is-style-outline:active {
-    background: transparent;
+    // background: transparent;
     .wp-block-button__link {
-      background: transparent;
+      // background: transparent;
     }
   }
 }
 
 /** === File === */
-.wp-block-file .wp-block-file__button {
+.wp-block-file .wp-block-file__button{
   @include button();
 }
 
@@ -78,29 +93,6 @@ iframe {
   width: 100%;
 }
 
-.alignleft {
-  float: left;
-  margin: 0 2rem 2rem 0;
-}
-
-.alignright {
-  float: right;
-  margin: 0 0 2rem 2rem;
-}
-
-.aligncenter {
-  display: block;
-  margin: 2rem auto;
-  clear: both;
-}
-article {
-  display: flow-root;
-  &::after { /* 未対応ブラウザ用の設定 */
-    content: '';
-    display: block;
-    clear: both;
-  }
-}
 .wp-block-categories.aligncenter,
 .wp-block-latest-posts.aligncenter,
 .wp-block-archives.aligncenter,

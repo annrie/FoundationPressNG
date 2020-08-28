@@ -13,11 +13,14 @@
  */
 
 /**
+ * Big thanks to Jon Brockett (https://github.com/jonbrockett/FoundationPress) for the creative ideas
+ */
+
+/**
  * Check if a WP attachment MIME type is image/svg+xml
  *
  * @return boolean
  */
-
 function is_svg( $attachment_id ) {
 $mime_type = get_post_mime_type( $attachment_id );
 if ( 'image/svg+xml' === $mime_type ) {

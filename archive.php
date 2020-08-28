@@ -27,39 +27,15 @@ get_header(); ?>
     while ( have_posts() ) :
     the_post();
     ?>
-        <article class="cell callout myblocks small-centered">
-            <?php
-                if ( has_post_thumbnail() ) :
-            ?>
-            <a href="<?php the_permalink(); ?>">
-                <figure>
-                <?php
-                    the_post_thumbnail(
-                    'fp-small',
-                        array(
-                            'class' => 'thumbnail',
-                            'alt'   => the_title_attribute( 'echo=0' ),
-                            'title' => the_title_attribute( 'echo=0' ),
-                        )
-                    );
-                ?>
-                </figure>
-            </a>
-            <?php else : ?>
-            <figure>
-            <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="">
-            </figure>
-            <?php
-            endif;
-            ?>
-        <h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-        </article>
+				<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
     <?php
     endwhile;
-endif;
-wp_reset_postdata();
-?>
-</div><!-- .grid-x end -->
+    ?>
+
+    <?php else : ?>
+        <?php get_template_part( 'template-parts/content', 'none' ); ?>
+
+    <?php endif; // End have_posts() check. ?>
 <?php /* Display navigation to next/previous pages when applicable */ ?>
 <?php
 if ( function_exists( 'foundationpress_pagination' ) ) :

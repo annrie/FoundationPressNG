@@ -1,6 +1,7 @@
 .main-container {
   @include xy-grid-container;
 }
+
 .main-grid {
   @include xy-grid();
   @include flex-align(center);
@@ -38,7 +39,31 @@
   // Full width template
   .main-content-full-width {
     @include xy-cell(12);
+    @include breakpoint(large) {
+      @include xy-cell(10);
+    }
   }
+  .main-content-full-width +  .myside {
+    @include xy-cell(12);
+    @include breakpoint(large) {
+      @include xy-cell(10);
+    }
+//   @include breakpoint(small) {
+//     @include xy-grid-container(100vw,2.5vw);
+//   }
+//   @include breakpoint(large) {
+//     @include xy-grid-container(100vw,10vw);
+// }
+  }
+
+  // // Full(wide) width template
+  // .main-content-full-width.alignwide {
+  //   @include xy-cell-size(100%, 10vw, margin, auto, false);
+  // }
+  // // Full(just full) width template
+  // .main-content-full-width.alignfull {
+  //   @include xy-cell-size(100%, 0, none, null, false);
+  // }
 
   // Default template
   .main-content {

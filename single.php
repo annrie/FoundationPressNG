@@ -8,16 +8,21 @@
 
 get_header(); ?>
 
-<!-- <?php get_template_part( 'template-parts/featured-image' ); ?> -->
-
+<?php
+if ( ! has_block( 'image' ) ) :
+?>
+<?php get_template_part( 'template-parts/featured-image' ); ?>
+<?php
+endif;
+?>
 <div class="main-container">
 	<div class="main-grid">
-		<main id="main" class="main-content" role="main" tabindex="-1">
+		<main id="main" class="main-content mymain" role="main" tabindex="-1">
 			<?php
 			while ( have_posts() ) :
 				the_post();
 				?>
-				<?php get_template_part( 'template-parts/content', '' ); ?>
+        <?php get_template_part( 'template-parts/content', '' ); ?>
 				<?php the_post_navigation(); ?>
 				<?php comments_template(); ?>
 			<?php endwhile; ?>

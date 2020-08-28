@@ -26,12 +26,12 @@ get_header(); ?>
     while ( have_posts() ) :
         the_post();
         ?>
-        <article class="cell callout myblocks small-centered">
+        <article class="cell callout small-centered">
                 <?php
                     if ( has_post_thumbnail() ) :
                 ?>
                 <a href="<?php the_permalink(); ?>">
-                    <figure>
+                    <figure class="myfigure">
                     <?php
                         the_post_thumbnail(
                         'fp-small',
@@ -45,7 +45,7 @@ get_header(); ?>
                     </figure>
                 </a>
                 <?php else : ?>
-                <figure>
+                <figure class="myfigure">
                 <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="">
                 </figure>
                 <?php

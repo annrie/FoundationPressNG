@@ -3,12 +3,16 @@
  Demo: https://FoundationPressNG.phantomoon.com/
 */
 body {
-  // @include font-family(sans-serif);
+  @include font-family(sans-serif);
 
   overflow-x: hidden;
   color: #333;
-  font-feature-settings: 'halt';
-  font-variant-east-asian: proportional-width;
+}
+p {
+  font-size: $h5-font-size;
+}
+/* コンテンツ */
+.mymain {
 }
 
 .post-categories {
@@ -37,7 +41,7 @@ $imgh: 56vh;
 
       // 最初の記事だけ大きくする場合
       @include breakpoint(medium up) {
-        @include xy-cell(12);
+        @include xy-cell($gutters: 0);
         & h2 {
           font-size: $h2-font-size;
         }
@@ -95,4 +99,83 @@ $imgh: 56vh;
   font-weight: bold;
   margin-right: 10px;
   opacity: 0.8;
+}
+.alignleft {
+	float: left;
+	margin: 0 2em 2em 0;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 2em 2em;
+}
+
+.aligncenter {
+	display: block;
+	margin: 2em auto;
+	clear: both;
+}
+// .myblocks {
+//   display: grid;
+//   grid-template-columns: inherit;
+//   grid-template-columns: subgrid;
+//   }
+//   .myblocks > * {
+//     grid-column: 3 / -3;
+//     min-width: 0;
+//   }
+
+  // .myblocks {
+  //   display: grid;
+  //   grid-template-columns: inherit;
+  //   grid-template-columns: subgrid;
+  //   }
+  .myblocks > * {
+    min-width: 0;
+  }
+  .wp-block-categories.aligncenter,
+  .wp-block-latest-posts.aligncenter,
+  .wp-block-archives.aligncenter,
+  .wp-block-tag-cloud.aligncenter,
+  .wp-block-latest-comments.aligncenter,
+  .wp-block-rss.aligncenter {
+    text-align: center;
+  }
+
+  .myblocks {
+    box-sizing: border-box;
+  }
+    .myblocks *,
+  .myblocks *::before,
+  .myblocks *::after {
+    box-sizing: inherit;
+  }
+
+/* 幅広・全幅 */
+.alignwide {
+    @include xy-grid-container(98vw,0);
+  //   @include xy-gutters($gutters:30vw,$gutter-type:margin, $gutter-position:right left,$negative:true);
+  @include breakpoint(large up) {
+    @include xy-grid-container(75vw,100vw);
+// @include xy-gutters($gutters:0,$gutter-type:margin, $gutter-position:right left,$negative:false);
+  }
+  img {
+    object-fit: cover;
+  }
+}
+
+.alignfull {
+  @include xy-gutters($gutters: 0, $gutter-position:right left);
+//     @include xy-gutters($gutters:40vw,$gutter-type:margin, $gutter-position:right left,$negative:true);
+//   @include breakpoint(tablet up) {
+//     @include xy-gutters($gutters:0,$gutter-type:margin, $gutter-position:right left,$negative:true);
+// }
+  img {
+    object-fit: cover;
+  }
+}
+
+  /* group block */
+.wp-block-group .wp-block {
+  max-width: 100%;
 }
