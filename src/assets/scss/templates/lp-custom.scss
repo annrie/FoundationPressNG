@@ -4,14 +4,14 @@
 
  @charset 'UTF-8';
 
-@import 'settings';
-@import 'override';
+@import '../settings';
+@import '../override';
 @import 'foundation';
 @import 'motion-ui';
-@import 'modules/content';
-@import 'components/mixins/font-family';
-@import 'global/variables';
-@import 'components/mixins/mixin';
+@import '../modules/content';
+@import '../components/mixins/font-family';
+@import '../global/variables';
+@import '../components/mixins/mixin';
 
 @include foundation-everything(true);
 
@@ -22,7 +22,7 @@ section.mytest {
   @include xy-grid;
 }
 
-/* セクションの見出し（共通） */
+/* Section heading（common） */
 .sec-title {
 	color: #dddddd;
 	text-align: center;
@@ -47,10 +47,6 @@ section.mytest {
   text-align: center;
   color: #ffffff;
   text-shadow: 0 0 5px rgba(0,0,0,0.8);
-  // .catch {
-  //   @include absolute-center;
-
-  //   width: 100%;
     & p {
       margin: 0 auto 32px;
       font-weight: bold;
@@ -64,10 +60,9 @@ section.mytest {
       color: #333333;
       text-shadow: none;
     }
-    // }
 }
 
-/* コンセプト */
+/* concept */
 .mycon {
   padding: 50px 0;
   div {
@@ -83,7 +78,7 @@ section.mytest {
     }
     }
 }
-/* ポイント（１） */
+/* point(1) */
 .mypoint1 {
 	min-height: 430px;
 	background-image:
@@ -116,7 +111,7 @@ section.mytest {
   }
 }
 
-/* ポイント（２） */
+/* point(2) */
 .mypoint2 {
   img {
     @include breakpoint(tablet up) {
@@ -128,7 +123,7 @@ section.mytest {
   }
 }
 
-/* 利用者の声 */
+/* User voice */
 .mytest {
 	padding: 50px 0;
   h2 + p {
@@ -161,7 +156,7 @@ section.mytest {
   }
   }
 
-/* アクション */
+/* action */
 .myaction {
   position: relative;
   min-height: 430px;

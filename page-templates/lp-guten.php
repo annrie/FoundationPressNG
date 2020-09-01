@@ -29,7 +29,6 @@ get_header(); ?>
     ?>
 
 </main>
-
 <?php do_action( 'foundationpress_after_content' ); ?>
 		<?php get_template_part( 'back_to_top' ); ?>
 <?php

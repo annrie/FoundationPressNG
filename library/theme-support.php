@@ -59,6 +59,9 @@ function foundationpress_theme_support() {
     // グーテンベルク由来のCSS(theme.min.css)
     add_theme_support( 'wp-block-styles' );
 
+    // ピクセル以外の単位を有効化
+    add_theme_support( 'custom-units' );
+
     // 埋め込みコンテンスのレスポンシブ化
     add_theme_support( 'responsive-embeds' );
 

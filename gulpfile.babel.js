@@ -101,10 +101,10 @@ function sass() {
 		.src([
 			'src/assets/scss/app.scss',
 			'src/assets/scss/editor.scss',
-			'src/assets/scss/style-both.scss',
-			'src/assets/scss/lp-custom.scss',
-			'src/assets/scss/lp-guten-both.scss',
-			'src/assets/scss/lp-guten-front.scss',
+			'src/assets/scss/templates/style-both.scss',
+			'src/assets/scss/templates/lp-custom.scss',
+			'src/assets/scss/templates/lp-guten-both.scss',
+			'src/assets/scss/templates/lp-guten-front.scss',
 		])
 		.pipe($.sourcemaps.init())
 		.pipe(

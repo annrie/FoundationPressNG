@@ -145,7 +145,7 @@ $imgh: 56vh;
   .myblocks {
     box-sizing: border-box;
   }
-    .myblocks *,
+  .myblocks *,
   .myblocks *::before,
   .myblocks *::after {
     box-sizing: inherit;
@@ -153,23 +153,28 @@ $imgh: 56vh;
 
 /* 幅広・全幅 */
 .alignwide {
-    @include xy-grid-container(98vw,0);
-  //   @include xy-gutters($gutters:30vw,$gutter-type:margin, $gutter-position:right left,$negative:true);
-  @include breakpoint(large up) {
-    @include xy-grid-container(75vw,100vw);
-// @include xy-gutters($gutters:0,$gutter-type:margin, $gutter-position:right left,$negative:false);
+  $gutter-margin: calc(100vw - #{$global-width});// -196px
+  @include xy-gutters($gutters:23px, $gutter-type: margin, $negative:true);
+  @include breakpoint(large) {
+    @include xy-gutters($gutters:98px, $gutter-type: margin, $negative:true);
   }
-  img {
+  @include breakpoint(xxlarge) {
+    @include xy-gutters($gutters:392px, $gutter-type: margin, $negative:true);
+  }
+img {
     object-fit: cover;
   }
 }
 
 .alignfull {
-  @include xy-gutters($gutters: 0, $gutter-position:right left);
-//     @include xy-gutters($gutters:40vw,$gutter-type:margin, $gutter-position:right left,$negative:true);
-//   @include breakpoint(tablet up) {
-//     @include xy-gutters($gutters:0,$gutter-type:margin, $gutter-position:right left,$negative:true);
-// }
+    $gutter-margin: calc(100vw - #{$global-width});// -196px
+    @include xy-gutters($gutters:98px, $gutter-type: margin, $negative:true);
+    @include breakpoint(large) {
+      @include xy-gutters($gutters:392px, $gutter-type: margin, $negative:true);
+    }
+    @include breakpoint(xxlarge) {
+      @include xy-gutters($gutters:980px, $gutter-type: margin, $negative:true);
+    }
   img {
     object-fit: cover;
   }
