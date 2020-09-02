@@ -55,6 +55,12 @@
       max-width: 100vw;
       width: 100vw;
        }
+  .wp-block[data-align="full"] [data-type="core/gallery"] .wp-block-gallery{
+  display: block;
+  margin-left: calc(50% - 50vw); // 247px
+  max-width: 100vw;
+  width: 100vw;
+    }
 
 /* group block */
 .wp-block-group .wp-block {
