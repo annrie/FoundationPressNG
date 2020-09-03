@@ -122,10 +122,10 @@ get_header(); ?>
                 <?php echo wp_get_attachment_image( get_field('point2_img')['ID'], 'full'); ?>
             </figure>
         </div>
-        <!-- <div class="cell small-12 medium-5 align-self-middle">
+        <div class="cell small-12 medium-5 align-self-middle">
             <p><?php the_field('point2_big'); ?></p>
             <p><?php the_field('point2_small'); ?></p>
-        </div> -->
+        </div>
     </div>
 </section>
 

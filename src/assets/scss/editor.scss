@@ -39,7 +39,7 @@
 
     }
   }
-  .wp-block[data-align="wide"] {
+  .wp-block[data-align="wide"]  { //投稿OK
     $width: "100vw"; // 1130px
     @each $breakpoint, $size in $grid-margin-gutters {
 
@@ -49,18 +49,39 @@
 
     }
   }
-  .wp-block[data-align="full"]  {
-      display: block;
+//   .wp-block[data-align="wide"] { // "core/media-text" OK
+//     .wp-block-media-text {
+//     width: 100vw;
+//     margin: 0 calc(50% - 50vw);
+//     @include breakpoint(medium) {
+//       width: calc(100% + 20vw);
+//       margin: 0 -10vw;
+//     }
+//   }
+// }
+// .wp-block[data-align="wide"] { // "ugb/blog-posts"
+//   [data-type="ugb/blog-posts"] {
+//   width: 100vw;
+//   margin: 0 calc(50% - 50vw);
+//     @include breakpoint(medium) {
+//       width: calc(100% + 20vw);
+//       margin: 0 -20vw;
+//     }
+//   }
+// }
+
+  .wp-block[data-align="full"] {
+     [data-type="core/image"],
+    [data-type="core/cover"],
+   [data-type="core/group"],
+   [data-type="core/media-text"],
+   [data-type="ugb/blog-posts"]{ //投稿OK
+     // display: block;
       margin-left: calc(50% - 50vw); // 247px
       max-width: 100vw;
       width: 100vw;
      }
-  .wp-block-gallery.alignfull { // don't work
-      display: block;
-      margin-left: calc(50% - 50vw);
-      max-width: 100vw;
-      width: 100vw;
-    }
+     }
 
 /* group block */
 .wp-block-group .wp-block {

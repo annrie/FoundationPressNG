@@ -34,7 +34,7 @@ main {
 /* concept */
 .is-style-lpconcepts {
   margin-bottom: 70px;
-  @include xy-grid-container(80%);
+  @include xy-grid-container(80vw,50px);
 }
 .wp-block-columns.is-style-lpconcepts h3 {
   font-size: $h4-font-size;
@@ -42,8 +42,7 @@ main {
 
 /* latest news */
 .wp-block-ugb-blog-posts {
-  margin-bottom: 60px;
-  @include breakpoint(small) {
+   @include breakpoint(small) {
     @include xy-grid-container(100vw);
   }
 
@@ -93,7 +92,7 @@ main {
 .is-style-lpgroup .wp-block-group__inner-container,
 .is-style-lpgroup .block-editor-block-list__layout {
   display: flex;
-}
+ }
 .is-style-lpgroup .wp-block-group__inner-container > *,
 .is-style-lpgroup .block-editor-block-list__layout > * {
   flex: 1;

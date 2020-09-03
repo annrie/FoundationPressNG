@@ -152,37 +152,29 @@ $imgh: 56vh;
   }
 
 /* 幅広・全幅 */
-.alignwide {
-  $gutter-margin: calc(100vw - #{$global-width});// -196px
-  @include xy-gutters($gutters:23px, $gutter-type: margin, $negative:true);
-  @include breakpoint(large) {
-    @include xy-gutters($gutters:98px, $gutter-type: margin, $negative:true);
+.page-template .alignwide { // 固定OK
+  width: 100vw;
+  margin: 0 calc(50% - 50vw) 2rem;
+  @include breakpoint(tablet) {
+    width: calc(100% + 20vw);
+    margin: 0 10vw 2rem;
   }
-  @include breakpoint(xxlarge) {
-    @include xy-gutters($gutters:392px, $gutter-type: margin, $negative:true);
-  }
-img {
-    object-fit: cover;
+}
+.page-template .wp-block-media-text.alignwide { //  "core/media-text" OK
+  @include xy-cell($gutters: 50vw);
+  @include breakpoint(tablet) {
+    @include xy-cell($gutters: 250vw);
   }
 }
 
-.alignfull:not(.wp-block-gallery) {
-    $gutter-margin: calc(100vw - #{$global-width});// -196px
-    @include xy-gutters($gutters:98px, $gutter-type: margin, $negative:true);
-    @include breakpoint(large) {
-      @include xy-gutters($gutters:392px, $gutter-type: margin, $negative:true);
-    }
-    @include breakpoint(xxlarge) {
-      @include xy-gutters($gutters:980px, $gutter-type: margin, $negative:true);
-    }
-  img {
-    object-fit: cover;
-  }
+.post-template .alignwide { // 投稿OK
+  width: calc(100% + 20vw);
+  margin-left: -10vw;
 }
-.wp-block-gallery.alignfull {
-  margin-left: calc(50% - 50vw);
-  max-width: 100vw;
-  width:100vw;
+.alignfull {
+    margin: 0 calc(50% - 50vw);
+    max-width: 100vw;
+    width:100vw;
 }
   /* group block */
 .wp-block-group .wp-block {
