@@ -12,10 +12,16 @@
 
 get_header(); ?>
 
+<?php
+if ( ! has_block( 'image' ) ) :
+?>
 <?php get_template_part( 'template-parts/featured-image' ); ?>
+<?php
+endif;
+?>
 <div class="main-container">
 	<div class="main-grid">
-		<main id="main" class="main-content" role="main" tabindex="-1">
+		<main id="main" class="main-content mymain" role="main" tabindex="-1">
 			<?php
 			while ( have_posts() ) :
 				the_post();
@@ -24,9 +30,9 @@ get_header(); ?>
 				<?php comments_template(); ?>
 			<?php endwhile; ?>
 		</main>
-		<?php get_sidebar(); ?>
 		<?php get_template_part( 'back-to-top' ); ?>
 	</div>
 </div>
+<?php get_sidebar('full'); ?>
 <?php
 get_footer();

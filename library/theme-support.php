@@ -56,14 +56,17 @@ function foundationpress_theme_support() {
     // Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
     // add_editor_style( 'dist/assets/css/' . foundationpress_asset_path( 'editor.css' ) );
 
-    // Add support for full and wide align images.
-    add_theme_support( 'align-wide' );
-
     // グーテンベルク由来のCSS(theme.min.css)
     add_theme_support( 'wp-block-styles' );
 
+    // ピクセル以外の単位を有効化
+    add_theme_support( 'custom-units' );
+
     // 埋め込みコンテンスのレスポンシブ化
     add_theme_support( 'responsive-embeds' );
+
+    // Add support for full and wide align images.
+    add_theme_support( 'align-wide' );
 }
 
 add_action( 'after_setup_theme', 'foundationpress_theme_support' );

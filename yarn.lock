@@ -6057,7 +6057,7 @@ __metadata:
     style-sherpa: ^1.0.2
     stylelint: ^13.5.0
     stylelint-config-prettier: ^8.0.1
-    stylelint-config-recess-order: ^2.0.4
+    stylelint-config-recess-order: ^2.1.0
     stylelint-config-standard-scss: ^1.1.0
     stylelint-config-wordpress: ^16.0.0
     stylelint-declaration-block-no-ignored-properties: ^2.3.0
@@ -11288,6 +11288,17 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"postcss@npm:^7.0.31":
+  version: 7.0.32
+  resolution: "postcss@npm:7.0.32"
+  dependencies:
+    chalk: ^2.4.2
+    source-map: ^0.6.1
+    supports-color: ^6.1.0
+  checksum: 340f4f6ca6bd37961927f68bf7e38d071a7cba0468240cbba64ccf78012b2acbec974491284cb200e438dd3e655314e6d9508562523cbf9a49d5b00fd7e769fa
+  languageName: node
+  linkType: hard
+
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
@@ -13578,14 +13589,14 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"stylelint-config-recess-order@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "stylelint-config-recess-order@npm:2.0.4"
+"stylelint-config-recess-order@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "stylelint-config-recess-order@npm:2.1.0"
   dependencies:
-    stylelint-order: 4.0.x
+    stylelint-order: 4.1.x
   peerDependencies:
     stylelint: ">=9"
-  checksum: 012dc8aef8e98743bf575e4107229ed2f2a0f22158d50b1f6f4939c0b162b34aade8a45dc8069672fd1082ea2767d4814751353a74c0d68039df96e44080b93f
+  checksum: 3fcabc3885b9ebcb414a209b293efcb39d3c1822fe95a66ec0a0dc7bfc950e2282892ac241a919c11f0cc0f5625d5e0b81b01fdd9775eded49fe1bdb36a48afa
   languageName: node
   linkType: hard
 
@@ -13666,16 +13677,16 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"stylelint-order@npm:4.0.x":
-  version: 4.0.0
-  resolution: "stylelint-order@npm:4.0.0"
+"stylelint-order@npm:4.1.x":
+  version: 4.1.0
+  resolution: "stylelint-order@npm:4.1.0"
   dependencies:
     lodash: ^4.17.15
-    postcss: ^7.0.26
+    postcss: ^7.0.31
     postcss-sorting: ^5.0.1
   peerDependencies:
     stylelint: ^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0
-  checksum: c49858f9315b0e9d6597b13995070ac39b7bf412b45ed3513b98f41b2bd23407fde59d7ccb62da219017c6d39fc26b40e2fd343c8e1381553383788f57568153
+  checksum: 69f7a6003564d21d4eab2b2f3cf641661b7d2bb34d765446502dc0e12b120234673ed62019aa02d439dd545102124c0b1b6af4f5bafbcff1b8e8d19a408f41c5
   languageName: node
   linkType: hard
 

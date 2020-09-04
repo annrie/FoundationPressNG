@@ -1,5 +1,5 @@
 .no-js {
-  @include breakpoint(medium only) {
+  @include breakpoint(medium) {
     .desktop-menu {
       display: none;
     }
@@ -225,5 +225,31 @@ nav.post-navigation {
     font-weight: bold;
     color: #444;
     content: '\f138';
+  }
+}
+
+// Sticky
+.site-header {
+  position: relative;
+  z-index: 10;
+
+  &.sticky.is-stuck {
+    z-index: 10;
+  }
+
+  &.sticky {
+    transition: box-shadow .3s;
+
+    // WP menu adjust
+    body.admin-bar &.is-stuck {
+      top: #{$admin-bar-mobile-height} !important;
+      @include breakpoint(adminbar) {
+        top: #{$admin-bar-height} !important;
+      }
+    }
+
+    &.is-at-top.is-stuck {
+      box-shadow: 0 0 rem-calc(10) rgba($black,.2);
+    }
   }
 }

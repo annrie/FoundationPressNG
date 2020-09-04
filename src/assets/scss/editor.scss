@@ -2,49 +2,107 @@
  * Gutenberg Editor Styles
  */
 
+/**
+ * Big thanks to EBISUCOM (https://github.com/ebisucom/wordpress-note-lp) for the creative ideas
+ */
+
 /** === Includes === */
+
 
 @charset 'utf-8';
 
 @import 'settings';
 @import 'override';
 @import 'foundation';
-@import 'modules/content';
 @import 'components/mixins/font-family';
 @import 'global/variables';
-@import 'global/font-face';
 @import 'components/mixins/push-center';
 
 @include foundation-typography;
 @include foundation-button;
 @include foundation-table;
-@import 'custom';
 
+.is-root-container {
+  @include xy-grid-container;
+}
 /** === Content Width === */
-.wp-block {
-	$width: "100% - (2 * 10px)";
-	@each $breakpoint, $size in $grid-margin-gutters {
+// .wp-block[data-type="core/group"]:not([data-align="full"]):not([data-align="wide"]):not([data-align="left"]):not([data-align="right"]),
+// .wp-block[data-type="core/paragraph"]:not([data-align="full"]):not([data-align="wide"]):not([data-align="left"]):not([data-align="right"]),
+// .wp-block[data-type="core/cover"]:not([data-align="full"]):not([data-align="wide"]):not([data-align="left"]):not([data-align="right"]){
+  .wp-block {
+    $width: "100% - (2 * 10px)"; // 1120px
+    @each $breakpoint, $size in $grid-margin-gutters {
 
-		@include breakpoint($breakpoint) {
-			max-width: calc(#{$width} - #{$size}) ;
-		}
+      @include breakpoint($breakpoint) {
+        max-width: calc(#{$width} - #{$size});
+      }
 
-	}
-}
-.wp-block[data-align="wide"] .wp-block[data-align="wide"],
-.wp-block[data-align="full"] .wp-block[data-align="wide"] {
-	max-width: 1200px;
-}
-.wp-block .wp-block[data-type="core/group"]:not([data-align="full"]):not([data-align="wide"]):not([data-align="left"]):not([data-align="right"]),
-.wp-block .wp-block[data-type="core/cover"]:not([data-align="full"]):not([data-align="wide"]):not([data-align="left"]):not([data-align="right"]) {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 760px;
-}
+    }
+  }
+  .wp-block[data-align="wide"]  { //投稿OK
+    $width: "100vw"; // 1130px
+    @each $breakpoint, $size in $grid-margin-gutters {
 
-.wp-block .wp-block[data-align="full"] {
-	margin-left: 0;
-	margin-right: 0;
+      @include breakpoint($breakpoint) {
+        max-width: calc(#{$width} - #{$size});
+      }
+
+    }
+  }
+//   .wp-block[data-align="wide"] { // "core/media-text" OK
+//     .wp-block-media-text {
+//     width: 100vw;
+//     margin: 0 calc(50% - 50vw);
+//     @include breakpoint(medium) {
+//       width: calc(100% + 20vw);
+//       margin: 0 -10vw;
+//     }
+//   }
+// }
+// .wp-block[data-align="wide"] { // "ugb/blog-posts"
+//   [data-type="ugb/blog-posts"] {
+//   width: 100vw;
+//   margin: 0 calc(50% - 50vw);
+//     @include breakpoint(medium) {
+//       width: calc(100% + 20vw);
+//       margin: 0 -20vw;
+//     }
+//   }
+// }
+
+  .wp-block[data-align="full"] {
+   [data-type="core/image"],
+   [data-type="core/cover"],
+   [data-type="core/group"],
+   [data-type="core/media-text"],
+   [data-type="ugb/blog-posts"]{ //投稿OK
+     // display: block;
+      margin-left: calc(50% - 50vw); // 247px
+      max-width: 100vw;
+      width: 100vw;
+     }
+  }
+  .wp-block[data-align="wide"] { // [core/gallery]  OK
+  .wp-block-gallery {
+      $width: "100vw"; // 1130px
+      @each $breakpoint, $size in $grid-margin-gutters {
+
+        @include breakpoint($breakpoint) {
+          max-width: calc(#{$width} - #{$size});
+        }
+      }
+  }
+}
+  .wp-block[data-align="full"] { //  [core/gallery] OK
+    .wp-block-gallery  {
+      margin-left: calc(50% - 50vw); // 247px
+      max-width: 100vw;
+      width: 100vw;
+   }
+  }
+  /* group block */
+.wp-block-group .wp-block {
+  max-width: 100%;
 }
 
 *[data-align="right"] .wp-block-edit,
@@ -52,22 +110,17 @@
 	max-width: 50%;
 }
 
-.wp-block[data-align="wide"] {
-	max-width: 1200px;
-}
-
-.wp-block[data-align="full"] {
-	max-width: none;
-}
-
 /** === Base Typography === */
 body {
-  @include push-center;
-  font-family: $body-font-family;
+  @include font-family(sans-serif);
   font-size: $global-font-size;
   color: $body-font-color;
+  overflow-x: hidden;
 }
-p {
+body > * {
+  @include push-center;
+}
+p.block-editor-block-list__block[data-type="core/paragraph"] {
   line-height: 2;
 }
 /** === Post Title === */
@@ -91,7 +144,6 @@ p {
   &.is-style-outline .wp-block-button__link {
     @extend .hollow;
   }
-
   // set transparent background to block for outline button
   &.is-style-outline,
   &.is-style-outline:hover,
@@ -100,6 +152,7 @@ p {
     background: transparent;
   }
 }
+
 
 /** === File === */
 .wp-block-file__button {
@@ -121,65 +174,13 @@ p {
   list-style: none;
 }
 
-// gutenberg用のつもり
-.alignleft {
-  float: left;
-  margin: 0 2rem 2rem 0;
-}
-.alignright {
-  float: right;
-  margin: 0 0 2rem 2rem;
-}
-.aligncenter {
-  display: block;
-  margin: 2rem auto;
-  clear: both;
-}
-article {
-  box-sizing: border-box;
-  display: flow-root;
-}
-article::after {
-  display: block;
-  clear: both;
-
-  /* 未対応ブラウザ用の設定 */
-  content: '';
-}
-article *,
-article *::before,
-article *::after {
-  box-sizing: inherit;
-}
-
 /* 色設定 */
-.has-primary-background-color {
-  gackground-color: #1779ba;
-}
-.has-secondary-background-color {
-  gackground-color: #767676;
-}
-.has-success-background-color {
-  gackground-color: #3adb76;
-}
-.has-warning-backrgound-color {
-  gackground-color: #ffae00;
-}
-.has-alert-backrgound-color {
-  gackground-color: #cc4b37;
-}
-.has-primary-color {
-  color: #1779ba;
-}
-.has-secondary-color {
-  color: #767676;
-}
-.has-success-color {
-  color: #3adb76;
-}
-.has-warning-color {
-  gackground-color: #ffae00;
-}
-.has-alert-color {
-  color: #cc4b37;
+@each $color, $code in $foundation-palette {
+  .has-#{$color}-background-color {
+    background-color: $code;
+  }
+
+  .has-#{$color}-color {
+    color: $code;
+  }
 }

@@ -17,7 +17,7 @@ get_header(); ?>
 
 <div class="main-container">
 	<div class="main-grid">
-		<main id="main" class="main-content" role="main" tabindex="-1">
+		<main id="main" class="main-content mymain" role="main" tabindex="-1">
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>

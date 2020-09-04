@@ -98,7 +98,14 @@ function copy() {
 // In production, the CSS is compressed
 function sass() {
 	return gulp
-		.src(['src/assets/scss/app.scss', 'src/assets/scss/editor.scss'])
+		.src([
+			'src/assets/scss/app.scss',
+			'src/assets/scss/editor.scss',
+			'src/assets/scss/templates/style-both.scss',
+			'src/assets/scss/templates/lp-custom.scss',
+			'src/assets/scss/templates/lp-guten-both.scss',
+			'src/assets/scss/templates/lp-guten-front.scss',
+		])
 		.pipe($.sourcemaps.init())
 		.pipe(
 			$.sass({

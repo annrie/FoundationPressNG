@@ -11,6 +11,9 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
+/**
+ * Big thanks to Jon Brockett (https://github.com/jonbrockett/FoundationPress) for the creative ideas
+ */
 function to_slug( $text ) {
 	// replace non letter or digits by -
 	$text = preg_replace( '~[^\pL\d]+~u', '-', $text );

@@ -11,6 +11,9 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
+/**
+ * Big thanks to Jon Brockett (https://github.com/jonbrockett/FoundationPress) for the creative ideas
+ */
 function format_phone( $s ) {
 	$rx = '/
     (1)?\D*     # optional country code

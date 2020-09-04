@@ -11,6 +11,10 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
+/**
+ * Big thanks to Jon Brockett (https://github.com/jonbrockett/FoundationPress) for the creative ideas
+ */
+
 if ( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_page(
 		array(

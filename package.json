@@ -1,7 +1,7 @@
 {
   "name": "foundationpressng",
   "title": "FoundationPressNG",
-  "version": "2.10.7",
+  "version": "3.0.0",
   "description": "FoundationPressNG is a WordPress starter theme based on Foundation 6",
   "homepage": "https://phantomoon.com",
   "license": "MIT",
@@ -88,7 +88,7 @@
     "style-sherpa": "^1.0.2",
     "stylelint": "^13.5.0",
     "stylelint-config-prettier": "^8.0.1",
-    "stylelint-config-recess-order": "^2.0.4",
+    "stylelint-config-recess-order": "^2.1.0",
     "stylelint-config-standard-scss": "^1.1.0",
     "stylelint-config-wordpress": "^16.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
@@ -106,5 +106,10 @@
   },
   "bugs": {
     "url": "https://github.com/annrie/FoundationPressNG/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/git-cz"
+    }
   }
 }

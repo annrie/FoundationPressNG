@@ -56,12 +56,6 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 		// Enqueue FontAwesome from CDN. Uncomment the line below if you need FontAwesome.
     wp_enqueue_script( 'fontawesome', '//kit.fontawesome.com/1da9fe040f.js', array(), '6', true );
-
-    // Google map api
-    // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.NoExplicitVersion
-    wp_enqueue_script( 'googlemapapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ok--EfDe-1tYrqFco5G9GqG6CRaIzKU', array(), '', true );
-
-    wp_enqueue_script( 'fontawesome', '//kit.fontawesome.com/1da9fe040f.js', array(), '6', true );
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
     }
