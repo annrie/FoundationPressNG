@@ -166,6 +166,14 @@ $imgh: 56vh;
     @include xy-cell($gutters: 250vw);
   }
 }
+.page-template .wp-block-gallery.alignwide { //  "core/gallery" OK
+  width: 100vw;
+  margin: 0 calc(50% - 50vw) 2rem;
+  @include breakpoint(tablet) {
+    width: calc(100% + 20vw);
+    margin: 0 10vw 2rem -10vw;
+  }
+}
 
 .post-template .alignwide { // 投稿OK
   width: calc(100% + 20vw);

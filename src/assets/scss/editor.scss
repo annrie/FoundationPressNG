@@ -71,8 +71,8 @@
 // }
 
   .wp-block[data-align="full"] {
-     [data-type="core/image"],
-    [data-type="core/cover"],
+   [data-type="core/image"],
+   [data-type="core/cover"],
    [data-type="core/group"],
    [data-type="core/media-text"],
    [data-type="ugb/blog-posts"]{ //投稿OK
@@ -81,9 +81,26 @@
       max-width: 100vw;
       width: 100vw;
      }
-     }
+  }
+  .wp-block[data-align="wide"] { // [core/gallery]  OK
+  .wp-block-gallery {
+      $width: "100vw"; // 1130px
+      @each $breakpoint, $size in $grid-margin-gutters {
 
-/* group block */
+        @include breakpoint($breakpoint) {
+          max-width: calc(#{$width} - #{$size});
+        }
+      }
+  }
+}
+  .wp-block[data-align="full"] { //  [core/gallery] OK
+    .wp-block-gallery  {
+      margin-left: calc(50% - 50vw); // 247px
+      max-width: 100vw;
+      width: 100vw;
+   }
+  }
+  /* group block */
 .wp-block-group .wp-block {
   max-width: 100%;
 }
