@@ -70,6 +70,19 @@ function myjs_enqueue() {
     }
 add_action( 'enqueue_block_editor_assets', 'myjs_enqueue' );
 
+// change the title
+function change_title_tag_with_cfv( $title ) {
+// 個別ページの場合
+if ( is_singular() ) {
+    // カスタムフィールドの値を取得
+    $cf_title_tag = get_post_meta( get_the_ID(), 'my_title_tag', true );
+    $title        = esc_html( $cf_title_tag );
+}
+
+return $title;
+}
+add_filter( 'pre_get_document_title', 'change_title_tag_with_cfv' );
+
 // landing old style
 function lp_custom() {
     if ( is_page( 'lp:custom' ) ) {
@@ -126,4 +139,5 @@ function lp_guten_editor() {
 }
 add_action( 'enqueue_block_editor_assets', 'lp_guten_editor' );
 
+// change the title
 endif;
