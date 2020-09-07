@@ -12,11 +12,14 @@
  */
 
 // Add additional image sizes
-add_image_size( 'xsmall', 640 );
+add_image_size( 'xsmall', 300 );
+add_image_size( 'small', 640 );
 add_image_size( 'medium_large', 768 );
-add_image_size( 'large_wide', 1200 );
+add_image_size( 'medium', 1024 );
+add_image_size( 'large', 1200 );
 add_image_size( 'xlarge', 1536 );
 add_image_size( 'xxlarge', 2048 );
+add_image_size( 'full', 2560 );
 
 // Remove medium large srcset image
 // add_filter(
@@ -30,9 +33,10 @@ add_image_size( 'xxlarge', 2048 );
 function ajust_media_library( $response, $attachment, $meta ) {
 	if ( ! empty( $response ) ) {
 		$sizes = array(
-            'xsmall',
-            'medium_large',
-            'large_wide',
+            'small', // WP default
+            'medium', // WP default
+            'large', // WP default
+            'medium_large', // WP default
             'xlarge', // WP default
             'xxlarge', // WP default
         );
@@ -52,22 +56,23 @@ add_filter( 'wp_prepare_attachment_for_js', 'ajust_media_library', 999, 3 );
 // Register the new image sizes for use in the add media modal in wp-admin
 function foundationpress_custom_sizes( $sizes ) {
 	// Unset WP Default sizes so they can be reordered with new custom sizes
-	// unset( $sizes['thumbnail'] );
+	unset( $sizes['thumbnail'] );
 	unset( $sizes['medium'] );
+	unset( $sizes['medium_large'] );
 	unset( $sizes['large'] );
 	unset( $sizes['full'] );
 
 	return array_merge(
 		$sizes,
 		array(
-            'xsmall'       => __( 'Xsmall' ),
-            'medium'       => __( 'Medium' ),
+            'xsmall'       => __( 'XSmall' ),
             'medium_large' => __( 'MediumLarge' ),
+            'medium'       => __( 'Medium' ),
+            'small'        => __( 'Small' ),
             'large'        => __( 'Large' ),
-            'large_wide'   => __( 'LargeWide' ),
             'xlarge'       => __( 'XLarge' ),
-            'xxlarge'      => __( 'XXLarge' ),
-            'full'         => __( 'Full' ),
+            'xxlarge'      => __( 'XXLarge'),
+            'full'         => __( 'Full'),
 		)
 	);
 }
