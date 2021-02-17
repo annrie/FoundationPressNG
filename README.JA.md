@@ -26,30 +26,36 @@ Sassはlibsassを使ってコンパイルされているので、マシンにGCC
 
 ## クイックスタート
 
-### 1. リポジトリをクローンし、npmでインストールします。
+### 1. リポジトリをクローンし、npmでインストールします
+
 ```bash
-$ cd my-wordpress-folder/wp-content/themes/の
+$ cd my-wordpress-folder/wp-content/themes/
 $ git clone git@github.com:annrie/FoundationPressNG.git
-$ cd FoundationPress
+$ cd FoundationPressNG
 $ npm install
 ```
 ### 1-2. yarn 2　の場合
+
 ```bash
-$ npx @yarnpkg/doctor
+$ yarn set version berry
+$ echo "nodeLinker: node-modules" > .yarnrc.yml
 $ yarn install
 ```
 
 ### 2. 設定
 
 #### YAML設定ファイル
+
 FoundationPressには、`config-default.yml` ファイルが含まれています。設定を変更するには、`config-default.yml` のコピーを作成して `config.yml` という名前にして、それに変更を加えます。config.yml` ファイルは git に無視されるので、環境ごとに異なる設定を同じ git repo で使うことができます。
 
 ビルド処理の開始時には、`config.yml` ファイルが存在するかどうかのチェックが行われます。もし `config.yml` が存在すれば、設定は `config.yml` から読み込まれます。config.yml` が存在しない場合は、`config-default.yml` がフォールバックとして使用されます。
 
 #### Browsersyncの設定
+
 Browsersync](https://www.browsersync.io/) (ファイル保存時のブラウザの自動更新)を利用したい場合は、前のステップで作成した `config.yml` ファイルを開き、`BROWSERSYNC` オブジェクトの下の `url` プロパティにローカルの開発サーバのアドレスとポート (例: http://localhost:8888) を指定してください。
 
 #### 静的アセットハッシュ/キャッシュブレイカー
+
 テーマを再デプロイした後にユーザーが最新の変更点を確認できるようにしたい場合は、静的アセットハッシュを有効にすることができます。`config.yml` の中で ``REVISIONING: true;`` を設定してください。ハッシュ化は ``npm run build`` と ``npm run dev`` コマンドで有効になります。BrowserSyncを使ったstartコマンドには適用されません。これは設計によるものです。 ハッシュ化が変更されるのはファイルに実際に変更があった場合のみです。
 
 ### 3. 開始
@@ -84,16 +90,16 @@ $ npm run package or yarn package
 
 ### スタイルとSassのコンパイル
 
- * `style.css`. このファイルは気にしないでください。(なぜか)WordPressでは必須です。すべてのスタイリングは後述のSassファイルで処理されます。
+* `style.css`. このファイルは気にしないでください。(なぜか)WordPressでは必須です。すべてのスタイリングは後述のSassファイルで処理されます。
 
- * `src/assets/scss/app.scss`. すべてのスタイルのインポートをここで行います。
- * `src/assets/scss/global/*.scss`. グローバル設定
- * `src/assets/scss/components/*.scss`. ボタンなど。
- * `src/assets/scss/modules/*.scss`: ボタンなど。トップバーやフッターなど。
- * `src/assets/scss/templates/*.scss`: トップバー，フッターなど
- * `src/assets/scss/modules/*.scss`: トップバー，フッターなど
- * `src/assets/scss/templates/*.scss`: ページテンプレートのスタイリング
- * `dist/assets/css/app.css`. このファイルはドキュメントの `<head>` セクションに読み込まれ、プロジェクト用にコンパイルされたスタイルが含まれています。
+* `src/assets/scss/app.scss`. すべてのスタイルのインポートをここで行います。
+* `src/assets/scss/global/*.scss`. グローバル設定
+* `src/assets/scss/components/*.scss`. ボタンなど。
+* `src/assets/scss/modules/*.scss`: ボタンなど。トップバーやフッターなど。
+* `src/assets/scss/templates/*.scss`: トップバー，フッターなど
+* `src/assets/scss/modules/*.scss`: トップバー，フッターなど
+* `src/assets/scss/templates/*.scss`: ページテンプレートのスタイリング
+* `dist/assets/css/app.css`. このファイルはドキュメントの `<head>` セクションに読み込まれ、プロジェクト用にコンパイルされたスタイルが含まれています。
 
 Sass を初めて使う方は、scss ファイルを変更しても `app.css` にコンパイルされるようにするためには、バックグラウンドで Gulp を起動しておく必要があることに注意してください (``npm start``)。
 
@@ -125,7 +131,6 @@ Foundationのモジュールを含むすべてのJavaScriptファイルは、`sr
 * [Local](https://local.getflywheel.com/) (macOS/Windows)
 * [VVV（VVV（Varying Vagrant Vagrants））](https://github.com/Varying-Vagrant-Vagrants/VVV)  (Vagrant Box)
 * [Trellis](https://roots.io/trellis/)
-* [vccw](git@github.com:vccw-team/vccw.git) (Vagrant Box)
 
 ## チュートリアル
 

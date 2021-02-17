@@ -17,3 +17,5 @@ vendor/
 blocks/
 .cz-config.js
 .czrc
+.node-version
+.python-version

@@ -27,30 +27,36 @@ The Sass is compiled using libsass, which requires the GCC to be installed on yo
 ## Quickstart
 
 ### 1. Clone the repository and install with npm
+
 ```bash
 $ cd my-wordpress-folder/wp-content/themes/
-$ git clone https://github.com/olefredrik/FoundationPress.git
-$ cd FoundationPress
+$ git clone git@github.com:annrie/FoundationPressNG.git
+$ cd FoundationPressNG
 $ npm install
 ```
 
 ### 1-2. In the case of yarn 2
+
 ```bash
-$ npx @yarnpkg/doctor
+$ yarn set version berry
+$ echo "nodeLinker: node-modules" > .yarnrc.yml
 $ yarn install
 ```
 
 ### 2. Configuration
 
 #### YAML config file
+
 FoundationPress includes a `config-default.yml` file. To make changes to the configuration, make a copy of `config-default.yml` and name it `config.yml` and make changes to that file. The `config.yml` file is ignored by git so that each environment can use a different configuration with the same git repo.
 
 At the start of the build process a check is done to see if a `config.yml` file exists. If `config.yml` exists, the configuration will be loaded from `config.yml`. If `config.yml` does not exist, `config-default.yml` will be used as a fallback.
 
 #### Browsersync setup
+
 If you want to take advantage of [Browsersync](https://www.browsersync.io/) (automatic browser refresh when a file is saved), simply open your `config.yml` file after creating it in the previous step, and put your local dev-server address and port (e.g http://localhost:8888) in the `url` property under the `BROWSERSYNC` object.
 
 #### Static asset hashing / cache breaker
+
 If you want to make sure your users see the latest changes after re-deploying your theme, you can enable static asset hashing. In your `config.yml`, set ``REVISIONING: true;``. Hashing will work on the ``npm run build`` and ``npm run dev`` commands. It will not be applied on the start command with browsersync. This is by design.  Hashing will only change if there are actual changes in the files.
 
 ### 3. Get started
@@ -85,15 +91,15 @@ I guess the rest is quite self explanatory. Feel free to ask if you feel stuck.
 
 ### Styles and Sass Compilation
 
- * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
+* `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
 
- * `src/assets/scss/app.scss`: Make imports for all your styles here
- * `src/assets/scss/global/*.scss`: Global settings
- * `src/assets/scss/components/*.scss`: Buttons etc.
- * `src/assets/scss/modules/*.scss`: Topbar, footer etc.
- * `src/assets/scss/templates/*.scss`: Page template styling
+* `src/assets/scss/app.scss`: Make imports for all your styles here
+* `src/assets/scss/global/*.scss`: Global settings
+* `src/assets/scss/components/*.scss`: Buttons etc.
+* `src/assets/scss/modules/*.scss`: Topbar, footer etc.
+* `src/assets/scss/templates/*.scss`: Page template styling
 
- * `dist/assets/css/app.css`: This file is loaded in the `<head>` section of your document, and contains the compiled styles for your project.
+* `dist/assets/css/app.css`: This file is loaded in the `<head>` section of your document, and contains the compiled styles for your project.
 
 If you're new to Sass, please note that you need to have Gulp running in the background (``npm start``), for any changes in your scss files to be compiled to `app.css`.
 
@@ -125,7 +131,6 @@ We recommend using one of the following setups for local WordPress development:
 * [Local](https://local.getflywheel.com/) (macOS/Windows)
 * [VVV (Varying Vagrant Vagrants)](https://github.com/Varying-Vagrant-Vagrants/VVV) (Vagrant Box)
 * [Trellis](https://roots.io/trellis/)
-* [vccw](git@github.com:vccw-team/vccw.git) (Vagrant Box)
 
 ## Tutorials
 
