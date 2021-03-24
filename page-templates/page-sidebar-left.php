@@ -13,7 +13,7 @@ get_header(); ?>
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 <div class="main-container">
 	<div class="main-grid sidebar-left">
-		<main id="main" class="main-content" tabindex="-1">
+		<main id="main" class="main-content mymain" tabindex="-1">
 			<?php
 			while ( have_posts() ) :
 				the_post();

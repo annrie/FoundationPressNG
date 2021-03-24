@@ -11,6 +11,10 @@
  * @link     https://foundationpressng.phantomoon.com
  */
 
+/**
+ * Big thanks to Jon Brockett (https://github.com/jonbrockett/FoundationPress) for the creative ideas
+ */
+
 add_action(
 	'template_redirect',
 	function () {

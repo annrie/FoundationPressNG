@@ -41,11 +41,11 @@
  * Footer
  */
 ?>
-<footer class="footer-container">
+<footer class="grid-container full myfooter">
 	<div class="footer-grid">
-		<div class="cell">
+		<!-- <div class="cell">
 					<?php dynamic_sidebar( 'footer-widgets1' ); ?>
-		</div>
+		</div> -->
 			<div id="copyright" class="cell text-center">
 				<small>Copyright &copy; <?php bloginfo( 'name' ); ?> All rights reserved.</small>
 			</div>
@@ -55,44 +55,6 @@
 <?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
 	</div><!-- Close off-canvas content -->
 <?php endif; ?>
-
 <?php wp_footer(); ?>
-<?php if ( is_page( 2410 ) ) : ?>
-		<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/assets/js/aws-ymd.js"></script>
-<?php endif; ?>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
-	google.load("feeds", "1");
-
-function initialize() {
-	let feedurl = "https://www.amazon.co.jp/gp/rss/bestsellers/books/ref=zg_bs_books_rsslink&tag=annicastle0b-22";
-	let feed = new google.feeds.Feed(feedurl);
-	feed.setNumEntries(8);
-
-	feed.load(function (result){
-	if (!result.error){
-		let container = document.getElementById("feed");
-		let htmlstr = "";
-		htmlstr += "<p>[ã‚¿ã‚¤ãƒˆãƒ«]" + result.feed.title + "</p>";
-
-		htmlstr += "<ul>";
-		for (let i = 0; i < result.feed.entries.length; i++) {
-		let entry = result.feed.entries[i];
-
-		htmlstr += "<li>";
-		htmlstr += entry.content;
-		htmlstr += "</li>";
-	}
-		htmlstr += "</ul>";
-
-		container.innerHTML = htmlstr;
-	}else{
-		alert(result.error.code + ":" + result.error.message);
-	}
-	});
-}
-
-google.setOnLoadCallback(initialize);
-</script>
 </body>
 </html>

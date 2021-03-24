@@ -2,10 +2,13 @@
 /**
  * Clean up WordPress defaults
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @package FoundationPressNG
+ * @since FoundationPressNG 1.0.0
  */
 
+/**
+ * Big thanks to Jon Brockett (https://github.com/jonbrockett/FoundationPress) for the creative ideas
+ */
 function foundationpress_add_woocommerce_support() {
 	add_theme_support(
 		'woocommerce',

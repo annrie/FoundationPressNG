@@ -1,6 +1,10 @@
 /**
  * Custom Interchange Sizes to Support Retina at Each Size
  */
+/**
+ * Big thanks to Jon Brockett (https://github.com/jonbrockett/FoundationPress) for the creative ideas
+ */
+
 import Foundation from 'foundation-sites';
 
 Foundation.Interchange.SPECIAL_QUERIES['small-retina'] =

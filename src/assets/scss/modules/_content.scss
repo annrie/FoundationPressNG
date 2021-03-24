@@ -1,8 +1,9 @@
 .main-container {
   @include xy-grid-container;
 }
+
 .main-grid {
-  @include xy-grid();
+  @include xy-grid;
   @include flex-align(center);
 
   padding-top: 1rem;
@@ -37,6 +38,10 @@
 
   // Full width template
   .main-content-full-width {
+    @include xy-cell(12);
+  }
+  .page-template-page-full-width  .myaside,
+  .post-template-page-full-width .myaside {
     @include xy-cell(12);
   }
 

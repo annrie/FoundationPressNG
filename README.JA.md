@@ -26,31 +26,37 @@ Sassはlibsassを使ってコンパイルされているので、マシンにGCC
 
 ## クイックスタート
 
-### 1. リポジトリをクローンし、npmでインストールします。
+### 1. リポジトリをクローンし、npmでインストールします
+
 ```bash
-$ cd my-wordpress-folder/wp-content/themes/の
+$ cd my-wordpress-folder/wp-content/themes/
 $ git clone git@github.com:annrie/FoundationPressNG.git
-$ cd FoundationPress
+$ cd FoundationPressNG
 $ npm install
 ```
+
 ### 1-2. yarn 2　の場合
+
 ```bash
-$ npx @yarnpkg/doctor
-$ echo "nodeLinker: node-modules" >> .yarnrc.yml
+$ yarn set version berry
+$ echo "nodeLinker: node-modules" > .yarnrc.yml
 $ yarn install
 ```
 
 ### 2. 設定
 
 #### YAML設定ファイル
+
 FoundationPressには、`config-default.yml` ファイルが含まれています。設定を変更するには、`config-default.yml` のコピーを作成して `config.yml` という名前にして、それに変更を加えます。config.yml` ファイルは git に無視されるので、環境ごとに異なる設定を同じ git repo で使うことができます。
 
 ビルド処理の開始時には、`config.yml` ファイルが存在するかどうかのチェックが行われます。もし `config.yml` が存在すれば、設定は `config.yml` から読み込まれます。config.yml` が存在しない場合は、`config-default.yml` がフォールバックとして使用されます。
 
 #### Browsersyncの設定
+
 Browsersync](https://www.browsersync.io/) (ファイル保存時のブラウザの自動更新)を利用したい場合は、前のステップで作成した `config.yml` ファイルを開き、`BROWSERSYNC` オブジェクトの下の `url` プロパティにローカルの開発サーバのアドレスとポート (例: http://localhost:8888) を指定してください。
 
 #### 静的アセットハッシュ/キャッシュブレイカー
+
 テーマを再デプロイした後にユーザーが最新の変更点を確認できるようにしたい場合は、静的アセットハッシュを有効にすることができます。`config.yml` の中で ``REVISIONING: true;`` を設定してください。ハッシュ化は ``npm run build`` と ``npm run dev`` コマンドで有効になります。BrowserSyncを使ったstartコマンドには適用されません。これは設計によるものです。 ハッシュ化が変更されるのはファイルに実際に変更があった場合のみです。
 
 ### 3. 開始
@@ -85,16 +91,16 @@ $ npm run package or yarn package
 
 ### スタイルとSassのコンパイル
 
- * `style.css`. このファイルは気にしないでください。(なぜか)WordPressでは必須です。すべてのスタイリングは後述のSassファイルで処理されます。
+* `style.css`. このファイルは気にしないでください。(なぜか)WordPressでは必須です。すべてのスタイリングは後述のSassファイルで処理されます。
 
- * `src/assets/scss/app.scss`. すべてのスタイルのインポートをここで行います。
- * `src/assets/scss/global/*.scss`. グローバル設定
- * `src/assets/scss/components/*.scss`. ボタンなど。
- * `src/assets/scss/modules/*.scss`: ボタンなど。トップバーやフッターなど。
- * `src/assets/scss/templates/*.scss`: トップバー，フッターなど
- * `src/assets/scss/modules/*.scss`: トップバー，フッターなど
- * `src/assets/scss/templates/*.scss`: ページテンプレートのスタイリング
- * `dist/assets/css/app.css`. このファイルはドキュメントの `<head>` セクションに読み込まれ、プロジェクト用にコンパイルされたスタイルが含まれています。
+* `src/assets/scss/app.scss`. すべてのスタイルのインポートをここで行います。
+* `src/assets/scss/global/*.scss`. グローバル設定
+* `src/assets/scss/components/*.scss`. ボタンなど。
+* `src/assets/scss/modules/*.scss`: ボタンなど。トップバーやフッターなど。
+* `src/assets/scss/templates/*.scss`: トップバー，フッターなど
+* `src/assets/scss/modules/*.scss`: トップバー，フッターなど
+* `src/assets/scss/templates/*.scss`: ページテンプレートのスタイリング
+* `dist/assets/css/app.css`. このファイルはドキュメントの `<head>` セクションに読み込まれ、プロジェクト用にコンパイルされたスタイルが含まれています。
 
 Sass を初めて使う方は、scss ファイルを変更しても `app.css` にコンパイルされるようにするためには、バックグラウンドで Gulp を起動しておく必要があることに注意してください (``npm start``)。
 
@@ -107,6 +113,7 @@ Foundationのモジュールを含むすべてのJavaScriptファイルは、`sr
 ファウンデーションモジュールは `src/assets/js/app.js` ファイルにロードされます。デフォルトではすべてのコンポーネントがロードされます。また、どのモジュールをインクルードするかを選択することもできます。ファイルの指示に従うだけです。
 
 追加のJavaScriptファイルを `app.js` とは別に出力する必要がある場合は、以下のようにします。
+
 * 新しい `custom.js` ファイルを `src/assets/js/` に作成します。jQueryを使用する場合は、ファイルの先頭に `import $ from 'jquery';` を追加します。
 * `config.yml` で、`PATHS. entries` に `src/assets/js/custom.js` を追加する。
 * ビルド (`npm start`)
@@ -126,7 +133,6 @@ Foundationのモジュールを含むすべてのJavaScriptファイルは、`sr
 * [Local](https://local.getflywheel.com/) (macOS/Windows)
 * [VVV（VVV（Varying Vagrant Vagrants））](https://github.com/Varying-Vagrant-Vagrants/VVV)  (Vagrant Box)
 * [Trellis](https://roots.io/trellis/)
-* [vccw](git@github.com:vccw-team/vccw.git) (Vagrant Box)
 
 ## チュートリアル
 
@@ -165,7 +171,7 @@ Foundationのモジュールを含むすべてのJavaScriptファイルは、`sr
 >このリストに掲載されるべきサイトを作ったことはありますか？このリストに載せるべきサイトを作ったことがありますか？[教えてください](https://twitter.com/muraie_jin)
 
 <!-- ## 貢献する
-#### 参加方法をご紹介します。
+### 参加方法をご紹介します。
 
 1. スター](https://github.com/olefredrik/FoundationPress/stargazers)プロジェクトに参加する。
 2. 2. [GitHub issues](https://github.com/olefredrik/FoundationPress/issues) を通じて寄せられた質問に答える。
@@ -173,7 +179,7 @@ Foundationのモジュールを含むすべてのJavaScriptファイルは、`sr
 4. FoundationPressの上に構築したテーマを共有する
 5. あなたのFoundationPressを使った経験を[Tweet](https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Ffoundationpress.olefredrik.com%2F&text=Check%20out%20FoundationPress%2C%20the%20ultimate%20%23WordPress%20starter-theme%20built%20on%20%23Foundation%206&tw_p=tweetbutton&url=http%3A%2F%2Ffoundationpress.olefredrik.com&via=olefredrik)と[blog](http://www.justinfriebel.com/my-first-experience-with-foundationpress-a-wordpress-starter-theme-106/)で紹介してください。 -->
 
-#### プルリクエスト
+### プルリクエスト
 
 プルリクエストは大歓迎です。以下のガイドラインに従ってください。
 

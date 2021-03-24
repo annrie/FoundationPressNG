@@ -49,4 +49,95 @@ if ( ! function_exists( 'foundationpress_gutenberg_support' ) ) :
 	}
 
 	add_action( 'after_setup_theme', 'foundationpress_gutenberg_support' );
+
+// Big thanks to EBISUCOM (https://github.com/ebisucom/wordpress-note-lp) for the creative ideas
+// front and editor both style
+function mytheme_both() {
+    wp_enqueue_style(
+        'landing-stylesheet',
+        get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'style-both.css' ),
+        array(),
+        filemtime( get_theme_file_path( '/dist/assets/css/style-both.css' ) ),
+        'all'
+    );
+    }
+    add_action( 'enqueue_block_assets', 'mytheme_both');
+
+
+// block style
+function myjs_enqueue() {
+    wp_enqueue_script( 'myjs-style', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'mystyle.js'), array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ), filemtime( get_theme_file_path( '/dist/assets/js/mystyle.js' ) ), true);
+    }
+add_action( 'enqueue_block_editor_assets', 'myjs_enqueue' );
+
+// change the title
+function change_title_tag_with_cfv( $title ) {
+// 個別ページの場合
+if ( is_singular() ) {
+    // カスタムフィールドの値を取得
+    $cf_title_tag = get_post_meta( get_the_ID(), 'my_title_tag', true );
+    $title        = esc_html( $cf_title_tag );
+}
+
+return $title;
+}
+add_filter( 'pre_get_document_title', 'change_title_tag_with_cfv' );
+
+// landing old style
+function lp_custom() {
+    if ( is_page( 'lp:custom' ) ) {
+        wp_enqueue_style(
+            'lp-custom-style',
+            get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'lp-custom.css' ),
+            array(),
+            filemtime( get_theme_file_path( '/dist/assets/css/lp-custom.css' ) ),
+            'all'
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'lp_custom');
+
+// landing gutnberg style
+function lp_guten_front() {
+    if ( is_page( 'lp:gutenberg' ) ) {
+        wp_enqueue_style(
+            'lp-guten-front-style',
+            get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'lp-guten-front.css' ),
+            array(),
+            filemtime( get_theme_file_path( '/dist/assets/css/lp-guten-front.css' ) ),
+            'all'
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'lp_guten_front');
+
+function lp_guten_both() {
+    global $post;
+    if ( 'lp:gutenberg' === $post->post_title ) {
+        wp_enqueue_style(
+                'lp-guten-both-style',
+                get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'lp-guten-both.css' ),
+                array(),
+                filemtime( get_theme_file_path( '/dist/assets/css/lp-guten-both.css' ) ),
+                'all'
+            );
+    }
+}
+add_action( 'enqueue_block_assets', 'lp_guten_both');
+
+function lp_guten_editor() {
+    global $post;
+    if ( 'lp:gutenberg' === $post->post_title ) {
+        wp_enqueue_script(
+                'lp-guten',
+                get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'lp-guten.js'),
+                array(),
+                filemtime( get_theme_file_path( '/dist/assets/js/lp-guten.js' ) ),
+                true
+            );
+    }
+}
+add_action( 'enqueue_block_editor_assets', 'lp_guten_editor' );
+
+// change the title
 endif;

@@ -1,6 +1,8 @@
 <?php
 /**
- * The default template for displaying page content
+ * The default template for displaying ontent
+ *
+ * Used for both single and index/archive/search.
  *
  * @package FoundationPressNG
  * @since   FoundationPressNG 1.0.0
@@ -8,7 +10,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class('myblocks'); ?>
 	<?php
 	if ( is_single() ) :
 		?>
@@ -21,8 +23,21 @@ else :
 endif;
 ?>
 >
-	<header>
-	<?php
+<header>
+<!-- <?php if ( ! has_block( 'image') ) : ?>
+	<?php if ( has_post_thumbnail() ) : ?>
+			<div class="grid-x grid-margin-x">
+				<div class="small-12 cell text-center">
+        <figure class="myfigure">
+            <?php the_post_thumbnail(); ?>
+        </figure>
+				</div>
+    </div>
+
+		<?php endif; ?>
+		<?php endif; ?> -->
+    <?php the_category(); ?>
+<?php
 	if ( is_single() ) {
 		the_title( '<h1 id="entry-title" class="entry-title">', '</h1>' );
 	} else {
@@ -32,13 +47,6 @@ endif;
 		<?php foundationpress_entry_meta(); ?>
 	</header>
 	<div class="entry-content">
-<?php if ( has_post_thumbnail() ) : ?>
-			<div class="grid-x grid-margin-x">
-				<div class="small-12 cell text-center">
-					<?php the_post_thumbnail( 'fp-small', array('class' => 'thumbnail') ); ?>
-				</div>
-			</div>
-		<?php endif; ?>
 
 		<?php the_content(); ?>
 		<?php

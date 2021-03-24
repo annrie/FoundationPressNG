@@ -1,3 +1,7 @@
-@function url-friendly-color($color) {
+/**
+ * Big thanks to Jon Brockett (https://github.com/jonbrockett/FoundationPress) for the creative ideas
+ */
+
+ @function url-friendly-color($color) {
   @return '%23' + str-slice('#{$color}', 2, -1);
 }

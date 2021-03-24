@@ -1,0 +1,1195 @@
+//////////////////////////////////////////////////////
+//////ズルい線：使用例　@include pm-line-top(.1, .2);
+//* 上 */
+@mixin pm-line-top($black: 0.1, $white: 0.5) {
+  border-top: 1px solid rgba(0, 0, 0, $black);
+  box-shadow: rgba(255, 255, 255, $white) 0 1px 0 inset;
+}
+
+//* 左 */
+@mixin pm-line-left($black: 0.1, $white: 0.5) {
+  border-left: 1px solid rgba(0, 0, 0, $black);
+  box-shadow: rgba(255, 255, 255, $white) -1px 0 0;
+}
+
+//* 右 */
+@mixin pm-line-right($black: 0.1, $white: 0.5) {
+  border-right: 1px solid rgba(0, 0, 0, $black);
+  box-shadow: rgba(255, 255, 255, $white) -1px 0 0 inset;
+}
+
+//* 下 */
+@mixin pm-line-bottom($black: 0.1, $white: 0.5) {
+  border-bottom: 1px solid rgba(0, 0, 0, $black);
+  box-shadow: rgba(255, 255, 255, $white) 0 1px 0;
+}
+
+//////////////////////////////////////////////////////
+//////ズルいテキストシャドウ：使用例　@include pm-ts-000(.2)
+//* 濃い背景色＋白抜き文字のテキストシャドウ（黒いシャドウ） */
+@mixin pm-ts-000($op: 0.2) {
+  text-shadow: 1px -1px rgba(0, 0, 0, $op);
+}
+
+//* 薄い（白に近い）背景色＋濃い色の文字のテキストシャドウ（白いシャドウ） */
+@mixin pm-ts-fff($op: 0.5) {
+  text-shadow: -1px 1px rgba(255, 255, 255, $op);
+}
+
+//////////////////////////////////////////////////////
+//////ズルい背景：使用例　@include ts-000(.2)
+//* 限りなく白に近い「ズルいグレー」#EEE, #F8F8F8 */
+
+////////////////////////////////////////////////////////////////////////////
+//////ズルいグラデーション：使用例　@include gradient-top-lighten(#222 (, 10%));
+//* 上の方が少し明るいグラデーション */
+@mixin pm-gradient-top-lighten($color: #666, $lighten: 5%) {
+  background-color: $color;
+  filter-gradient: lighten($color, $lighten), $color, vertical;
+  background-image: linear-gradient(lighten($color, $lighten) 0%, $color 100%);
+}
+
+//* 上の方が少し暗いグラデーション */
+@mixin pm-gradient-top-darken($color: #666, $darken: 5%) {
+  background-color: $color;
+  filter-gradient: darken($color, $darken), $color, vertical;
+  background-image: linear-gradient(darken($color, $darken) 0%, $color 100%);
+}
+
+////////////////////////////////////////////////////////////////////////////
+//////ズルい配色：
+// $accent-color: adjust-hue($primary-color, 200deg);
+
+// 彩度を落として使いやすく
+// $desature-color: desaturate(#e74c3c, 10%);
+
+////////////////////////////////////////////////////////////////////////////////
+//////ズルい角丸：本文を囲むBOX、大きめの写真：5〜6px、ボタン：4px、小さなアイコン：2〜3px
+//////　　　　　　使用例　@include border-radius(6px);
+
+////////////////////////////////////////////////////////////////////////////
+//////ズルいbox-shadow 1：枠線代わりに利用できるbox-shadow
+//////　　　　　　使用例　@include pm-box(.3);
+@mixin pm-box($shadow: 0.15) {
+  box-shadow: rgba(0, 0, 0, $shadow) 0 0 2px;
+}
+
+////////////////////////////////////////////////////////////////////////////
+//////ズルいbox-shadow 2：内側にぼかして高級感を表現する
+//////　　　　　　使用例　@include rich-box(.1);
+@mixin rich-box($shadow: 0.2) {
+  box-shadow: rgba(0, 0, 0, $shadow) 0 0 0 20px inset;
+}
+
+////////////////////////////////////////////////////////////////////////////
+//////ズルいbox-shadow 3：凹ボックス（deboss-box）
+//////　　　　　　使用例　@include deboss-box(.15, .2, .7)
+@mixin deboss-box($border: 0.1, $shadow: 0.05, $highlight: 0.8) {
+  border: 1px solid rgba(0, 0, 0, $border);
+  box-shadow:
+    rgba(0, 0, 0, $shadow) -1px 1px 2px inset,
+    rgba(255, 255, 255, $highlight) -1px 1px 0;
+}
+
+////////////////////////////////////////////////////////////////////////////
+//////ズルいbox-shadow 4：凸ボックス（emboss-box）
+//////      使用例    @include emboss-box(.15,  .2,  .7)
+@mixin emboss-box($border: 0.1, $shadow: 0.05, $highlight: 0.5) {
+  border: 1px solid rgba(0, 0, 0, $border);
+  box-shadow:
+    rgba(0, 0, 0, $shadow) -1px 1px 0,
+    rgba(255, 255, 255, $highlight) -1px 1px 0 inset;
+}
+
+////////////////////////////////////////////////////////////////////////////
+//////ズルいボタン
+////// 使用例
+//////・リンク
+//////.button{
+//////  a {
+//////    @include pm-button;
+//////  }
+//////}
+//////・ボタン
+//////input[type="submit"] {
+//////  @include pm-button;
+//////}
+//////button {
+//////  @include pm-button;
+//////}
+//////・白いボタン
+//////.button-white {
+//////  a {
+//////    @include pm-button($color: #f6f6f6, $text-color: #444)
+//////    @include pm-ts-fff(0)
+//////    @include pm-ts-000(.1)
+//////    @include emboss-box(.05, .05, 1)
+//////  }
+//////}
+//////
+@mixin pm-button($color: #48b1f2,
+  $font-size: $h6-font-size,
+  $text-color: white) {
+  position: relative;
+  display: inline-block;
+  height: calc($font-size * 3);
+  // height: auto;
+  padding: 0 calc($font-size * 3);
+  font-size: $font-size;
+  font-weight: bold;
+  line-height: calc($font-size * 3);
+  color: rgba($text-color, 0.9);
+  text-align: center;
+  background-origin: border-box;
+  border-radius: 4px;
+  @include pm-ts-000(0.1);
+  @include pm-gradient-top-lighten($color, 5%);
+  @include emboss-box($border: 0.1, $shadow: 0.1, $highlight: 0.2);
+
+  i {
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+    font-size: 130%;
+    color: rgba($text-color, 0.5);
+  }
+
+  &:hover {
+    @include pm-gradient-top-lighten(lighten($color, 5%), 5%);
+
+    color: $text-color;
+    text-decoration: none;
+
+    i {
+      color: $text-color;
+    }
+  }
+
+  &:active {
+    @include pm-gradient-top-lighten($color, 5%);
+
+    top: 1px;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+//////ズルいフキダシ：  使用例　@include balloon-left($size:10px, $color:#EEE, $top:6px);
+//* 左方向の吹き出し */
+@mixin pm-balloon-left($size: 6px, $color: #fff, $top: 6px) {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: $top;
+    left: -1 * $size * 2;
+    display: block;
+    content: '';
+    border: $size solid transparent;
+    border-right: $size solid $color;
+  }
+}
+
+//* 左方向の吹き出し＋border付き */
+@mixin pm-balloon-left-border($size: 6px,
+  $color: #fff,
+  $top: 6px,
+  $border-color: #ccc,
+  $border: 1px) {
+  position: relative;
+  $size2: $size + $border;
+  @include pm-balloon-left($size, $color, $top);
+
+  &::before {
+    position: absolute;
+    top: $top - $border;
+    left: -1 * $size2 * 2;
+    display: block;
+    content: '';
+    border: $size2 solid $border-color;
+    border-right: $size solid $color;
+  }
+}
+
+//* 右方向の吹き出し */
+@mixin pm-balloon-right($size: 6px, $color: #fff, $top: 6px) {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: $top;
+    right: -1 * $size * 2;
+    display: block;
+    content: '';
+    border: $size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+//* 右方向の吹き出し＋border付き */
+@mixin pm-balloon-right-border($size: 6px,
+  $color: #fff,
+  $top: 6px,
+  $border-color: #ccc,
+  $border: 1px) {
+  position: relative;
+  $size2: $size + $border;
+  @include pm-balloon-right($size, $color, $top);
+
+  &::before {
+    position: absolute;
+    top: $top - $border;
+    right: -1 * $size2 * 2;
+    display: block;
+    content: '';
+    border: $size2 solid $border-color;
+    border-left: $size solid $color;
+  }
+}
+
+//* 上方向の吹き出し */
+@mixin pm-balloon-top($size: 6px, $color: #fff, $left: 6px) {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: -1 * $size * 2;
+    left: $left;
+    display: block;
+    content: '';
+    border: $size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+//* 上方向の吹き出し＋border付き */
+@mixin pm-balloon-top-border($size: 6px,
+  $color: #fff,
+  $left: 6px,
+  $border-color: #ccc,
+  $border: 1px) {
+  position: relative;
+  $size2: $size + $border;
+  @include pm-balloon-top($size, $color, $left);
+
+  &::before {
+    position: absolute;
+    top: -1 * $size2 * 2;
+    left: $left - $border;
+    display: block;
+    content: '';
+    border: $size2 solid $border-color;
+    border-left: $size solid $color;
+  }
+}
+
+//* 下方向の吹き出し */
+@mixin pm-balloon-bottom($size: 6px, $color: #fff, $left: 6px) {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    bottom: -1 * $size * 2;
+    left: $left;
+    display: block;
+    content: '';
+    border: $size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+//* 下方向の吹き出し＋border付き */
+@mixin pm-balloon-bottom-border($size: 6px,
+  $color: #fff,
+  $left: 6px,
+  $border-color: #ccc,
+  $border: 1px) {
+  position: relative;
+  $size2: $size + $border;
+  @include pm-balloon-bottom($size, $color, $left);
+
+  &::before {
+    position: absolute;
+    bottom: -1 * $size2 * 2;
+    left: $left - $border;
+    display: block;
+    content: '';
+    border: $size2 solid $border-color;
+    border-left: $size solid $color;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+//////ズルい数字：
+//////   使用例
+//////<p class="price">¥<span class="num">2,610</span></p>
+//////.num{@include num-font; font-size:200%;}
+
+// * 数字専用のフォントをmixin化 */
+@mixin pm-num-font {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'DIN Medium';
+  src: url('fonts/DIN_Medium.ttf');
+}
+
+@mixin pm-num-font {
+  font-family:
+    'DIN Medium',
+    'Helvetica Neue',
+    Arial,
+    'Liberation Sans',
+    FreeSans,
+    sans-serif;
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 01.切り取り線 */
+@mixin heading01 {
+  position: relative;
+  padding: 5px;
+  font: bold 24px / 1.6 Arial, Helvetica, sans-serif;
+  color: #655;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 1);
+  background: #eee;
+  border-top: 1px dashed #aaa;
+  border-bottom: 1px dashed #aaa;
+  box-shadow: 0 5px 4px -4px rgba(0, 0, 0, 0.3) inset;
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 02.テープ */
+@mixin heading02($color: #333, $bg: lightsalmon, $font-size: 1.5rem) {
+  position: relative;
+  width: 25%;
+  margin: 0 -1px 0;
+  font: bold $font-size / 1.6 Arial, Helvetica, sans-serif;
+  color: $color;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 1);
+  background: $bg;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5), 30px 0 0 0 $bg, -30px 0 0 0 $bg;
+  opacity: 0.7;
+  -webkit-transform: rotate(-3deg) skew(-3deg);
+  -moz-transform: rotate(-3deg) skew(-3deg);
+  -o-transform: rotate(-3deg) skew(-3deg);
+  -ms-transform: rotate(-3deg) skew(-3deg);
+  transform: rotate(-3deg) skew(-3deg);
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 03.リボン */
+@mixin heading03 {
+  position: relative;
+  padding: 5px;
+  margin: 0 -10px -10px;
+  font: normal 28px / 1.6 $font-family-serif;
+  color: #ffe8e8;
+  text-align: center;
+  background: #f99;
+  background-image:
+    -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(0.08, rgba(255, 255, 255, 0.5)), color-stop(0.12, rgba(255, 255, 255, 0.5)), color-stop(0.12, rgba(0, 0, 0, 0)), color-stop(0.88, rgba(0, 0, 0, 0)), color-stop(0.88, rgba(255, 255, 255, 0.5)), color-stop(0.92, rgba(255, 255, 255, 0.5)), color-stop(0.92, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));
+  background-image:
+    -moz-linear-gradient(top, transparent 8%, rgba(255, 255, 255, 0.5) 8%, rgba(255, 255, 255, 0.5) 12%, transparent 12%, transparent 88%, rgba(255, 255, 255, 0.5) 88%, rgba(255, 255, 255, 0.5) 92%, transparent 92%);
+  background-image:
+    -o-linear-gradient(top, transparent 8%, rgba(255, 255, 255, 0.5) 8%, rgba(255, 255, 255, 0.5) 12%, transparent 12%, transparent 88%, rgba(255, 255, 255, 0.5) 88%, rgba(255, 255, 255, 0.5) 92%, transparent 92%);
+  background-image:
+    linear-gradient(to bottom, transparent 8%, rgba(255, 255, 255, 0.5) 8%, rgba(255, 255, 255, 0.5) 12%, transparent 12%, transparent 88%, rgba(255, 255, 255, 0.5) 88%, rgba(255, 255, 255, 0.5) 92%, transparent 92%);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transform: rotate(-3deg) skew(-3deg);
+  -moz-transform: rotate(-3deg) skew(-3deg);
+  -o-transform: rotate(-3deg) skew(-3deg);
+  transform: rotate(-3deg) skew(-3deg);
+
+  &::before {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    content: ' ';
+    border-color: transparent;
+    border-style: solid;
+    // width:0;
+    // height:0;
+    border-width: 0 0 5px 10px;
+    border-bottom-color: #c66;
+  }
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    content: ' ';
+    border-color: transparent;
+    border-style: solid;
+    // width:0;
+    // height:0;
+    border-width: 5px 10px 0 0;
+    border-top-color: #c66;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 03-2.リボン(傾き無し) */
+@mixin heading03-2 {
+  position: relative;
+  padding: 15px 5px 10px 40px;
+  margin: 30px -40px 10px -40px;
+  font-size: 20px;
+  line-height: 1;
+  color: #fff;
+  background: #555;
+  box-shadow: 0 1px 3px #777;
+
+  &::after,
+  &::before {
+    position: absolute;
+    top: 100%;
+    content: '';
+    // height: 0;
+    // width: 0;
+    border: 5px solid transparent;
+    border-top: 5px solid #333;
+  }
+
+  &::after {
+    left: 0;
+    border-right: 5px solid #333;
+  }
+
+  &::before {
+    right: 0;
+    border-left: 5px solid #333;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 03-3.リボン(傾き無し色つき) */
+@mixin heading03-3 {
+  position: relative;
+  padding: 15px 5px 10px 40px;
+  margin: 30px -40px 10px -40px;
+  font-size: 20px;
+  line-height: 1;
+  color: #111;
+  background: #ccc;
+  background-image: -webkit-linear-gradient(#ddd, #bbb);
+  background-image: -moz-linear-gradient(#ddd, #bbb);
+  background-image: -o-linear-gradient(#ddd, #bbb);
+  background-image: -ms-linear-gradient(#ddd, #bbb);
+  background-image: linear-gradient(#ddd, #bbb);
+
+  &::after,
+  &::before {
+    position: absolute;
+    top: 100%;
+    content: '';
+    // height: 0;
+    // width: 0;
+    border: 5px solid transparent;
+    border-top: 5px solid #777;
+  }
+
+  &::after {
+    left: 0;
+    border-right: 5px solid #777;
+  }
+
+  &::before {
+    right: 0;
+    border-left: 5px solid #777;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 04.吹き出し */
+@mixin heading04($font-size: inherit,
+  $margin1: 0,
+  $margin2: 15px,
+  $padding1: 10px,
+  $padding2: 20px,
+  $color: #333) {
+  position: relative;
+  padding: $padding1 $padding2;
+  margin: $margin1 $margin2;
+  font: bold $font-size / 1.6 Arial, Helvetica, sans-serif;
+  color: #333;
+  background: #fff;
+  border: $color solid 3px;
+  border-radius: 18px;
+  box-shadow: -7px -5px 0 0 #e8e8e8 inset, 2px 3px 0 0 #000;
+
+  &::before {
+    position: absolute;
+    top: 100%;
+    left: 14px;
+    content: ' ';
+    border-color: transparent;
+    border-style: solid;
+    // width:0;
+    // height:0;
+    border-width: 20px;
+    border-top-color: $color;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: -27px;
+    left: 18px;
+    content: ' ';
+    border-color: transparent;
+    border-style: solid;
+    // width:0;
+    // height:0;
+    border-width: 14px;
+    border-top-color: #e8e8e8;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 04-2.吹き出し(色つき) */
+@mixin heading04-2($font-size: 20px, $color: #777) {
+  position: relative;
+  padding: 15px 5px 12px 10px;
+  margin: 30px -10px 10px -10px;
+  font-size: $font-size;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  background: $color;
+  border: 1px solid $color;
+  border-radius: 3px;
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    left: 30px;
+    content: '';
+    // height: 0;
+    // width: 0;
+    border: 10px solid transparent;
+    border-top: 10px solid $color;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 04-3.吹き出し(枠つき) */
+@mixin heading04-3($color: #111,
+  $bg: #fff,
+  $border-color: #555,
+  $font-size: inherit) {
+  position: relative;
+  padding: 15px 5px 12px 10px;
+  margin: 30px -10px 10px -10px;
+  font-size: $font-size;
+  line-height: 1;
+  color: $color;
+  background: $bg;
+  border: 2px solid $border-color;
+  border-radius: 3px;
+
+  &::after,
+  &::before {
+    position: absolute;
+    top: 100%;
+    width: 0;
+    height: 0;
+    content: '';
+  }
+
+  &::after {
+    left: 33px;
+    border: 11px solid transparent;
+    border-top: 11px solid $bg;
+  }
+
+  &::before {
+    left: 30px;
+    border: 14px solid transparent;
+    border-top: 14px solid $border-color;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 05.アメリカンな(?)吹き出し */
+@mixin heading05($color: #333,
+  $bg: #fff,
+  $font-size: inherit,
+  $font-family: $font-family-sans-serif) {
+  position: relative;
+  padding: 5px 20px;
+  font: bold $font-size / 1.6 $font-family;
+  color: $color;
+  text-shadow: 1px 1px 0 $bg, 2px 2px 0 #999;
+  background: $bg;
+  background-image:
+    linear-gradient(to bottom -45deg, transparent 40%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.1) 60%, transparent 60%);
+  background-size: 4px 4px;
+  border-top: $color solid 3px;
+  border-bottom: $color solid 3px;
+
+  &::before {
+    position: absolute;
+    top: 100%;
+    left: 24px;
+    content: ' ';
+    border-color: transparent;
+    border-style: solid;
+    // width:0;
+    // height:0;
+    border-width: 12px;
+    border-top-color: $color;
+  }
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    left: 28px;
+    z-index: 1;
+    content: ' ';
+    border-color: transparent;
+    border-style: solid;
+    // width:0;
+    // height:0;
+    border-width: 8px;
+    border-top-color: #f0f0f0;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 06.付箋 */
+@mixin heading06($color: #009,
+  $bg: #ffc,
+  $font-size: inherit,
+  $after-width: 100%) {
+  position: relative;
+  padding: 14px 15px 0 20px;
+  margin: 0 22px 0 10px;
+  font: normal $font-size / 1.3 serif;
+  color: $color;
+  background: $bg;
+  box-shadow:
+    12px 0 0 0 $bg,
+    0 12px 0 0 $bg,
+    1px 15px 4px -3px rgba(0, 0, 0, 0.2);
+
+  &::before {
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    content: ' ';
+    border-color: transparent;
+    border-style: solid;
+    // width:0;
+    // height:0;
+    border-width: 12px 12px 0 0;
+    border-top-color: #cc9;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: $after-width;
+    height: 20px;
+    // padding: 0 20px;
+    content: ' ';
+    background: rgba(255, 182, 182, 0.4);
+    transform: rotate(-1deg);
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 07.Depository */
+@mixin heading07($color: #666,
+  $bg: #ccc,
+  $bg-after: #eee,
+  $font-size: $h2-font-size,
+  $font-family: $font-family-sans-serif,
+  $border-color: #999) {
+  position: relative;
+  padding: 10px 10px 10px 30px;
+  margin: 0 10px;
+  font: bold $font-size / 1.2 $font-family;
+  color: $color;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 1);
+  background: $bg;
+  background-image:
+    linear-gradient(to bottom, rgba(220, 220, 220, 1), rgba(240, 240, 240, 1) 25%, rgba(235, 235, 235, 1) 30%, rgba(240, 240, 240, 1) 36%, rgba(235, 235, 235, 1) 50%, rgba(215, 215, 215, 1) 80%, rgba(210, 210, 210, 1));
+  border-top: $bg solid 1px;
+  border-right: $border-color solid 1px;
+  border-bottom: $border-color solid 1px;
+  border-left: $bg solid 1px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    // width:0;
+    height: 100%;
+    content: ' ';
+    border-left: $bg solid 1px;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    // width:0;
+    height: 100%;
+    content: ' ';
+    border-right: #eee solid 1px;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 08.Gracias */
+@mixin heading08 {
+  position: relative;
+  z-index: 1;
+  padding: 0 10px 0 55px;
+  margin: 0 10px;
+  font: bold 22px / 40px Arial, Helvetica, sans-serif;
+  color: #666;
+  background: #f3f3f3;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    // width:40px;
+    height: 40px;
+    content: ' ';
+    background: #f60;
+    background-image:
+      linear-gradient(to bottom, transparent 20%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.3) 60%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0.5) 80%, rgba(255, 255, 255, 0.6) 80%, rgba(255, 255, 255, 0.6) 100%);
+    border-right: #fff solid 2px;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 40px;
+    height: 40px;
+    content: ' ';
+    background-image:
+      linear-gradient(to right, transparent 20%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.3) 60%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0.5) 80%, rgba(255, 255, 255, 0.6) 80%, rgba(255, 255, 255, 0.6) 100%);
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 09.旗 */
+@mixin heading09 {
+  position: relative;
+  padding: 10px 15px;
+  margin: 0 20px 0 20px;
+  font: bold 22px / 1.2 Arial, Helvetica, sans-serif;
+  color: #fff;
+  background: #c33;
+
+  &::before {
+    position: absolute;
+    top: middle;
+    left: -10px;
+    width: 0;
+    height: 0;
+    font-size: 25px;
+    line-height: 1;
+    color: #c96;
+    content: '<';
+  }
+
+  &::after {
+    position: absolute;
+    top: -2px;
+    left: -10px;
+    content: ' ';
+    // width:0;
+    // height:130%;
+    border: #600 solid 2px;
+    border-radius: 2px;
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 10.橋に丸 */
+@mixin heading10($color: #111,
+  $bg: #ccc,
+  $font-size: inherit,
+  $before-bg: #eee) {
+  position: relative;
+  padding: 14px 5px 10px 50px;
+  margin: 30px 20px 10px -10px;
+  font-size: $font-size;
+  line-height: 1;
+  color: $color;
+  background: $bg;
+  border-radius: 22px 0 0 22px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    content: '';
+    background: $before-bg;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px #777 inset;
+  }
+
+  /*
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -22px;
+      height: 0;
+      width: 0;
+      border: 22px solid $bg;
+      border-right-color: transparent;
+    }
+*/
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 10-2.橋に丸2 */
+@mixin heading10-2 {
+  position: relative;
+  padding: 14px 5px 10px 40px;
+  margin: 30px 0 10px 0;
+  font-size: 20px;
+  line-height: 1;
+  color: #111;
+  background: #ccc;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 1px 3px #777;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    content: '';
+    background: #999;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px #777;
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    width: 24px;
+    height: 24px;
+    margin-top: -15px;
+    content: '';
+    background: #777;
+    border-radius: 50%;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 11.下側ボーダー */
+@mixin heading11($border-left-color: #777,
+  $bottom-color: #555,
+  $font-size: inherit) {
+  position: relative;
+  padding: 15px 5px 10px 20px;
+  margin: 30px -30px 10px -30px;
+  font-size: $font-size;
+  line-height: 1;
+  border-left: 10px solid $border-left-color;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    // height: 0;
+    width: 100%;
+    content: '';
+    border-bottom: 1px dashed $bottom-color;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 11.下側ボーダーなし */
+@mixin heading11-2($border-left-color: #777, $font-size: inherit) {
+  position: relative;
+  padding: 15px 5px 10px 20px;
+  margin: 30px -30px 10px -30px;
+  font-size: $font-size;
+  line-height: 1;
+  border-left: 10px solid $border-left-color;
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 12.ワンポイント */
+@mixin heading12 {
+  position: relative;
+  padding: 14px 5px 10px 10px;
+  margin: 30px 0 0 0;
+  font-size: 20px;
+  line-height: 1;
+  color: #111;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: -5px;
+    width: 12px;
+    height: 12px;
+    content: '';
+    background: #999;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    position: absolute;
+    top: 15px;
+    left: -10px;
+    width: 8px;
+    height: 8px;
+    content: '';
+    background: #777;
+    transform: rotate(15deg);
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 13.シンプル */
+@mixin heading13($border-left-color: #b92a2c,
+  $border-bottom-color: #b92a2c,
+  $font-size: inherit,
+  $border-style: dashed) {
+  padding: 0.8em;
+  margin: 0 0 1.5em;
+  font-size: $font-size;
+  font-weight: bold;
+  border-bottom: 1px $border-style $border-bottom-color;
+  border-left: 7px solid $border-left-color;
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 13-2.シンプル2 */
+@mixin heading13-2($border-top-color: #b92a2c,
+  $border-bottom-color: #b92a2c,
+  $font-size: inherit,
+  $border-style: double) {
+  padding: 0.8em;
+  margin: 0 0 1.5em;
+  font-size: $font-size;
+  font-weight: bold;
+  border-top: 3px $border-style $border-top-color;
+  border-bottom: 3px $border-style $border-bottom-color;
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 13-3.シンプル3 */
+@mixin heading13-3($border-left-color: #b92a2c,
+  $border-bottom-color: #b92a2c,
+  $font-size: inherit,
+  $border-style: solid) {
+  padding: 0.8em;
+  margin: 0 0 1.5em;
+  font-size: $font-size;
+  font-weight: bold;
+  border: 2px $border-style $border-left-color;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 13-4.シンプル4 */
+@mixin heading13-4($border-color: #b92a2c,
+  $base-color: transparent,
+  $bg: #b92a2c,
+  $font-size: inherit,
+  $border-style: solid,
+  $margin-bottom: 1.5em) {
+  position: relative;
+  padding: 0.8em 0 0.8em 1.5em;
+  margin: 0 0 $margin-bottom;
+  font-size: $font-size;
+  font-weight: bold;
+  background: $base-color;
+  border: 2px $border-style $border-color;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0.5em;
+    width: 8px;
+    height: 30px;
+    margin-top: -15px;
+    content: '';
+    background: $bg;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 13-5.シンプル5 */
+@mixin heading13-5($border-color: #b92a2c,
+  $bg: #b92a2c,
+  $font-size: $h1-font-size,
+  $border-style: solid) {
+  position: relative;
+  padding: 0.8em 0 0.8em 2.5em;
+  margin: 0 0 1.5em;
+  font-size: $font-size;
+  font-weight: bold;
+  border: 1px $border-style $border-color;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0.5em;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    content: '';
+    background: $bg;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px $border-color inset;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 13-6.シンプル6 */
+@mixin heading13-6($color: #fff,
+  $border-color: #b92a2c,
+  $bg: #b92a2c,
+  $font-size: $h1-font-size,
+  $border-style: solid) {
+  position: relative;
+  padding: 0.8em;
+  margin: 0 0 1.5em;
+  font-size: $font-size;
+  font-weight: bold;
+  color: $color;
+  background: $bg;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+  &::after {
+    position: absolute;
+    bottom: -15px;
+    left: 10%;
+    z-index: 90;
+    margin-left: -15px;
+    content: '';
+    border-top: 15px $border-style $border-color;
+    border-right: 15px $border-style transparent;
+    border-bottom: 0;
+    border-left: 15px $border-style transparent;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 13-7.シンプル7 */
+@mixin heading13-7($border-color: #b92a2c,
+  $font-size: $h1-font-size,
+  $border-style: solid) {
+  padding: 0.8em;
+  margin: 0 0 1.5em;
+  font-size: $font-size;
+  font-weight: bold;
+  border: 2px $border-style $border-color;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 13-8.シンプル8 */
+@mixin heading13-8($color: #fff,
+  $bg: #b92a2c,
+  $border-color: #b92a2c,
+  $font-size: $h1-font-size,
+  $border-style: solid) {
+  position: relative;
+  padding: 0.8em;
+  margin: 0 0 1.5em;
+  font-size: $font-size;
+  font-weight: bold;
+  color: $color;
+  text-align: center;
+  background: $bg;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 1em 0 0 0 $bg, -1em 0 0 0 $bg;
+  transform: rotate(-1deg) skew(-1deg);
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* 13-9.シンプル9 */
+@mixin heading13-9($color: #111,
+  $shadow-color: #aaaaaa,
+  $text-shadow-color: #999999,
+  $border-bottom-color: #b92a2c,
+  $font-size: $h1-font-size,
+  $first-letter-size: rem-calc(60),
+  $border-style: solid) {
+  margin: 0 0 1.5em;
+  font-size: $font-size;
+  font-weight: bold;
+  color: $color;
+  text-shadow: $text-shadow-color 0 1px 1px;
+  border-bottom: 2px $border-style $border-bottom-color;
+  box-shadow: 0 1px 0 $shadow-color;
+
+  &::first-letter {
+    font-size: $first-letter-size;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* リストの矢印 */
+@mixin linkIcon($color: #333) {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    margin-top: -7px;
+    content: '';
+    border-top: 3px solid $color;
+    border-right: 3px solid $color;
+    transform: rotate(45deg);
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+///////* ie11 ハック */
+///////* 使用例：.box { @include back-ie11{ background-color: blue; }} */
+@mixin hack-ie11 {
+  @at-root {
+    @media all and (-ms-high-contrast: none) {
+
+      *::-ms-backdrop,
+      & {
+        @content;
+      }
+    }
+  }
+}

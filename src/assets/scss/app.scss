@@ -5,8 +5,9 @@
 @import 'foundation';
 @import 'motion-ui';
 @import 'modules/content';
-// @import 'components/mixins/font-family';
-// @import 'global/variables';
+@import 'components/mixins/font-family';
+@import 'global/variables';
+@import 'components/mixins/mixin';
 // @import 'global/font-face';
 
 // Load Foundation
@@ -78,7 +79,7 @@
 @import 'global/accessibility';
 @import 'global/wp-admin';
 @import 'global/wp-overrides';
-@import 'global/gutenberg';
+// @import 'global/gutenberg';
 @import 'global/svg';
 @import 'global/headers';
 @import 'global/helper-classes';

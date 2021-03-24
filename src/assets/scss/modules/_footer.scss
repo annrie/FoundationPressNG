@@ -1,23 +1,28 @@
-.footer-container {
-  @include xy-grid-container;
-
-  margin-top: rem-calc(60);
+.grid-container.myfooter {
+  position: relative;
+  // @include xy-grid-container;
+  background-color: #162d51;
+  color: $white;
+  // margin-top: rem-calc(60);
   border-top: 1px solid $medium-gray;
+  height: 150px;
 }
 .footer-grid {
   @include xy-grid;
-
-  padding: rem-calc(30) 0;
-  section {
-    @include xy-cell();
-
-    @include breakpoint(large) {
-      @include xy-cell(auto);
-    }
+  #copyright {
+    @include vertical-center;
   }
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-  }
+  // padding: rem-calc(30) 0;
+  // section {
+  //   @include xy-cell();
+
+  //   @include breakpoint(large) {
+  //     @include xy-cell(auto);
+  //   }
+  // }
+  // ul {
+  //   padding: 0;
+  //   margin: 0;
+  //   list-style-type: none;
+  // }
 }

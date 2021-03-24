@@ -1,0 +1,192 @@
+/**
+ * Big thanks to EBISUCOM (https://github.com/ebisucom/wordpress-note-lp) for the creative ideas
+ */
+
+ @charset 'UTF-8';
+
+@import '../settings';
+@import '../override';
+@import 'foundation';
+@import 'motion-ui';
+@import '../modules/content';
+@import '../components/mixins/font-family';
+@import '../global/variables';
+@import '../components/mixins/mixin';
+
+@include foundation-everything(true);
+
+// section:not(.mynav,.myhero,.mypoint1,.mynews,.mypoint2,.myaction) {
+section.mycon,
+section.mytest {
+  @include xy-grid-container(85%);
+  @include xy-grid;
+}
+
+/* Section heading（common） */
+.sec-title {
+	color: #dddddd;
+	text-align: center;
+	// grid-column: 1 / -1;
+}
+
+.sec-title + p {
+	font-size: $h6-font-size;
+	text-align: center;
+	// grid-column: 1 / -1;
+}
+
+// hero header
+.myhero {
+  position: relative;
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.8);
+    & p {
+      margin: 0 auto 32px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    & a {
+      padding: 12px 24px;
+      border-radius: 28px;
+      width: auto;
+      color: #333333;
+      text-shadow: none;
+    }
+}
+
+/* concept */
+.mycon {
+  padding: 50px 0;
+  div {
+    margin: 32px 0;
+  }
+  img {
+    width: 100px;
+  }
+  h3 {
+    font-size: $h4-font-size;
+    & + p {
+      font-size: $h6-font-size;
+    }
+    }
+}
+/* point(1) */
+.mypoint1 {
+	min-height: 430px;
+	background-image:
+		linear-gradient(
+			rgba(0,0,0,0.5),
+			rgba(0,0,0,0.5)
+			),
+		url('../images/lp-custom/point1.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	text-align: center;
+	color: #ffffff;
+	text-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
+
+.mynews {
+	padding: 50px 0;
+  @include xy-grid-container(80vw,32px);
+ h2 + p {
+	margin-bottom: 32px;
+  }
+
+  h3 {
+    margin: 10px 0 40px;
+    font-size: $h5-font-size;
+  }
+}
+
+/* point(2) */
+.mypoint2 {
+  img {
+    @include breakpoint(tablet up) {
+      margin-left: -20px;
+    }
+  }
+  p:first-of-type {
+    font-size: $h2-font-size;
+  }
+}
+
+/* User voice */
+.mytest {
+	padding: 50px 0;
+  h2 + p {
+    margin-bottom: 32px;
+  }
+
+  .mytest1 {
+    border-radius: 20px;
+    background-color: #ffa361;
+    padding: 20px;
+    @include breakpoint(small only) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .mytest2 {
+    border-radius: 20px;
+    background-color: #fcb900;
+    padding: 20px;
+  }
+
+  figure {
+    margin: 0;
+  }
+  img {
+    border-radius: 50%;
+  }
+  p:last-of-type {
+    color: #444444;
+  }
+  }
+
+/* action */
+.myaction {
+  position: relative;
+  min-height: 430px;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.8);
+  margin-bottom: -150px;
+    & p {
+      margin: 0 auto 32px;
+      // font-weight: bold;
+      text-align: center;
+    }
+    & p:first-of-type {
+      margin-bottom: 20px;
+      font-size: $h1-font-size;
+    }
+
+    & a {
+      padding: 12px 24px;
+      border-radius: 28px;
+      width: auto;
+      color: #333333;
+      background-color: #bdfd1c;
+      text-shadow: none;
+    }
+ }
+
+

@@ -25,7 +25,7 @@ while ( have_posts() ) :
 
 			<!-- Main wrapper for the components in the kitchen-sink -->
 			<div id="components" class="kitchen-sink-components">
-				<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+				<article <?php post_class(myblocks); ?> id="post-<?php the_ID(); ?>">
 					<!-- Abide -->
 					<h2 id="abide" class="docs-heading" data-magellan-target="abide"><a href="abide"></a>Abide</h2>
 

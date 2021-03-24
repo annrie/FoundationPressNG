@@ -10,7 +10,7 @@
 
 ?>
 
-<article class="none-found" aria-labelledby="page-title">
+<article class="none-found myblocks" aria-labelledby="page-title">
 	<header class="page-header">
 		<h1 id="page-title" class="page-title"><?php _e( 'Nothing Found', 'foundationpress' ); ?></h1>
 	</header>

@@ -33,10 +33,8 @@ endif;
 
 if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
-
-		// Enqueue the main Stylesheet.
-    wp_enqueue_style( 'editor-stylesheet', get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'editor.css' ), array(), '2.10.7', 'all' );
-    wp_enqueue_style( 'main-stylesheet', get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), filemtime( get_theme_file_path( '/dist/assets/css/app.css' )), 'all' );
+    // Enqueue the main Stylesheet.
+		wp_enqueue_style( 'main-stylesheet', get_stylesheet_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), filemtime( get_theme_file_path( '/dist/assets/css/app.css' ) ), 'all' );
 
 		// Deregister the jquery version bundled with WordPress.
 		wp_deregister_script( 'jquery' );
@@ -58,8 +56,6 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 		// Enqueue FontAwesome from CDN. Uncomment the line below if you need FontAwesome.
     wp_enqueue_script( 'fontawesome', '//kit.fontawesome.com/1da9fe040f.js', array(), '6', true );
-
-    wp_enqueue_script( 'fontawesome', '//kit.fontawesome.com/1da9fe040f.js', array(), '6', true );
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
     }
@@ -72,5 +68,14 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
     return str_replace( ' src=', ' defer  crossorigin="anonymous" src=', $tag );
     }
 }
-	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
+add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
+
+/* enqueue_block_editor_assets is only available on the editor screen, and is not loaded on the actual page. If you set it to enqueue_block_assets, it will be loaded in the actual page. */
+add_action(
+'enqueue_block_editor_assets',
+function() {
+    $custom_css_url = '/dist/assets/css/editor.css';
+    wp_enqueue_style( 'my-block', get_stylesheet_directory_uri() . $custom_css_url, array( 'wp-block-library' ), array(), false, true );
+}
+);
 endif;
