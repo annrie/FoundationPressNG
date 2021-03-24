@@ -112,6 +112,7 @@ If you're unfamiliar with modules and module bundling, check out [this resource 
 Foundation modules are loaded in the `src/assets/js/app.js` file. By default all components are loaded. You can also pick and choose which modules to include. Just follow the instructions in the file.
 
 If you need to output additional JavaScript files separate from `app.js`, do the following:
+
 * Create new `custom.js` file in `src/assets/js/`. If you will be using jQuery, add `import $ from 'jquery';` at the top of the file.
 * In `config.yml`, add `src/assets/js/custom.js` to `PATHS.entries`.
 * Build (`npm start`)
@@ -123,6 +124,7 @@ If you need to output additional JavaScript files separate from `app.js`, do the
 * [FoundationPressNG Kitchen Sink - see every single element in action](https://foundationpressng.phantomoon.com/kitchen-sink/)
 
 ## Local Development
+
 We recommend using one of the following setups for local WordPress development:
 
 * [MAMP](https://www.mamp.info/en/) (macOS)
@@ -169,7 +171,7 @@ We recommend using one of the following setups for local WordPress development:
 >Credit goes to all the brilliant designers and developers out there. Have **you** made a site that should be on this list? [Please let me know](https://twitter.com/olefredrik)
 
 <!-- ## Contributing
-#### Here are ways to get involved:
+### Here are ways to get involved:
 
 1. [Star](https://github.com/olefredrik/FoundationPress/stargazers) the project!
 2. Answer questions that come through [GitHub issues](https://github.com/olefredrik/FoundationPress/issues)
@@ -177,7 +179,7 @@ We recommend using one of the following setups for local WordPress development:
 4. Share a theme you've built on top of FoundationPress
 5. [Tweet](https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Ffoundationpress.olefredrik.com%2F&text=Check%20out%20FoundationPress%2C%20the%20ultimate%20%23WordPress%20starter-theme%20built%20on%20%23Foundation%206&tw_p=tweetbutton&url=http%3A%2F%2Ffoundationpress.olefredrik.com&via=olefredrik) and [blog](http://www.justinfriebel.com/my-first-experience-with-foundationpress-a-wordpress-starter-theme-106/) your experience of FoundationPress. -->
 
-#### Pull Requests
+### Pull Requests
 
 Pull requests are highly appreciated. Please follow these guidelines:
 

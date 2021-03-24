@@ -34,6 +34,7 @@ $ git clone git@github.com:annrie/FoundationPressNG.git
 $ cd FoundationPressNG
 $ npm install
 ```
+
 ### 1-2. yarn 2　の場合
 
 ```bash
@@ -112,6 +113,7 @@ Foundationのモジュールを含むすべてのJavaScriptファイルは、`sr
 ファウンデーションモジュールは `src/assets/js/app.js` ファイルにロードされます。デフォルトではすべてのコンポーネントがロードされます。また、どのモジュールをインクルードするかを選択することもできます。ファイルの指示に従うだけです。
 
 追加のJavaScriptファイルを `app.js` とは別に出力する必要がある場合は、以下のようにします。
+
 * 新しい `custom.js` ファイルを `src/assets/js/` に作成します。jQueryを使用する場合は、ファイルの先頭に `import $ from 'jquery';` を追加します。
 * `config.yml` で、`PATHS. entries` に `src/assets/js/custom.js` を追加する。
 * ビルド (`npm start`)
@@ -169,7 +171,7 @@ Foundationのモジュールを含むすべてのJavaScriptファイルは、`sr
 >このリストに掲載されるべきサイトを作ったことはありますか？このリストに載せるべきサイトを作ったことがありますか？[教えてください](https://twitter.com/muraie_jin)
 
 <!-- ## 貢献する
-#### 参加方法をご紹介します。
+### 参加方法をご紹介します。
 
 1. スター](https://github.com/olefredrik/FoundationPress/stargazers)プロジェクトに参加する。
 2. 2. [GitHub issues](https://github.com/olefredrik/FoundationPress/issues) を通じて寄せられた質問に答える。
@@ -177,7 +179,7 @@ Foundationのモジュールを含むすべてのJavaScriptファイルは、`sr
 4. FoundationPressの上に構築したテーマを共有する
 5. あなたのFoundationPressを使った経験を[Tweet](https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Ffoundationpress.olefredrik.com%2F&text=Check%20out%20FoundationPress%2C%20the%20ultimate%20%23WordPress%20starter-theme%20built%20on%20%23Foundation%206&tw_p=tweetbutton&url=http%3A%2F%2Ffoundationpress.olefredrik.com&via=olefredrik)と[blog](http://www.justinfriebel.com/my-first-experience-with-foundationpress-a-wordpress-starter-theme-106/)で紹介してください。 -->
 
-#### プルリクエスト
+### プルリクエスト
 
 プルリクエストは大歓迎です。以下のガイドラインに従ってください。
 
