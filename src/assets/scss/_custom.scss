@@ -11,10 +11,11 @@ body {
 p {
   font-size: $h5-font-size;
 }
+
 /* コンテンツ */
 .mymain {
+  // some setteings
 }
-
 .post-categories {
   @include menu-base;
 
@@ -35,10 +36,10 @@ p {
 }
 
 $imgh: 56vh;
-.home, .archive {
+.home,
+.archive {
   article {
     &:first-of-type {
-
       // 最初の記事だけ大きくする場合
       @include breakpoint(medium up) {
         @include xy-cell($gutters: 0);
@@ -49,30 +50,30 @@ $imgh: 56vh;
           height: $imgh;
           object-fit: cover;
         }
-        }
-        @include breakpoint(large up) {
-          img {
-            height: 31vh;
-            object-fit:cover;
-          }
-        }
       }
-      &:not(:first-of-type) {
-        @include breakpoint(medium up) {
-          @include xy-gutters(medium,margin,right left, false);
-        }
-      }
-      @include all-but(1) {
-        @include breakpoint(medium up) {
-          @include xy-cell(50%,null,5px,margin, null,null,false);
-        }
+      @include breakpoint(large up) {
         img {
-          height: calc( #{$imgh / 2} );
+          height: 31vh;
           object-fit: cover;
         }
-            }
+      }
+    }
+    &:not(:first-of-type) {
+      @include breakpoint(medium up) {
+        @include xy-gutters(medium, margin, right left, false);
+      }
+    }
+    @include all-but(1) {
+      @include breakpoint(medium up) {
+        @include xy-cell(50%, null, 5px, margin, null, null, false);
+      }
+      img {
+        height: calc(#{$imgh / 2});
+        object-fit: cover;
+      }
+    }
   }
-   h2 {
+  h2 {
     font-size: $h5-font-size;
   }
 }
@@ -86,34 +87,32 @@ $imgh: 56vh;
     }
   }
 }
-.category h1::before{
-  content: '\f0c6';
-  font-family: 'Font Awesome 5 Free';
-  font-weight: bold;
+.category h1::before {
   margin-right: 10px;
+  font-family: 'Font Awesome 5 Free', monospace;
+  font-weight: bold;
+  content: '\f0c6';
   opacity: 0.8;
 }
 .date h1::before {
-  content: '\f186';
-  font-family: 'Font Awesome 5 Free';
-  font-weight: bold;
   margin-right: 10px;
+  font-family: 'Font Awesome 5 Free', monospace;
+  font-weight: bold;
+  content: '\f186';
   opacity: 0.8;
 }
 .alignleft {
-	float: left;
-	margin: 0 2em 2em 0;
+  float: left;
+  margin: 0 2em 2em 0;
 }
-
 .alignright {
-	float: right;
-	margin: 0 0 2em 2em;
+  float: right;
+  margin: 0 0 2em 2em;
 }
-
 .aligncenter {
-	display: block;
-	margin: 2em auto;
-	clear: both;
+  display: block;
+  margin: 2em auto;
+  clear: both;
 }
 // .myblocks {
 //   display: grid;
@@ -125,34 +124,34 @@ $imgh: 56vh;
 //     min-width: 0;
 //   }
 
-  // .myblocks {
-  //   display: grid;
-  //   grid-template-columns: inherit;
-  //   grid-template-columns: subgrid;
-  //   }
-  .myblocks > * {
-    min-width: 0;
-  }
-  .wp-block-categories.aligncenter,
-  .wp-block-latest-posts.aligncenter,
-  .wp-block-archives.aligncenter,
-  .wp-block-tag-cloud.aligncenter,
-  .wp-block-latest-comments.aligncenter,
-  .wp-block-rss.aligncenter {
-    text-align: center;
-  }
-
-  .myblocks {
-    box-sizing: border-box;
-  }
-  .myblocks *,
-  .myblocks *::before,
-  .myblocks *::after {
-    box-sizing: inherit;
-  }
+// .myblocks {
+//   display: grid;
+//   grid-template-columns: inherit;
+//   grid-template-columns: subgrid;
+//   }
+.myblocks > * {
+  min-width: 0;
+}
+.wp-block-categories.aligncenter,
+.wp-block-latest-posts.aligncenter,
+.wp-block-archives.aligncenter,
+.wp-block-tag-cloud.aligncenter,
+.wp-block-latest-comments.aligncenter,
+.wp-block-rss.aligncenter {
+  text-align: center;
+}
+.myblocks {
+  box-sizing: border-box;
+}
+.myblocks *,
+.myblocks *::before,
+.myblocks *::after {
+  box-sizing: inherit;
+}
 
 /* 幅広・全幅 */
-.page-template .alignwide { // 固定OK
+.page-template .alignwide {
+  // 固定OK
   width: 100vw;
   margin: 0 calc(50% - 50vw) 2rem;
   @include breakpoint(tablet) {
@@ -160,13 +159,15 @@ $imgh: 56vh;
     margin: 0 10vw 2rem;
   }
 }
-.page-template .wp-block-media-text.alignwide { //  "core/media-text" OK
+.page-template .wp-block-media-text.alignwide {
+  //  "core/media-text" OK
   @include xy-cell($gutters: 50vw);
   @include breakpoint(tablet) {
     @include xy-cell($gutters: 250vw);
   }
 }
-.page-template .wp-block-gallery.alignwide { //  "core/gallery" OK
+.page-template .wp-block-gallery.alignwide {
+  //  "core/gallery" OK
   width: 100vw;
   margin: 0 calc(50% - 50vw) 2rem;
   @include breakpoint(tablet) {
@@ -174,17 +175,18 @@ $imgh: 56vh;
     margin: 0 10vw 2rem -10vw;
   }
 }
-
-.post-template .alignwide { // 投稿OK
+.post-template .alignwide {
+  // 投稿OK
   width: calc(100% + 20vw);
   margin-left: -10vw;
 }
 .alignfull {
-    margin: 0 calc(50% - 50vw);
-    max-width: 100vw;
-    width:100vw;
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0 calc(50% - 50vw);
 }
-  /* group block */
+
+/* group block */
 .wp-block-group .wp-block {
   max-width: 100%;
 }
