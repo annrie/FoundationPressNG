@@ -27,8 +27,9 @@ function foundationpress_theme_support() {
             'comment-list',
             'gallery',
             'caption',
+            'navigation-widgets',
         )
-);
+    );
 
     // Add menu support
     add_theme_support( 'menus' );
@@ -56,6 +57,9 @@ function foundationpress_theme_support() {
     // Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
     // add_editor_style( 'dist/assets/css/' . foundationpress_asset_path( 'editor.css' ) );
 
+		// Add theme support for selective refresh for widgets.
+		add_theme_support( 'customize-selective-refresh-widgets' );
+
     // グーテンベルク由来のCSS(theme.min.css)
     add_theme_support( 'wp-block-styles' );
 
@@ -67,8 +71,16 @@ function foundationpress_theme_support() {
 
     // Add support for full and wide align images.
     add_theme_support( 'align-wide' );
+
+		// Add support for custom line height controls.
+		add_theme_support( 'custom-line-height' );
+
+		// Add support for experimental link color control.
+		add_theme_support( 'experimental-link-color' );
+
+		// Add support for experimental cover block spacing.
+		add_theme_support( 'custom-spacing' );
 }
 
 add_action( 'after_setup_theme', 'foundationpress_theme_support' );
 endif;
-
