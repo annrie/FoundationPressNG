@@ -8,8 +8,6 @@ config.yml
 .idea/
 *.swp
 packaged/
-wpcs/
-vendor/
 .history/
 .vscode/
 .yarn/

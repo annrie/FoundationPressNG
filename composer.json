@@ -1,5 +1,5 @@
 {
-  "name": "foundationpressnga's composer.json",
+  "name": "annrie/foundationpressng",
   "description": "FoundationPressNG is a WordPress starter theme based on Foundation 6",
 
   "require-dev": {
