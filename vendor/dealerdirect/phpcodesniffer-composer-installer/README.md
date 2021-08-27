@@ -1,15 +1,16 @@
 # PHP_CodeSniffer Standards Composer Installer Plugin
 
 ![Project Stage][project-stage-shield]
-![Maintenance][maintenance-shield]
+![Last Commit][last-updated-shield]
 ![Awesome][awesome-shield]
 [![License][license-shield]](LICENSE.md)
 
 [![Travis][travis-shield]][travis]
 [![Scrutinizer][scrutinizer-shield]][scrutinizer]
-[![Dependency Status][versioneye-shield]][versioneye]
 [![Latest Version on Packagist][packagist-version-shield]][packagist-version]
 [![Packagist][packagist-shield]][packagist]
+
+[![Contributor Covenant][code-of-conduct-shield]][code-of-conduct]
 
 This composer installer plugin allows for easy installation of [PHP_CodeSniffer][codesniffer] coding standards (rulesets).
 
@@ -20,7 +21,7 @@ _Note: This plugin is compatible with both version 2.x and 3.x of_ [PHP_CodeSnif
 
 ## Usage
 
-Installation can be done with [composer], by requiring this package as a development dependency:
+Installation can be done with [Composer][composer], by requiring this package as a development dependency:
 
 ```bash
 composer require --dev dealerdirect/phpcodesniffer-composer-installer
@@ -32,7 +33,7 @@ That's it.
 
 Basically, this plugin executes the following steps:
 
-- This plugin search for `phpcodesniffer-standard` packages in all of your currently installed Composer packages.
+- This plugin searches for `phpcodesniffer-standard` packages in all of your currently installed Composer packages.
 - Matching packages and the project itself are scanned for PHP_CodeSniffer rulesets.
 - The plugin will call PHP_CodeSniffer and configure the `installed_paths` option.
 
@@ -50,7 +51,7 @@ multiple `phpcodesniffer-standard` packages.
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "*",
         "object-calisthenics/phpcs-calisthenics-rules": "*",
-        "wimg/php-compatibility": "*",
+        "phpcompatibility/php-compatibility": "*",
         "wp-coding-standards/wpcs": "*"
     }
 }
@@ -106,12 +107,26 @@ referenced from other script configurations, as follows:
 For more details about Composer scripts, please refer to [the section on scripts
 in the Composer manual][composer-manual-scripts].
 
+### Changing the Coding Standards search depth
+
+By default, this plugin searches up for Coding Standards up to three directories
+deep. In most cases, this should be sufficient. However, this plugin allows
+you to customize the search depth setting if needed.
+
+```json
+{
+    "extra": {
+        "phpcodesniffer-search-depth": 5
+    }
+}
+```
+
 ### Caveats
 
 When this plugin is installed globally, composer will load the _global_ plugin rather
 than the one from the local repository. Despite [this behavior being documented
 in the composer manual][using-composer-plugins], it could potentially confuse
-as an other version of the plugin could be run and not the one specified by the project.
+as another version of the plugin could be run and not the one specified by the project.
 
 ## Developing Coding Standards
 
@@ -125,7 +140,7 @@ Create a composer package of your coding standard by adding a `composer.json` fi
   "description" : "Package contains all coding standards of the Acme company",
   "require" : {
     "php" : ">=5.4.0,<8.0.0-dev",
-    "squizlabs/php_codesniffer" : "^2.0"
+    "squizlabs/php_codesniffer" : "^3.0"
   },
   "type" : "phpcodesniffer-standard"
 }
@@ -135,6 +150,36 @@ Requirements:
 * The repository may contain one or more standards.
 * Each standard can have a separate directory no deeper than 3 levels from the repository root.
 * The package `type` must be `phpcodesniffer-standard`. Without this, the plugin will not trigger.
+
+### Requiring the plugin from within your coding standard
+
+If your coding standard itself depends on additional external PHPCS standards, this plugin can
+make life easier on your end-users by taking care of the installation of all standards - yours
+and your dependencies - for them.
+
+This can help reduce the number of support questions about setting the `installed_paths`, as well
+as simplify your standard's installation instructions.
+
+For this to work, make sure your external standard adds this plugin to the `composer.json` config
+via `require`, **not** `require-dev`.
+
+> :warning: Your end-user may already `require-dev` this plugin and/or other external standards used
+> by your end-users may require this plugin as well.
+>
+> To prevent your end-users getting into "_dependency hell_", make sure to make the version requirement
+> for this plugin flexible.
+>
+> As, for now, this plugin is still regarded as "unstable" (version < 1.0), remember that Composer
+> treats unstable minors as majors and will not be able to resolve one config requiring this plugin
+> at version `^0.5`, while another requires it at version `^0.6`.
+> Either allow multiple minors or use `*` as the version requirement.
+>
+> Some examples of flexible requirements which can be used:
+> ```bash
+> composer require dealerdirect/phpcodesniffer-composer-installer:"*"
+> composer require dealerdirect/phpcodesniffer-composer-installer:"0.*"
+> composer require dealerdirect/phpcodesniffer-composer-installer:"^0.4 || ^0.5 || ^0.6"
+> ```
 
 ## Changelog
 
@@ -154,25 +199,13 @@ Thank you for being involved! :heart_eyes:
 
 The original idea and setup of this repository is by [Franck Nijhof][frenck], employee @ Dealerdirect.
 
-For a full list off all author and/or contributors, check [the contributors page][contributors].
-
-## Working @ Dealerdirect
-
-Dealerdirect is always on the looking for energetic and hard working developers
-and devops engineers.
-
-Interested in working at Dealerdirect?
-Then please be sure to check out [our vacancies][vacancies].
-
-Did not find a matching vacancy? Just [get in touch][get-in-touch]!
-
-[dealerdirect.com][dealerdirectcom]
+For a full list of all author and/or contributors, check [the contributors page][contributors].
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2017 Dealerdirect B.V.
+Copyright (c) 2016-2020 Dealerdirect B.V.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -194,17 +227,17 @@ THE SOFTWARE.
 
 [awesome-shield]: https://img.shields.io/badge/awesome%3F-yes-brightgreen.svg
 [changelog]: https://github.com/Dealerdirect/phpcodesniffer-composer-installer/releases
+[code-of-conduct-shield]: https://img.shields.io/badge/Contributor%20Covenant-v2.0-ff69b4.svg
+[code-of-conduct]: CODE_OF_CONDUCT.md
 [codesniffer]: https://github.com/squizlabs/PHP_CodeSniffer
 [composer-manual-scripts]: https://getcomposer.org/doc/articles/scripts.md
 [composer]: https://getcomposer.org/
 [contributing-guidelines]: CONTRIBUTING.md
 [contributors]: https://github.com/Dealerdirect/phpcodesniffer-composer-installer/graphs/contributors
-[dealerdirectcom]: http://www.dealerdirect.com/en
 [definition-ci]: https://en.wikipedia.org/wiki/Continuous_integration
 [frenck]: https://github.com/frenck
-[get-in-touch]: https://www.dealerdirect.com/en/contact
+[last-updated-shield]: https://img.shields.io/github/last-commit/Dealerdirect/phpcodesniffer-composer-installer.svg
 [license-shield]: https://img.shields.io/github/license/dealerdirect/phpcodesniffer-composer-installer.svg
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2017.svg
 [packagist-shield]: https://img.shields.io/packagist/dt/dealerdirect/phpcodesniffer-composer-installer.svg
 [packagist-version-shield]: https://img.shields.io/packagist/v/dealerdirect/phpcodesniffer-composer-installer.svg
 [packagist-version]: https://packagist.org/packages/dealerdirect/phpcodesniffer-composer-installer
@@ -216,6 +249,3 @@ THE SOFTWARE.
 [travis]: https://travis-ci.org/Dealerdirect/phpcodesniffer-composer-installer
 [tutorial]: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Coding-Standard-Tutorial
 [using-composer-plugins]: https://getcomposer.org/doc/articles/plugins.md#using-plugins
-[vacancies]: https://www.dealerdirect.com/en/vacancies
-[versioneye-shield]: https://www.versioneye.com/user/projects/580be0d1d65a7716b613a790/badge.svg
-[versioneye]: https://www.versioneye.com/user/projects/580be0d1d65a7716b613a790
