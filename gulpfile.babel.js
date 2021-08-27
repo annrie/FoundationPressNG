@@ -273,7 +273,7 @@ gulp.task('phpcs', function () {
 		.src(PATHS.phpcs)
 		.pipe(
 			$.phpcs({
-        bin: '~/.composer/vendor/bin/phpcbf',
+        bin: './vendor/bin/phpcbf',
         standard: './phpcs.xml',
         warningSeverity: 0,
 				showSniffCode: true,
@@ -288,7 +288,7 @@ gulp.task('phpcbf', function () {
 		.src(PATHS.phpcs)
 		.pipe(
 			$.phpcbf({
-        bin: '~/.composer/vendor/bin/phpcbf',
+        bin: './vendor/bin/phpcbf',
         standard: './phpcs.xml',
         warningSeverity: 0,
 				showSniffCode: true,

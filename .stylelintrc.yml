@@ -3,7 +3,10 @@ plugins:
   - stylelint-declaration-block-no-ignored-properties
   - stylelint-prettier
 extends:
-  - stylelint-config-wordpress
+  - "@wordpress/stylelint-config/scss"
+  - stylelint-config-property-sort-order-smacss
+  - stylelint-config-wordpress/scss
+  # - stylelint-config-wordpress
   - stylelint-config-standard-scss
   - stylelint-config-recess-order
   - stylelint-config-standard
