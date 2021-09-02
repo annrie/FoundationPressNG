@@ -12,7 +12,7 @@
 
 // Load Foundation
 
-// @include foundation-everything(true);
+// @include foundation-everything($prototype: true);
 
 @include foundation-global-styles;
 //@include foundation-grid;
