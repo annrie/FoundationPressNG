@@ -25,24 +25,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'dev-develop',
+    'version' => 'dev-develop',
     'aliases' => 
     array (
     ),
-    'reference' => '8d70feb15050a2050dfc1dcfb26bc788d2d0fb0b',
+    'reference' => 'fc144e2ccb669132545d3d97b29c8a2e41900119',
     'name' => 'annrie/foundationpressng',
   ),
   'versions' => 
   array (
     'annrie/foundationpressng' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'dev-develop',
+      'version' => 'dev-develop',
       'aliases' => 
       array (
       ),
-      'reference' => '8d70feb15050a2050dfc1dcfb26bc788d2d0fb0b',
+      'reference' => 'fc144e2ccb669132545d3d97b29c8a2e41900119',
     ),
     'composer/semver' => 
     array (

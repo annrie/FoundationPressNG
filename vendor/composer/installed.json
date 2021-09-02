@@ -2443,5 +2443,7 @@
         }
     ],
     "dev": true,
-    "dev-package-names": []
+    "dev-package-names": [
+        "phpcompatibility/php-compatibility"
+    ]
 }

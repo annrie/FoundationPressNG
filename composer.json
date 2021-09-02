@@ -2,22 +2,21 @@
   "name": "annrie/foundationpressng",
   "description": "FoundationPressNG is a WordPress starter theme based on Foundation 6",
   "scripts": {
-    "post-install-cmd": [
-      "bash _tools/setup.sh"
-    ],
+    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility",
+    "post-update-cmd" : "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility",
     "wplint": "./vendor/bin/phpcbf",
     "wplint-set": "./vendor/bin/phpcs --config-set installed_paths 'vendor/wp-coding-standards/wpcs'",
     "wplint-rules": "./vendor/bin/phpcs -i"
   },
   "require": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
-    "phpcompatibility/php-compatibility": "^9.3",
     "wp-coding-standards/wpcs": "^2.3",
     "friendsofphp/php-cs-fixer": "^3.0",
     "suin/php-cs-fixer-rules": "^2.2",
     "laminas/laminas-dependency-plugin": "^2.1"
   },
   "require-dev": {
+    "phpcompatibility/php-compatibility": "*",
     "squizlabs/php_codesniffer": "*",
     "wp-coding-standards/wpcs": "*"
   }
