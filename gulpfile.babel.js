@@ -4,6 +4,7 @@ import plugins from 'gulp-load-plugins';
 import yargs from 'yargs';
 import browser from 'browser-sync';
 import gulp from 'gulp';
+import phpcbf from 'gulp-phpcbf';
 import rimraf from 'rimraf';
 import yaml from 'js-yaml';
 import fs from 'fs';
@@ -101,6 +102,8 @@ function sass() {
 		.src([
 			'src/assets/scss/app.scss',
 			'src/assets/scss/editor.scss',
+      'src/assets/scss/templates/_front.scss',
+      'src/assets/scss/templates/_kitchen-sink.scss',
 			'src/assets/scss/templates/style-both.scss',
 			'src/assets/scss/templates/lp-custom.scss',
 			'src/assets/scss/templates/lp-guten-both.scss',
@@ -270,8 +273,9 @@ gulp.task('phpcs', function () {
 		.src(PATHS.phpcs)
 		.pipe(
 			$.phpcs({
-				bin: 'vendor/bin/phpcs',
-				standard: './codesniffer.ruleset.xml',
+        bin: './vendor/bin/phpcbf',
+        standard: './phpcs.xml',
+        warningSeverity: 0,
 				showSniffCode: true,
 			})
 		)
@@ -284,9 +288,10 @@ gulp.task('phpcbf', function () {
 		.src(PATHS.phpcs)
 		.pipe(
 			$.phpcbf({
-				bin: 'vendor/bin/phpcbf',
-				standard: './codesniffer.ruleset.xml',
-				warningSeverity: 0,
+        bin: './vendor/bin/phpcbf',
+        standard: './phpcs.xml',
+        warningSeverity: 0,
+				showSniffCode: true,
 			})
 		)
 		.on('error', log)

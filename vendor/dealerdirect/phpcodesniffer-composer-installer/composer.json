@@ -8,33 +8,32 @@
     "standard", "standards", "style guide", "stylecheck",
     "qa", "quality", "code quality", "tests"
   ],
-  "homepage": "http://workingatdealerdirect.eu",
+  "homepage": "http://www.dealerdirect.com",
   "license": "MIT",
   "authors": [
     {
       "name": "Franck Nijhof",
-      "email": "f.nijhof@dealerdirect.nl",
-      "homepage": "http://workingatdealerdirect.eu",
-      "role": "Developer"
+      "email": "franck.nijhof@dealerdirect.com",
+      "homepage": "http://www.frenck.nl",
+      "role": "Developer / IT Manager"
     }
   ],
   "support": {
-    "email": "opensource@dealerdirect.nl",
     "issues": "https://github.com/dealerdirect/phpcodesniffer-composer-installer/issues",
     "source": "https://github.com/dealerdirect/phpcodesniffer-composer-installer"
   },
   "require": {
-    "php": "^5.3|^7",
-    "composer-plugin-api": "^1.0",
-    "squizlabs/php_codesniffer": "*"
+    "php": ">=5.3",
+    "composer-plugin-api": "^1.0 || ^2.0",
+    "squizlabs/php_codesniffer": "^2.0 || ^3.0 || ^4.0"
   },
   "require-dev": {
     "composer/composer": "*",
-    "wimg/php-compatibility": "^8.0"
+    "sensiolabs/security-checker": "^4.1.0",
+    "phpcompatibility/php-compatibility": "^9.0"
   },
-  "suggest": {
-    "dealerdirect/qa-tools": "All the PHP QA tools you'll need"
-  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"

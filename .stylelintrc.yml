@@ -3,11 +3,13 @@ plugins:
   - stylelint-declaration-block-no-ignored-properties
   - stylelint-prettier
 extends:
-  - stylelint-config-wordpress
-  - stylelint-config-standard-scss
+  - "@wordpress/stylelint-config/scss"
+  - stylelint-config-property-sort-order-smacss
+  - stylelint-config-wordpress/scss
+  # - stylelint-config-wordpress
+  - stylelint-config-recommended-scss
   - stylelint-config-recess-order
-  - stylelint-config-standard
-  - stylelint-config-prettier
+  - stylelint-prettier/recommended
 syntax:
   - scss
 rules:
@@ -22,29 +24,30 @@ rules:
   font-weight-notation: null
   selector-class-pattern: null
   selector-id-pattern: null
-  # at-rule-whitelist:
-  #   [
-  #     'extend',
-  #     'keyframes',
-  #     'import',
-  #     'include',
-  #     'charset',
-  #     'font-face',
-  #     'content',
-  #     'mixin',
-  #     'if',
-  #     'else',
-  #     'media',
-  #     'for',
-  #     'at-root',
-  #     'supports',
-  #     'function',
-  #     'return',
-  #     'warn',
-  #     'get-color',
-  #     'scale-color',
-  #     'each',
-  #   ]
+  at-rule-whitelist:
+    [
+      'extend',
+      'keyframes',
+      'import',
+      'include',
+      'charset',
+      'font-face',
+      'content',
+      'mixin',
+      'if',
+      'else',
+      'media',
+      'for',
+      'at-root',
+      'supports',
+      'function',
+      'return',
+      'warn',
+      'get-color',
+      'scale-color',
+      'each',
+      'use',
+    ]
   at-rule-no-vendor-prefix: true # @ルールのベンタープリフィックス禁止
   font-family-name-quotes: always-where-recommended # 'font-family'はスペースで区切られたフォント名の場合クオートで囲む
   function-url-quotes: always # 'url()'の引数はクオートで囲む
