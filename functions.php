@@ -1,17 +1,17 @@
 <?php
 /**
- * Author: Ole Fredrik Lie
- * URL: http://olefredrik.com
+ * Author: Annrie
+ * URL: https://phantomoon.com
  *
- * FoundationPress functions and definitions
+ * Phantomoon functions and definitions
  *
  * Set up the theme and provides some helper functions, which are used in the
  * theme as custom template tags. Others are attached to action and filter
  * hooks in WordPress to change core functionality.
  *
  * @link    https://codex.wordpress.org/Theme_Development
- * @package FoundationPress
- * @since   FoundationPress 1.0.0
+ * @package FoundationPressNG
+ * @since   FoundationPressNG 1.0.0
  */
 
 /**
@@ -126,3 +126,20 @@ require_once 'library/phone-format.php';
  * Remove type= from <script> and <style>
 */
 require_once 'library/remove-type.php';
+
+/**
+ * Add REST_API
+ */
+// require_once 'library/rest-api.php';
+// require_once 'library/extra-function.php';
+
+if ( ! isset( $content_width ) ) {
+  $content_width = 1200;
+  }
+
+  // deactivate new block editor
+  //　https://wordpress.org/support/topic/error-in-widgets-with-new-wordpress-version-5-8-wp_enqueue_script-and-wp/
+function pm_theme_support() {
+  remove_theme_support( 'widgets-block-editor' );
+}
+add_action( 'after_setup_theme', 'pm_theme_support' );
