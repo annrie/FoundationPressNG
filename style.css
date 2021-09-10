@@ -1,12 +1,15 @@
 /*
 Theme Name:         FoundationPressNG
-Theme URI:          https://phantomoon.com
+Theme URI:          https://foundationpressng.phantomoon.com
 Github Theme URI:   https://github.com/annrie/FoundationPressNG
 Description:        FoundationPressNG is a WordPress starter theme based on Foundation 6
 Version:            3.0.1
 Author:             annrie
 Author URI:         https://phantomoon.com/
 
+Text Domain:        annrie
+Tested up to:       5.8
+Requires PHP:       7.2
 License:            MIT License
 License URI:        http://www.opensource.org/licenses/mit-license.php
 */
@@ -34,3 +37,13 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
   you could just enqueue this file (style.css) to the header and add your styles in this file
 
 ---------------------------------------------------------------------------- */
+.wp-caption,
+.wp-caption-text,
+.sticky,
+.gallery-caption,
+.bypostauthor,
+.alignright,
+.alignleft,
+.aligncente {
+  color: inherit;
+}
