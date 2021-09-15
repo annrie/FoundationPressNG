@@ -3,10 +3,10 @@ plugins:
   - stylelint-declaration-block-no-ignored-properties
   - stylelint-prettier
 extends:
-  - stylelint-config-property-sort-order-smacss
   - stylelint-config-recommended-scss
-  - stylelint-config-recess-order
-  - stylelint-prettier/recommended
+  - stylelint-config-property-sort-order-smacss
+  # - stylelint-config-recess-order
+  # - stylelint-prettier/recommended
 syntax:
   - scss
 rules:
@@ -77,16 +77,16 @@ rules:
         ignore: [first-nested, inside-block, after-comment],
       },
     ]
-  # custom-property-empty-line-before:
-  #   [always, {except: [after-comment, after-custom-property, first-nested]}]
-  # declaration-empty-line-before:
-  #   [
-  #     always,
-  #     {
-  #       except: [after-comment, after-declaration, first-nested],
-  #       ignore: [inside-single-line-block],
-  #     },
-  #   ]
+  custom-property-empty-line-before:
+    [always, {except: [after-comment, after-custom-property, first-nested]}]
+  declaration-empty-line-before:
+    [
+      always,
+      {
+        except: [after-comment, after-declaration, first-nested],
+        ignore: [inside-single-line-block],
+      },
+    ]
   block-opening-brace-space-before: always # 単一行で閉じ括弧前に空白を必須
   block-opening-brace-space-after: always-single-line #単一行の時に閉じ括弧後に空白を必須
   block-closing-brace-empty-line-before: never
@@ -96,7 +96,7 @@ rules:
   selector-max-empty-lines: 0
   at-rule-blacklist: ['debug']
   # declaration-property-value-blacklist: [{'/^border/': ['none']}]
-  declaration-property-value-blacklist: null
+  declaration-property-value-disallowed-list: null
   color-named: null
   color-no-hex: null
   color-no-invalid-hex: true
@@ -106,35 +106,35 @@ rules:
   #   [
   #     'my-color',
   #     '/^rem/',
-  #     /scale/,
-  #     /^get/,
-  #     /^rgb*/,
-  #     /^gba/,
-  #     /darken/,
-  #     /lighten/,
-  #     /map-get/,
-  #     /local/,
-  #     /url/,
-  #     /format/,
-  #     /linear-gradient/,
-  #     /rotate/,
-  #     /skew/,
-  #     /floor/,
-  #     /z/,
-  #     /rect/,
-  #     /translate3d/,
-  #     /translateY/,
-  #     /translateX/,
-  #     /translate3d/,
-  #     /calc/,
-  #     /map-merge/,
-  #     /translate/,
-  #     /map-deep-get/,
-  #     /to/,
-  #     /color-stop/,
+  #     '/scale/',
+  #     '/^get/',
+  #     '/^rgb*/',
+  #     '/^gba/',
+  #     '/darken/',
+  #     '/lighten/',
+  #     '/map-get/',
+  #     '/local/',
+  #     '/url/',
+  #     '/format/',
+  #     '/linear-gradient/',
+  #     '/rotate/',
+  #     '/skew/',
+  #     '/floor/',
+  #     '/z/',
+  #     '/rect/',
+  #     '/translate3d/',
+  #     '/translateY/',
+  #     '/translateX/',
+  #     '/calc/',
+  #     '/map-merge/',
+  #     '/translate/',
+  #     '/map-deep-get/',
+  #     '/to/',
+  #     '/color-stop/',
+  #     '/-/',
   #   ]
-  # unit-allowed-list:
-  #   ['em', 'rem', '%', 's', 'ms', 'vh', 'vw', 'px', 'deg', 'dpi', 'fr']
+  unit-allowed-list:
+    ['em', 'rem', '%', 's', 'ms', 'vh', 'vw', 'px', 'deg', 'dpi', 'fr']
   selector-pseudo-class-no-unknown: [true, {ignorePseudoClasses: [global]}]
   declaration-no-important: null
   font-family-no-duplicate-names: true

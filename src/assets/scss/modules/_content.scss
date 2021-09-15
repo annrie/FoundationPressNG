@@ -1,7 +1,6 @@
 .main-container {
   @include xy-grid-container;
 }
-
 .main-grid {
   @include xy-grid;
   @include flex-align(center);

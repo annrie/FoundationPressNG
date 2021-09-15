@@ -1,23 +1,23 @@
 .wp-caption > figcaption {
   max-width: 100%;
   padding: 0.25rem 0;
-  font-size: 0.8rem;
   color: #999;
+  font-size: 0.8rem;
 }
 p.wp-caption-text {
   padding: rem-calc(10) 0;
-  font-size: 90%;
   color: #666;
+  font-size: 90%;
 }
 .alignleft {
-  float: left;
-  padding-right: 1rem;
   margin: 0;
+  padding-right: 1rem;
+  float: left;
 }
 .alignright {
-  float: right;
-  padding-left: 1rem;
   margin: 0;
+  padding-left: 1rem;
+  float: right;
 }
 .aligncenter {
   display: block;

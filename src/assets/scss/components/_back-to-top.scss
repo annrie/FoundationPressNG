@@ -1,8 +1,7 @@
 /**
  * Big thanks to Jon Brockett (https://github.com/jonbrockett/FoundationPress) for the creative ideas
  */
-
- #top {
+#top {
   position: absolute;
   top: 0;
 }
@@ -18,36 +17,36 @@
   padding-bottom: 1rem;
 }
 .back-to-top {
+  visibility: hidden;
   position: fixed;
+  z-index: 9;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 9;
   pointer-events: none;
-  visibility: hidden;
   a {
     width: rem-calc(52);
     height: rem-calc(52);
-    font-size: rem-calc(22);
-    color: $secondary-color;
-    pointer-events: all;
-    background-color: $white;
-    border-radius: 50%;
-    box-shadow: 0 0 rem-calc(10) rgba($black, 0.4);
     transition: all 0.3s;
+    border-radius: 50%;
+    background-color: $white;
+    box-shadow: 0 0 rem-calc(10) rgba($black, 0.4);
+    color: $secondary-color;
+    font-size: rem-calc(22);
+    pointer-events: all;
     &:hover {
-      color: scale-color($secondary-color, $lightness: -15%);
       background-color: $light-gray;
+      color: scale-color($secondary-color, $lightness: -15%);
     }
     .button-tooltip {
       padding: 0.5rem 1rem 0.5rem 1rem;
-      cursor: inherit; // Overrides default tooltip underline
       border-bottom: 0; // Overrides default tooltip underline
+      cursor: inherit; // Overrides default tooltip underline
     }
   }
   &.is-stuck {
-    height: auto;
     visibility: visible;
+    height: auto;
     opacity: 1;
   }
   &.is-anchored {
@@ -56,8 +55,8 @@
       opacity: 0;
     }
     &.is-at-bottom {
-      height: 0;
       visibility: visible;
+      height: 0;
       opacity: 1;
     }
   }

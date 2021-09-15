@@ -1,11 +1,11 @@
 .grid-container.myfooter {
   position: relative;
+  height: 150px;
+  // margin-top: rem-calc(60);
+  border-top: 1px solid $medium-gray;
   // @include xy-grid-container;
   background-color: #162d51;
   color: $white;
-  // margin-top: rem-calc(60);
-  border-top: 1px solid $medium-gray;
-  height: 150px;
 }
 .footer-grid {
   @include xy-grid;

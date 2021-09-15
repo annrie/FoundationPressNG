@@ -22,13 +22,13 @@ p {
   margin-left: 20px;
   list-style-type: none;
   & a {
-    padding: 6px 10px;
     margin-right: 10px;
     margin-bottom: 5px;
-    font-size: rem-calc(14);
-    color: $white;
-    background-color: lighten(get-color(primary), 10%);
+    padding: 6px 10px;
     border-radius: 10px;
+    background-color: lighten(get-color(primary), 10%);
+    color: $white;
+    font-size: rem-calc(14);
   }
 }
 .clr {
@@ -79,35 +79,35 @@ $imgh: 56vh;
 }
 .archive {
   h1 {
+    color: #1b5e92;
     font-size: $h3-font-size;
     font-weight: normal;
-    color: #1b5e92;
     @include breakpoint(medium) {
       font-size: $h1-font-size;
     }
   }
 }
 .category h1::before {
+  content: '\f0c6';
   margin-right: 10px;
+  opacity: 0.8;
   font-family: 'Font Awesome 5 Free', monospace;
   font-weight: bold;
-  content: '\f0c6';
-  opacity: 0.8;
 }
 .date h1::before {
+  content: '\f186';
   margin-right: 10px;
+  opacity: 0.8;
   font-family: 'Font Awesome 5 Free', monospace;
   font-weight: bold;
-  content: '\f186';
-  opacity: 0.8;
 }
 .alignleft {
-  float: left;
   margin: 0 2em 2em 0;
+  float: left;
 }
 .alignright {
-  float: right;
   margin: 0 0 2em 2em;
+  float: right;
 }
 .aligncenter {
   display: block;
