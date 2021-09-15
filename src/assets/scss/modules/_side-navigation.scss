@@ -1,27 +1,26 @@
 // Component navigation menu seen on every page.
-
 aside:not(.myaside) {
   @include xy-grid(vertical, true);
   section {
-    border: solid 1px #dddddd;
     padding: 15px;
+    border: solid 1px #dddddd;
     box-shadow: 0 3px 5px #dddddd;
     h2 {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: solid 1px #dddddd;
+      color: #1b5e92;
       font-size: $h4-font-size;
       font-weight: normal;
-      color: #1b5e92;
       text-align: center;
-      border-bottom: solid 1px #dddddd;
-      padding-bottom: 20px;
-      margin-bottom: 30px;
     }
     ul {
       margin-left: 20px;
       padding: 0;
-      font-size: $h6-font-size;
       list-style-type: none;
+      font-size: $h6-font-size;
       li {
-      @include xy-gutters(15px, padding,top , false);
+        @include xy-gutters(15px, padding,top , false);
       }
     }
   }
@@ -31,60 +30,62 @@ aside:not(.myaside) {
     padding: 60px 2.5vw;
   }
   @include breakpoint(tablet) {
-  @include xy-grid;
-  @include xy-grid-layout(3, 'section');
-  padding: 60px 10vw;
+    @include xy-grid;
+    @include xy-grid-layout(3, 'section');
+
+    padding: 60px 10vw;
   }
-  background-color: #1b5e92;
+
   margin-bottom: -150px;
+  background-color: #1b5e92;
   section {
     // border: solid 1px #dddddd;
     padding: 15px;
     // box-shadow: 0 3px 5px #dddddd;
     h2 {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: solid 2px #dddddd;
+      color: $white;
       font-size: $h4-font-size;
       font-weight: normal;
-      color: $white;
       text-align: center;
-      border-bottom: solid 2px #dddddd;
-      padding-bottom: 20px;
-      margin-bottom: 30px;
     }
     a {
       color: $white;
-}
     }
-    ul {
-      // margin-left: 20px;
-      padding: 0;
-      font-size: $h6-font-size;
-      list-style-type: none;
-      li {
+  }
+  ul {
+    // margin-left: 20px;
+    padding: 0;
+    list-style-type: none;
+    font-size: $h6-font-size;
+    li {
       @include xy-gutters(15px, padding,top , false);
-      }
-      @include breakpoint(medium down) {
-        li {
-          width: 100% !important;
-          background: none;
-          > a {
+    }
+    @include breakpoint(medium down) {
+      li {
+        width: 100% !important;
+        background: none;
+        > a {
           @include linkIcon($white);
 
-        display: block;
-        padding: 10px;
-        font-size: 1rem;
-        // font-weight: bold;
-        text-decoration: none;
-        background: none;
-        border-color: #ccc;
-        border-style: dotted;
-        border-width: 0 0 1px;
-        border-bottom: 1px solid #98adb7;
-        &:hover {
-          color: lighten($white, 10%);
-          background-color: lighten(#1b5e92, 10%);
+          display: block;
+          padding: 10px;
+          border-bottom: 1px solid #98adb7;
+          border-width: 0 0 1px;
+          border-style: dotted;
+          border-color: #ccc;
+          background: none;
+          font-size: 1rem;
+          // font-weight: bold;
+          text-decoration: none;
+          &:hover {
+            background-color: lighten(#1b5e92, 10%);
+            color: lighten($white, 10%);
+          }
         }
       }
     }
-  }
   }
 }

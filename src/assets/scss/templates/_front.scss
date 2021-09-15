@@ -9,14 +9,14 @@
   @include breakpoint(small) {
     position: relative;
     height: auto;
-    padding: rem-calc(65%) 0;
     margin: 0 0 rem-calc(32);
-    text-align: left;
+    padding: rem-calc(65%) 0;
     background:
       url('../images/demo/hero-bg-foundation-6-small.svg') bottom
       center;
     background-position: bottom;
     background-size: cover;
+    text-align: left;
   }
 
   @include breakpoint(medium) {
@@ -38,8 +38,8 @@
     }
     a {
       margin-right: rem-calc(20);
-      font-weight: 400;
       color: #b4c9d1;
+      font-weight: 400;
       cursor: pointer;
     }
     a:hover {
@@ -47,24 +47,24 @@
     }
     #stargazers {
       ::before {
+        content: '\f09b';
         margin-right: rem-calc(8);
+        color: #b4c9d1;
         font-family: FontAwesome, sans-serif;
         font-style: normal;
         font-weight: normal;
-        color: #b4c9d1;
         text-decoration: inherit;
-        content: '\f09b';
       }
     }
     #twitter {
       ::before {
+        content: '\f099';
         margin-right: rem-calc(8);
+        color: #b4c9d1;
         font-family: FontAwesome, sans-serif;
         font-style: normal;
         font-weight: normal;
-        color: #b4c9d1;
         text-decoration: inherit;
-        content: '\f099';
       }
     }
   }
@@ -80,8 +80,8 @@
     }
   }
   h1 {
-    font-weight: 500;
     color: #fff;
+    font-weight: 500;
 
     @include breakpoint(small) {
       font-size: 2.2rem;
@@ -92,9 +92,9 @@
     }
   }
   h4 {
+    color: #fefefe;
     font-size: 1.3125rem;
     font-weight: 300;
-    color: #fefefe;
   }
   .download {
     margin-top: rem-calc(20);
@@ -119,9 +119,9 @@
       }
       h4 {
         margin-bottom: 2rem;
+        color: #777;
         font-size: 1.125rem;
         line-height: 1.6;
-        color: #777;
       }
     }
   }
@@ -151,9 +151,9 @@
       font-weight: 300;
     }
     h4 {
+      color: #777;
       font-size: 1.125rem;
       line-height: 1.6;
-      color: #777;
     }
   }
   .semantic,
@@ -168,13 +168,13 @@
       @include xy-cell(3);
     }
     img {
-      padding: 1.25rem;
       margin: 1rem auto 0 auto;
+      padding: 1.25rem;
     }
     h3 {
+      color: #0a0a0a;
       font-size: 1.75rem;
       font-weight: 300;
-      color: #0a0a0a;
     }
     p {
       font-size: 0.9375rem;

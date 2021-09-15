@@ -29,16 +29,16 @@
       font-size: 0.85rem;
     }
     .docs-menu-title {
-      padding-top: 1.5rem;
-      padding-left: 0.9rem;
       margin-top: 1rem;
       margin-bottom: 0.5rem;
+      padding-top: 1.5rem;
+      padding-left: 0.9rem;
+      border-top: 1px solid $medium-gray;
+      color: $dark-gray;
       font-size: 0.75rem;
       font-weight: bold;
       line-height: 1;
-      color: $dark-gray;
       text-transform: uppercase;
-      border-top: 1px solid $medium-gray;
     }
     .docs-toc {
       padding-right: 1rem;
@@ -46,12 +46,12 @@
       padding-left: 4rem;
     }
     .docs-toc .active {
-      color: white;
       background: #2199e8;
+      color: white;
     }
     .docs-toc .docs-sub-menu:first-child .docs-menu-title {
-      padding-top: 0;
       margin-top: 0;
+      padding-top: 0;
       border-top: 0;
     }
   }
@@ -59,17 +59,17 @@
 .kitchen-sink-grid {
   .grid-x {
     margin-bottom: 1.5rem;
+    background: #d6ecfa;
     font-size: 12px;
     line-height: 2rem;
-    background: #d6ecfa;
     .cell,
     :nth-child(odd) {
-      color: #0a0a0a;
       background: #7bc1ef;
+      color: #0a0a0a;
     }
     .cell:nth-child(even) {
-      color: #fefefe;
       background: #1779ba;
+      color: #fefefe;
     }
   }
 }

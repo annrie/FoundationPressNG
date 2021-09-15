@@ -1,6 +1,7 @@
 /*
 Frontend styles for gutenberg blocks
 */
+
 /**
  * Big thanks to EBISUCOM (https://github.com/ebisucom/wordpress-note-lp) for the creative ideas
  */
@@ -12,11 +13,11 @@ Frontend styles for gutenberg blocks
 @import 'foundation';
 
 @include foundation-everything(true);
-
 article.wp-block-ugb-blog-posts.is-style-lpposts {
   margin-bottom: 0;
   @include xy-grid-container(full,0);
 }
+
 /** === Base Color Palatte === */
 @each $color, $code in $foundation-palette {
   .has-#{$color}-background-color {
@@ -27,6 +28,7 @@ article.wp-block-ugb-blog-posts.is-style-lpposts {
     color: $code;
   }
 }
+
 /** === Button === */
 .wp-block-button {
   // add general foundation button styling
@@ -66,7 +68,7 @@ article.wp-block-ugb-blog-posts.is-style-lpposts {
 }
 
 /** === File === */
-.wp-block-file .wp-block-file__button{
+.wp-block-file .wp-block-file__button {
   @include button();
 }
 
@@ -76,22 +78,18 @@ article.wp-block-ugb-blog-posts.is-style-lpposts {
   margin-right: 0;
   margin-left: 0;
 }
-
 article figure:first-child {
   margin-top: 0;
   margin-bottom: 0;
 }
-
 img {
   max-width: 100%;
   height: auto;
 }
-
 iframe {
   // eg. for WordPress block
   width: 100%;
 }
-
 .wp-block-categories.aligncenter,
 .wp-block-latest-posts.aligncenter,
 .wp-block-archives.aligncenter,
