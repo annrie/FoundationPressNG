@@ -30,30 +30,30 @@ add_image_size('full', 2560);
 // );
 
 // Adjust media library to new sizes
-function ajust_media_library($response, $attachment, $meta)
-{
-    if (! empty($response)) {
-        $sizes = array(
-            'small', // WP default
-            'medium', // WP default
-            'large', // WP default
-            'medium_large', // WP default
-            'xlarge', // WP default
-            'xxlarge', // WP default
-            'full',
-        );
-        $scount    = count($sizes) > 0;
-        while ($scount) {
-            $cur_size = array_pop($sizes);
-            if (isset($response['sizes'][ $cur_size ])) {
-                $response['sizes']['medium'] = $response['sizes'][ $cur_size ];
-            }
-        }
-    }
-    return $response;
-}
+// function ajust_media_library($response, $attachment, $meta)
+// {
+//     if (! empty($response)) {
+//         $sizes = array(
+//             'small', // WP default
+//             'medium', // WP default
+//             'large', // WP default
+//             'medium_large', // WP default
+//             'xlarge', // WP default
+//             'xxlarge', // WP default
+//             'full',
+//         );
+//         $scount    = count($sizes) > 0;
+//         while ($scount) {
+//             $cur_size = array_pop($sizes);
+//             if (isset($response['sizes'][ $cur_size ])) {
+//                 $response['sizes']['medium'] = $response['sizes'][ $cur_size ];
+//             }
+//         }
+//     }
+//     return $response;
+// }
 
-add_filter('wp_prepare_attachment_for_js', 'ajust_media_library', 999, 3);
+// add_filter('wp_prepare_attachment_for_js', 'ajust_media_library', 999, 3);
 
 // Register the new image sizes for use in the add media modal in wp-admin
 function foundationpress_custom_sizes($sizes)
