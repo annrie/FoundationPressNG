@@ -88,7 +88,7 @@
     "gulp-zip": "^5.1.0",
     "husky": "^7.0.4",
     "js-yaml": "^4.1.0",
-    "lint-staged": "^10.5.4",
+    "lint-staged": "^12.0.2",
     "panini": "^1.7.2",
     "postcss": "^8.3.11",
     "postcss-custom-properties": "^11.0.0",
