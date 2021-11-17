@@ -98,7 +98,7 @@
     "reakit-utils": "^0.15.1",
     "rimraf": "^3.0.2",
     "sass": "^1.38.0",
-    "sass-loader": "10.1.1",
+    "sass-loader": "12.3.0",
     "style-sherpa": "^1.0.2",
     "stylelint": "^13.13.0",
     "stylelint-config-prettier": "^8.0.2",
