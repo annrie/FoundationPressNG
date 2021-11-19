@@ -63,7 +63,7 @@
     "@wordpress/components": "^14.2.0",
     "@wordpress/eslint-plugin": "^9.2.0",
     "ansi-colors": "^4.1.1",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^8.2.3",
     "browser-sync": "^2.27.7",
     "dateformat": "^4.5.1",
     "eslint": "^7.24.0",
