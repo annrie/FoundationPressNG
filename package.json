@@ -91,7 +91,7 @@
     "lint-staged": "^12.0.2",
     "panini": "^1.7.2",
     "postcss": "^8.3.11",
-    "postcss-custom-properties": "^11.0.0",
+    "postcss-custom-properties": "^12.0.0",
     "prettier": "npm:wp-prettier@latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
