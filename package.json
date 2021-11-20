@@ -48,7 +48,7 @@
     "foundation-sites": "^6.7.4",
     "jquery": ">=3.6.0",
     "lodash.template": "^4.5.0",
-    "motion-ui": "git+https://github.com/annrie/motion-ui.git",
+    "motion-ui": "^2.0.3",
     "what-input": ">=5.2.10"
   },
   "devDependencies": {
