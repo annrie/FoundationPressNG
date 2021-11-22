@@ -1827,10 +1827,10 @@
   dependencies:
     "@babel/runtime" "^7.16.0"
 
-"@wordpress/block-editor@^8.0.3":
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/@wordpress/block-editor/-/block-editor-8.0.3.tgz#0993e854e0d049561339fa67d64385940bf572fc"
-  integrity sha512-7/FeCK0KFUnWGmUEDoZqdGCOeIaIpD4qyI88WZQnwgaQ3Nsu02L6/kRGD5HXUatFjqGUcz4OGy2dOxrmBNH/6A==
+"@wordpress/block-editor@^8.0.4":
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/@wordpress/block-editor/-/block-editor-8.0.4.tgz#544c311d7a79f2e769c5ef9a2b96571935e3ded5"
+  integrity sha512-YJZWJekBQxHh8eU+Di+Bm383U+3wgXgtI9XlJp14QxoiC4ZWjniXotPiycvfwZ9gPBs84aMcFFmkr074dNSIlA==
   dependencies:
     "@babel/runtime" "^7.16.0"
     "@react-spring/web" "^9.2.4"
@@ -1839,7 +1839,7 @@
     "@wordpress/blob" "^3.2.2"
     "@wordpress/block-serialization-default-parser" "^4.2.3"
     "@wordpress/blocks" "^11.1.4"
-    "@wordpress/components" "^19.0.3"
+    "@wordpress/components" "^19.0.4"
     "@wordpress/compose" "^5.0.6"
     "@wordpress/data" "^6.1.4"
     "@wordpress/deprecated" "^3.2.3"
@@ -1912,10 +1912,10 @@
   resolved "https://registry.yarnpkg.com/@wordpress/browserslist-config/-/browserslist-config-4.1.0.tgz#d6ae9d43709b2355eaccc4131fb47a0f2ae072c1"
   integrity sha512-RSJhgY2xmz6yAdDNhz/NvAO6JS+91vv9cVL7VDG2CftbyjTXBef05vWt3FzZhfeF0xUrYdpZL1PVpxmJiKvbEg==
 
-"@wordpress/components@^19.0.3":
-  version "19.0.3"
-  resolved "https://registry.yarnpkg.com/@wordpress/components/-/components-19.0.3.tgz#4d2e129627b3e80ba8b8effde7f15e1dfbc6111c"
-  integrity sha512-A8Y1rIpqBXEpc53IZ0TztEkdAaboMyaLY6PxYXniiI1KUSUrybQIBqcPe6uuCZIBCQNNh2uG3uvHisnuC1HWFQ==
+"@wordpress/components@^19.0.3", "@wordpress/components@^19.0.4":
+  version "19.0.4"
+  resolved "https://registry.yarnpkg.com/@wordpress/components/-/components-19.0.4.tgz#fd40eea028cf554bbe3376dccc0e7052650ff714"
+  integrity sha512-TTvvsrjhyt8CVDaDh5e6SswsXfvgxhDVcgOQoez+LcyAueCfBidNnDRV1OkgFqYU4Djx6UKWfBTsmnGQa+EBWw==
   dependencies:
     "@babel/runtime" "^7.16.0"
     "@emotion/cache" "^11.4.0"
