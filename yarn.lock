@@ -1827,10 +1827,10 @@
   dependencies:
     "@babel/runtime" "^7.16.0"
 
-"@wordpress/block-editor@^8.0.3":
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/@wordpress/block-editor/-/block-editor-8.0.3.tgz#0993e854e0d049561339fa67d64385940bf572fc"
-  integrity sha512-7/FeCK0KFUnWGmUEDoZqdGCOeIaIpD4qyI88WZQnwgaQ3Nsu02L6/kRGD5HXUatFjqGUcz4OGy2dOxrmBNH/6A==
+"@wordpress/block-editor@^8.0.10":
+  version "8.0.10"
+  resolved "https://registry.yarnpkg.com/@wordpress/block-editor/-/block-editor-8.0.10.tgz#07248cf0b825a21140b56814ab6da5f5b5380b91"
+  integrity sha512-2e2eXkR2cd/S2ek9rv0v6wgjdty60EfLp47H/S9HW7UYoc2Pmvx9j29f+gOe7+wjF/tHE6WOT0yP6qmE5UnZAA==
   dependencies:
     "@babel/runtime" "^7.16.0"
     "@react-spring/web" "^9.2.4"
@@ -1839,7 +1839,7 @@
     "@wordpress/blob" "^3.2.2"
     "@wordpress/block-serialization-default-parser" "^4.2.3"
     "@wordpress/blocks" "^11.1.4"
-    "@wordpress/components" "^19.0.3"
+    "@wordpress/components" "^19.1.4"
     "@wordpress/compose" "^5.0.6"
     "@wordpress/data" "^6.1.4"
     "@wordpress/deprecated" "^3.2.3"
@@ -1912,10 +1912,10 @@
   resolved "https://registry.yarnpkg.com/@wordpress/browserslist-config/-/browserslist-config-4.1.0.tgz#d6ae9d43709b2355eaccc4131fb47a0f2ae072c1"
   integrity sha512-RSJhgY2xmz6yAdDNhz/NvAO6JS+91vv9cVL7VDG2CftbyjTXBef05vWt3FzZhfeF0xUrYdpZL1PVpxmJiKvbEg==
 
-"@wordpress/components@^19.0.3":
-  version "19.0.3"
-  resolved "https://registry.yarnpkg.com/@wordpress/components/-/components-19.0.3.tgz#4d2e129627b3e80ba8b8effde7f15e1dfbc6111c"
-  integrity sha512-A8Y1rIpqBXEpc53IZ0TztEkdAaboMyaLY6PxYXniiI1KUSUrybQIBqcPe6uuCZIBCQNNh2uG3uvHisnuC1HWFQ==
+"@wordpress/components@^19.0.3", "@wordpress/components@^19.1.4":
+  version "19.1.4"
+  resolved "https://registry.yarnpkg.com/@wordpress/components/-/components-19.1.4.tgz#e51935a4550f09218762aba5c0cdaae1b5ecf388"
+  integrity sha512-CL8EAxLBRecmNJ/XDu+U361ymEvRD9/qz9eCvcAdRs3u9LsgQO/wCCO6FgxDG43qRsui+itX13HE2lQbhb8FRQ==
   dependencies:
     "@babel/runtime" "^7.16.0"
     "@emotion/cache" "^11.4.0"
