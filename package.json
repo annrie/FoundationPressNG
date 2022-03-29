@@ -57,7 +57,7 @@
     "@babel/register": "^7.16.0",
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^12.1.1",
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@wordpress/block-editor": "^8.0.3",
     "@wordpress/browserslist-config": "^4.1.0",
     "@wordpress/components": "^19.0.3",
