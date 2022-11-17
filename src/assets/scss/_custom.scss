@@ -68,7 +68,7 @@ $imgh: 56vh;
         @include xy-cell(50%, null, 5px, margin, null, null, false);
       }
       img {
-        height: calc(#{$imgh / 2});
+        height: math.div($imgh , 2);
         object-fit: cover;
       }
     }

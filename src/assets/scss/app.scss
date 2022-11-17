@@ -1,4 +1,6 @@
 @charset 'utf-8';
+@use "sass:list";
+@use "sass:math";
 
 @import 'settings';
 @import 'override';
@@ -8,7 +10,7 @@
 @import 'components/mixins/font-family';
 @import 'global/variables';
 @import 'components/mixins/mixin';
-// @import 'global/font-face';
+@import 'global/font-face';
 
 // Load Foundation
 
@@ -94,13 +96,13 @@
 @import 'modules/side-navigation';
 
 // Components
-@import 'components/buttons';
-@import 'components/cards';
-@import 'components/featured-image';
-@import 'components/dividers';
-@import 'components/links';
-@import 'components/gravity-forms';
-@import 'components/reversed';
+// @import 'components/buttons';
+// @import 'components/cards';
+// @import 'components/featured-image';
+// @import 'components/dividers';
+// @import 'components/links';
+// @import 'components/gravity-forms';
+// @import 'components/reversed';
 @import 'components/back-to-top';
 // @import 'components/zindex';
 

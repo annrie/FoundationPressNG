@@ -1,3 +1,17 @@
+@import '../settings';
+@import '../override';
+@import 'foundation';
+@import 'motion-ui';
+// @import '../modules/content';
+// @import '../components/mixins/font-family';
+// @import '../global/variables';
+// @import '../components/mixins/mixin';
+
+@include foundation-xy-grid-classes;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-table;
+
 .kitchen-sink-header {
   @include xy-cell(12);
 }

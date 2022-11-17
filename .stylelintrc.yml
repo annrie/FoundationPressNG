@@ -3,24 +3,42 @@ plugins:
   - stylelint-declaration-block-no-ignored-properties
   - stylelint-prettier
 extends:
-  - stylelint-config-recommended-scss
+  - stylelint-config-standard-scss
   - stylelint-config-property-sort-order-smacss
   # - stylelint-config-recess-order
-  # - stylelint-prettier/recommended
+  - stylelint-prettier/recommended
 syntax:
   - scss
+overrides:
+  - files:
+    - '**/*.scss'
+    customSyntax: 'postcss-scss'
 rules:
-  # prettier/prettier: true
+  prettier/prettier: true
   indentation: [2, {baseIndentLevel: 0}]
   # scss/dollar-variable-colon-space-after: always
   scss/dollar-variable-colon-space-before: never
   scss/operator-no-unspaced: null
   scss/at-rule-no-unknown: true
+  scss/at-extend-no-missing-placeholder: null # @extendで%placeholder以外も許容
   at-rule-no-unknown: null
   property-no-unknown: null
   font-weight-notation: null
   selector-class-pattern: null
   selector-id-pattern: null
+  function-no-unknown: [
+     true,
+     {
+        ignoreFunctions: [
+            '/^map\\..+/',
+            '/^color\\..+/'
+        ]
+     }
+    ]
+  scss/dollar-variable-pattern: ^(([a-z][a-zA-Z0-9_]+)|([a-z][a-z0-9]*)(-[a-zA-Z0-9_]+)*)$  #互換性のためケバブケース強制は除去
+  scss/at-mixin-pattern: ^(([a-z][a-zA-Z0-9_]+)|([a-z][a-z0-9]*)(-[a-zA-Z0-9_]+)*)$  #互換性のためケバブケース強制は除去
+  scss/at-mixin-argumentless-call-parentheses: always  #互換性のため引数なしのmixin呼び出しの際は括弧強制
+  stylelint-config-standard-scss: 3.0.0 #追加
   at-rule-allowed-list:
     [
       'extend',
@@ -77,16 +95,16 @@ rules:
         ignore: [first-nested, inside-block, after-comment],
       },
     ]
-  custom-property-empty-line-before:
-    [always, {except: [after-comment, after-custom-property, first-nested]}]
-  declaration-empty-line-before:
-    [
-      always,
-      {
-        except: [after-comment, after-declaration, first-nested],
-        ignore: [inside-single-line-block],
-      },
-    ]
+  # custom-property-empty-line-before:
+  #   [always, {except: [after-comment, after-custom-property, first-nested]}]
+  # declaration-empty-line-before:
+  #   [
+  #     always,
+  #     {
+  #       except: [after-comment, after-declaration, first-nested],
+  #       ignore: [inside-single-line-block],
+  #     },
+  #   ]
   block-opening-brace-space-before: always # 単一行で閉じ括弧前に空白を必須
   block-opening-brace-space-after: always-single-line #単一行の時に閉じ括弧後に空白を必須
   block-closing-brace-empty-line-before: never
@@ -102,7 +120,7 @@ rules:
   color-no-invalid-hex: true
   declaration-property-unit-allowed-list: null
   # function-blacklist: ["/^rgb/", "/^hsl/"]
-  # function-allowed-list:
+ # function-allowed-list:
   #   [
   #     'my-color',
   #     '/^rem/',
@@ -138,7 +156,6 @@ rules:
   selector-pseudo-class-no-unknown: [true, {ignorePseudoClasses: [global]}]
   declaration-no-important: null
   font-family-no-duplicate-names: true
-  function-calc-no-invalid: true
   max-nesting-depth: 10
   unit-case: lower
   unit-no-unknown:
