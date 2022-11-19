@@ -275,7 +275,7 @@ function images() {
 // Create a .zip archive of the theme
 function archive() {
   const now = new Date()
-  const time = date.format( now, 'YYYY/MM/DD_HH:mm:ss' )
+  const time = date.format( now, 'YYYY-MM-DD_HH:mm:ss' )
   const pkg = JSON.parse( fs.readFileSync( './package.json' ) )
   const title = pkg.name + '_' + time + '.zip'
 
