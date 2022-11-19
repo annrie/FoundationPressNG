@@ -1,0 +1,124 @@
+{
+  "window.zoomLevel": 0,
+  "emmet.excludeLanguages": ["markdown", "php"],
+  "files.associations": {
+    "*.phtml": "php"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "emmet.triggerExpansionOnTab": true,
+  "blade.format.enable": true,
+  "php.validate.run": "onType",
+  "files.eol": "\n",
+  // "phpcbf.standard": "codesniffer.ruleset.xml",
+  "phpmd.command": "/Users/annrie/.anyenv/envs/phpenv/shims/php",
+
+  // ↓自動フォーマット関連
+  "editor.formatOnPaste": true, // ペースト時自動フォーマット
+  "editor.formatOnType": true, // 入力時自動フォーマット
+  "editor.formatOnSave": true,
+  // ↓自動フォーマット（html）
+  "html.format.endWithNewline": true, // htmlの末尾に改行を入れる
+  "html.format.wrapLineLength": 0, // htmlファイルで一行あたりの文字数制限を解除
+  "html.format.preserveNewLines": true, // 要素の前の改行を保持する
+  "html.format.maxPreserveNewLines": 1, // 保持できる最大の改行数
+  // ↓自動フォーマット（eslint）
+  "eslint.alwaysShowStatus": true, // 常にeslintの状態を表示する
+  "eslint.format.enable": true, // eslintの自動フォーマット
+  // ↓自動フォーマット（stylelint）
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true,
+    "source.fixAll.eslint": true
+  },
+  "terminal.integrated.cwd": "",
+  "terminal.integrated.allowWorkspaceConfiguration": true,
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash"
+    }
+  },
+  //some settings from outthere
+  // "phpcs.standard": "WordPress",
+  "phpcs.standard": "./phpcs.xml",
+  "phpcbf.standard": "/phpcs.xml",
+  "stylelint.enable": true,
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.defaultFormatter": "HookyQR.beautify",
+  "prettier.eslintIntegration": true,
+  //"prettier.bracketSpacing": true,
+  //"editor.autoIndent": false,
+  "[css]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[php]": {
+    "editor.detectIndentation": false,
+    "editor.useTabStops": true,
+    "editor.insertSpaces": true,
+    // "editor.defaultFormatter": "HookyQR.beautify",
+    "editor.formatOnSave": false
+    // "editor.defaultFormatter": "junstyle.php-cs-fixer"
+  },
+  "[javascript]": {
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": true,
+    "editor.formatOnSave": false,
+    "editor.useTabStops": true
+  },
+  "[json]": {
+    "editor.formatOnSave": false
+  },
+  "[xml]": {
+    "editor.formatOnSave": false
+  },
+  "workbench.colorTheme": "Default Dark+",
+  "phpfmt.indent_with_space": 2,
+  "beautify.language": {
+    "js": {
+      "type": ["javascript", "json"],
+      "filename": [".jsbeautify"]
+    },
+    "css": ["css", "scss"],
+    "html": ["htm", "html", "php", "blade"]
+  },
+  "workbench.editor.limit.value": 50,
+  "editor.insertSpaces": true,
+  "eslint.codeAction.showDocumentation": {},
+  "editor.wordWrap": "on",
+  "html.format.wrapAttributes": "auto",
+  "html.format.unformattedContentDelimiter": "pre,code,textarea,span",
+  "html.format.unformatted": null,
+  "html.format.contentUnformatted": "pre,code,textarea,span",
+  "phpcs.executablePath": "/Users/annrie/.composer/vendor/squizlabs/php_codesniffer/bin/phpcs",
+  "phpcbf.executablePath": "/Users/annrie/.composer/vendor/squizlabs/php_codesniffer/bin/phpcbf",
+  // "phpcs.standard": "WordPress", //phpcsにWordPressの規約を適用
+  "editor.detectIndentation": false, //デフォルトのタブ設定を解除
+  "editor.tabSize": 2, // 【wordpress用】タブのサイズを2に変更
+  "phpcbf.onsave": true, //ファイルを保存したときにフォーマット
+  "php-cs-fixer.executablePath": "php-cs-fixer",
+  "php-cs-fixer.config": ".php_cs;.php-cs-fixer.php;.php-cs-fixer.dist.php;.php_cs.dist",
+  "php-cs-fixer.onsave": true,
+  "php-cs-fixer.rules": "./phpcs.xml",
+  // "php-cs-fixer.rules": "@PSR2",
+  "php-cs-fixer.allowRisky": false,
+  "php-cs-fixer.pathMode": "override",
+  "php-cs-fixer.exclude": [],
+  "php-cs-fixer.autoFixByBracket": true,
+  "php-cs-fixer.autoFixBySemicolon": false,
+  "php-cs-fixer.formatHtml": false,
+  "php-cs-fixer.documentFormattingProvider": true
+  // "php-cs-fixer.executablePath": "/usr/local/bin/php-cs-fixer",
+
+  // Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
+  //"prettier.disableLanguages": ["javascript", "javascriptreact"],
+  /* "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },*/
+}

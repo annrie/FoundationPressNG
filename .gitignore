@@ -9,7 +9,6 @@ config.yml
 *.swp
 packaged/
 .history/
-.vscode/
 .yarn/
 .yarnrc.yml
 blocks/
