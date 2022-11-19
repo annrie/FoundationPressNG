@@ -60,7 +60,7 @@
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.1",
     "@babel/register": "^7.18.9",
-    "@commitlint/cli": "^17.0.3",
+    "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.0.3",
     "@wordpress/browserslist-config": "^5.5.0",
     "@wordpress/eslint-plugin": "^13.6.0",
