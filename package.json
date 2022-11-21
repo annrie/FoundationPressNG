@@ -122,7 +122,7 @@
     "util-deprecate": "^1.0.2",
     "vinyl-named": "^1.1.0",
     "webpack": "^5.73.0",
-    "webpack-cli": "^4.10.0",
+    "webpack-cli": "^5.0.0",
     "webpack-stream": "^7.0.0"
   },
   "repository": {
