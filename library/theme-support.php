@@ -94,7 +94,7 @@ function foundationpress_theme_support()
     add_theme_support('custom-line-height');
 
     // Add support for experimental link color control.
-    add_theme_support('experimental-link-color');
+    add_theme_support('link-color');
 
     // Add support for experimental cover block spacing.
     add_theme_support('custom-spacing');
