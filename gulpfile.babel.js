@@ -50,15 +50,23 @@ const PRODUCTION = !!yargs.argv.production
 const DEV = !!yargs.argv.dev
 // const DEV = argv.prod || argv.dev
 // Load settings from settings.yml
-const {BROWSERSYNC, REVISIONING, PATHS} = loadConfig()
+const {BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS} = loadConfig()
 
 const imageminOption = [
   imageminPngquant([ 0.65, 0.8 ]),
-//   imageminMozjpeg({ quality: 80 }),
-  imagemin.gifsicle(),
+//   imageminMozjpeg(({
+//             progressive: true,
+//           }),
+  imagemin.gifsicle({
+            interlaced: true,
+          }),
 //   imagemin.jpegtran(),
-  imagemin.optipng(),
-  imagemin.svgo()
+  imagemin.optipng({
+            optimizationLevel: 5,
+          }),
+  imagemin.svgo({
+            plugins: [{ cleanupAttrs: true }, { removeComments: true }],
+          })
   ]
 // Check if file exists synchronously
 function checkFileExists(filepath) {
@@ -180,7 +188,7 @@ const webpack = {
         },
       ],
     },
-    externals: {
+     externals: {
       jquery: 'jQuery',
     },
   },
@@ -202,14 +210,14 @@ const webpack = {
         .src(PATHS.entries)
         .pipe(named())
         .pipe(webpackStream(webpack.config, webpack2))
-        // .pipe
-        // $.if(
-        //   PRODUCTION
-        // $.uglify().on( 'error', ( e ) => {
-        //   console.log( e )
-        // } )
-        // )
-        // ()
+//         .pipe
+//         $.if(
+//           PRODUCTION,
+//         $.uglify().on( 'error', ( e ) => {
+//           console.log( e )
+//         } )
+//         )
+//      }
 //         .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV), $.rev()))
 //         .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV)))
         .pipe(gulp.dest(PATHS.dist + '/assets/js'))
@@ -337,18 +345,18 @@ function server(done) {
       port: 8080,
     },
   })
-  done()
+  done();
 }
 
 // Reload the browser with BrowserSync
 function reload(done) {
   browser.reload()
-  done()
+  done();
 }
 
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watchAll() {
-  gulp.watch(PATHS.assets, copy)
+  gulp.watch(PATHS.assets, copy);
   gulp
     .watch('src/assets/scss/**/*.scss', styles)
     .on('change', (path) => log('File ' + colors.bold(colors.magenta(path)) + ' changed.'))
@@ -358,11 +366,11 @@ function watchAll() {
     .on('change', (path) => log('File ' + colors.bold(colors.magenta(path)) + ' changed.'))
     .on('unlink', (path) => log('File ' + colors.bold(colors.magenta(path)) + ' was removed.'))
   gulp.watch('src/assets/images/**/*', gulp.series(browser.reload))
-  gulp.watch('src/assets/images/**/*.svg', gulp.series(copy, browser.reload))
+  gulp.watch('src/assets/images/**/*.svg', gulp.series(copy, browser.reload));
 }
 
 // Build the "dist" folder by running all of the below tasks
-gulp.task('build', gulp.series(clean, gulp.parallel(styles,'webpack:build', copy, images)));
+gulp.task('build', gulp.series(clean, gulp.parallel(styles,'webpack:build', images, copy)));
 
 exports.default = gulp.series('build', server, gulp.parallel('webpack:watch', watchAll));
 
