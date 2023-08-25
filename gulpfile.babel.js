@@ -1,25 +1,29 @@
 // 参照 https://qiita.com/manabuyasuda/items/0971dbd3729cf68f87fb
 //         https://zumilog.org/howto-gulpimagemin/
 
-import plugins from 'gulp-load-plugins'
+import gulpLoadPlugins from 'gulp-load-plugins'
 import gulp from 'gulp'
 import yargs from 'yargs'
+// import rev from 'gulp-rev'
 // import {hideBin} from 'yargs/helpers'
 // const argv = yargs( hideBin( process.argv ) ).argv
 // const production = argv.prod || argv.production
 import browser from 'browser-sync'
-const {lastRun} = require('gulp')
+import lastRun from 'gulp'
 import phpCs from 'gulp-phpcs'
 import phpCbf from 'gulp-phpcbf'
-import {rimraf, rimrafSync} from 'rimraf'
+import rimraf from 'rimraf'
 import yaml from 'js-yaml'
 import fs from 'fs'
+import imagemin from 'gulp-imagemin'
+import imageminPngquant from 'imagemin-pngquant'
+// import imageminMozjpeg from 'imagemin-mozjpeg'
 import webpackStream from 'webpack-stream'
 import webpack2 from 'webpack'
 import named from 'vinyl-named'
 import log from 'fancy-log'
 import colors from 'ansi-colors'
-// import zip from 'gulp-zip'
+import zip from 'gulp-zip'
 // import dartSass from  'sass';
 // import gulpSass from  'gulp-sass';
 // import gulpSass from  'gulp-dart-sass';
@@ -29,13 +33,13 @@ import date from 'date-and-time'
 // import dateFormat from 'dateformat';
 
 // const sass = gulpSass(dartSass)
-const packages = require('./package.json')
+// import packages from './package.json'
 
 const sass = require('gulp-sass')(require('sass'))
 // Load all Gulp plugins into one variable
 // https://github.com/jackfranklin/gulp-load-plugins/releases v2.0.8
-const $ = plugins({
-  config: packages,
+const $ = gulpLoadPlugins({
+  config: process.env.npm_package_json,
 })
 // https://github.com/jackfranklin/gulp-load-plugins/issues/141
 
@@ -48,6 +52,14 @@ const DEV = !!yargs.argv.dev
 // Load settings from settings.yml
 const {BROWSERSYNC, REVISIONING, PATHS} = loadConfig()
 
+const imageminOption = [
+  imageminPngquant([ 0.65, 0.8 ]),
+//   imageminMozjpeg({ quality: 80 }),
+  imagemin.gifsicle(),
+//   imagemin.jpegtran(),
+  imagemin.optipng(),
+  imagemin.svgo()
+  ]
 // Check if file exists synchronously
 function checkFileExists(filepath) {
   let flag = true
@@ -90,15 +102,20 @@ function loadConfig() {
 
 // Delete the "dist" folder
 // This happens every time a build starts
-// function clean(done) {
-//   rimraf.moveRemoveSync(PATHS.dist, done)
-// }
+// gulp.task('clean', function(done) {
+//   rimraf('_build', done);
+// });
+function clean(done) {
+  rimraf(PATHS.dist, done)
+}
+exports.clean = clean
 
 // Copy files out of the assets folder
 // This task skips over the "images", "js", and "scss" folders, which are parsed separately
 function copy() {
   return gulp.src(PATHS.assets).pipe(gulp.dest(PATHS.dist + '/assets'))
 }
+exports.copy = copy
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
@@ -130,12 +147,14 @@ function styles() {
       )
       .pipe($.autoprefixer({}))
 
-      .pipe($.if(PRODUCTION, $.cleanCss({compatibility: 'ie11'})))
+//       .pipe($.if(PRODUCTION, $.cleanCss({compatibility: 'ie11'})))
       .pipe($.if(!PRODUCTION, sourcemaps.write()))
-      // .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV)))
-      .pipe(gulp.dest(PATHS.dist + '/assets/css'))
-      // .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV)))
-      .pipe(gulp.dest(PATHS.dist + '/assets/css'))
+//       .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV),$.rev()))
+//        .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV)))
+       .pipe(gulp.dest(PATHS.dist + '/assets/css'))
+//       .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV),$.rev.manifest()))
+//       .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV)))
+//      .pipe(gulp.dest(PATHS.dist + '/assets/css'))
       .pipe(browser.reload({stream: true}))
   )
   // .pipe(
@@ -191,10 +210,12 @@ const webpack = {
         // } )
         // )
         // ()
-        // .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV), $.rev()))
+//         .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV), $.rev()))
+//         .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV)))
         .pipe(gulp.dest(PATHS.dist + '/assets/js'))
-        // .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV), $.rev.manifest()))
-        .pipe(gulp.dest(PATHS.dist + '/assets/js'))
+//         .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV), $.rev.manifest()))
+//         .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV)))
+//       .pipe(gulp.dest(PATHS.dist + '/assets/js'))
     )
   },
   watch() {
@@ -225,14 +246,18 @@ gulp.task('webpack:watch', webpack.watch)
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
-// function images() {
+function images() {
+  return gulp
+// gulp.task('images', () => {
 //   return gulp
 //     .src('src/assets/images/**/*', {
 //       since: lastRun(images),
 //     })
-//     .pipe(
-//       $.if(
-//         PRODUCTION,
+     .src('src/assets/images/**/*')
+   .pipe(
+      $.if(
+        PRODUCTION,
+        $.imagemin(imageminOption)
 //         $.imagemin([
 //           $.imagemin.mozjpeg({
 //             progressive: true,
@@ -247,10 +272,11 @@ gulp.task('webpack:watch', webpack.watch)
 //             plugins: [{cleanupAttrs: true}, {removeComments: true}],
 //           }),
 //         ])
-//       )
-//     )
-//     .pipe(gulp.dest(PATHS.dist + '/assets/images'))
-// }
+      )
+    )
+    .pipe(gulp.dest(PATHS.dist + '/assets/images'))
+}
+exports.images = images
 
 // Create a .zip archive of the theme
 // https://stackoverflow.com/questions/57979847/gulp4-migration-invalid-glob-argument
@@ -260,7 +286,7 @@ function archive() {
   const pkg = JSON.parse(fs.readFileSync('./package.json'))
   const title = pkg.name + '_' + time + '.zip'
 
-  return gulp.src('.', {allowEmpty: true}).pipe($.zip(title)).pipe(gulp.dest('packaged'))
+  return gulp.src(PATHS.package, {allowEmpty: false}).pipe($.zip(title)).pipe(gulp.dest('packaged'))
 }
 // PHP Code Sniffer task
 // function phpcs() {
@@ -336,15 +362,9 @@ function watchAll() {
 }
 
 // Build the "dist" folder by running all of the below tasks
-// function build(){
-gulp.task('build', gulp.series(gulp.parallel(styles, 'webpack:build', copy)))
-//   'build',gulp.series( clean, gulp.parallel( styles, 'webpack:build', images, copy ) )
-// }
-// Build the site, run the server, and watch for file changes
-// function defaultTask() {
-gulp.task('default', gulp.series('build', server, gulp.parallel('webpack:watch', watchAll)))
-// }
+gulp.task('build', gulp.series(clean, gulp.parallel(styles,'webpack:build', copy, images)));
+
+exports.default = gulp.series('build', server, gulp.parallel('webpack:watch', watchAll));
 
 // Package task
-// function package() {
-gulp.task('package', gulp.series('build', archive))
+gulp.task('package', gulp.series('build', archive));
